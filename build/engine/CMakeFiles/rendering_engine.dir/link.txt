@@ -1,0 +1,2 @@
+/usr/bin/ar qc librendering_engine.a CMakeFiles/rendering_engine.dir/src/core/say.cpp.o CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o CMakeFiles/rendering_engine.dir/src/glad.c.o CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o
+/usr/bin/ranlib librendering_engine.a

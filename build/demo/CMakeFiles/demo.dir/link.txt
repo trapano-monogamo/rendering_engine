@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/demo.dir/src/main.cpp.o -o demo   -L/home/chiara/dev/cpp/rendering_engine/engine/lib  -Wl,-rpath,/home/chiara/dev/cpp/rendering_engine/engine/lib ../engine/librendering_engine.a -lglfw3 -lGL -lX11 -lpthread -lXrandr -lXi -ldl 
