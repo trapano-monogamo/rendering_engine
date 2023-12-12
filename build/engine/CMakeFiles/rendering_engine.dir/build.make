@@ -69,19 +69,19 @@ include engine/CMakeFiles/rendering_engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include engine/CMakeFiles/rendering_engine.dir/flags.make
 
-engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
-engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/say.cpp
-engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o"
-	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/say.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/say.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/say.cpp
+engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
+engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp
+engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp
 
-engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rendering_engine.dir/src/core/say.cpp.i"
-	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/engine/src/core/say.cpp > CMakeFiles/rendering_engine.dir/src/core/say.cpp.i
+engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rendering_engine.dir/src/core/camera.cpp.i"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp > CMakeFiles/rendering_engine.dir/src/core/camera.cpp.i
 
-engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/core/say.cpp.s"
-	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/core/say.cpp -o CMakeFiles/rendering_engine.dir/src/core/say.cpp.s
+engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp -o CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s
 
 engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/shader.cpp
@@ -183,7 +183,7 @@ engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.s: cmake_force
 
 # Object files for target rendering_engine
 rendering_engine_OBJECTS = \
-"CMakeFiles/rendering_engine.dir/src/core/say.cpp.o" \
+"CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o" \
@@ -195,7 +195,7 @@ rendering_engine_OBJECTS = \
 # External object files for target rendering_engine
 rendering_engine_EXTERNAL_OBJECTS =
 
-engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o
+engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o

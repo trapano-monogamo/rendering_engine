@@ -5,6 +5,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h \
   /home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h \
   /home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp \
+  /home/chiara/dev/cpp/rendering_engine/engine/include/core/camera.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/vertex_array.hpp \
@@ -138,7 +139,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13.2.1/bits/stl_iterator_base_types.h \
   /usr/include/c++/13.2.1/bits/stl_pair.h \
-  /usr/include/c++/13.2.1/bits/stl_relops.h \
   /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
   /usr/include/c++/13.2.1/bits/stl_vector.h \
   /usr/include/c++/13.2.1/bits/streambuf.tcc \
@@ -196,7 +196,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/tuple \
   /usr/include/c++/13.2.1/type_traits \
   /usr/include/c++/13.2.1/typeinfo \
-  /usr/include/c++/13.2.1/utility \
   /usr/include/c++/13.2.1/vector \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
@@ -285,8 +284,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/vector:
 
-/usr/include/c++/13.2.1/utility:
-
 /usr/include/c++/13.2.1/tr1/special_function_util.h:
 
 /usr/include/c++/13.2.1/tr1/riemann_zeta.tcc:
@@ -359,6 +356,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/specfun.h:
 
+/usr/include/c++/13.2.1/bits/requires_hosted.h:
+
 /usr/include/bits/types/__FILE.h:
 
 /usr/include/sched.h:
@@ -370,8 +369,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/c++/13.2.1/clocale:
 
 /usr/include/bits/endian.h:
-
-/usr/include/c++/13.2.1/bits/stl_relops.h:
 
 /usr/include/asm/errno.h:
 
@@ -429,6 +426,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/math-vector.h:
 
+/usr/include/bits/libc-header-start.h:
+
 /usr/include/bits/long-double.h:
 
 /usr/include/bits/floatn.h:
@@ -438,6 +437,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/bits/types/struct___jmp_buf_tag.h:
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/core/vertex_array.hpp:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/core/camera.hpp:
 
 /usr/include/bits/fp-fast.h:
 
@@ -460,6 +461,16 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/c++/13.2.1/ext/alloc_traits.h:
 
 /usr/include/bits/struct_mutex.h:
+
+/usr/include/c++/13.2.1/tr1/gamma.tcc:
+
+/usr/include/c++/13.2.1/cstdio:
+
+/usr/include/alloca.h:
+
+/usr/include/c++/13.2.1/bits/memory_resource.h:
+
+/usr/include/bits/iscanonical.h:
 
 /usr/include/c++/13.2.1/cctype:
 
@@ -492,6 +503,10 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/c++/13.2.1/bits/stl_uninitialized.h:
 
 /usr/include/bits/types/clockid_t.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h:
 
 /usr/include/c++/13.2.1/bits/utility.h:
 
@@ -549,22 +564,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/fp-logb.h:
 
-/home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp:
-
-/usr/include/c++/13.2.1/tr1/gamma.tcc:
-
-/usr/include/c++/13.2.1/cstdio:
-
-/usr/include/alloca.h:
-
-/usr/include/c++/13.2.1/bits/memory_resource.h:
-
-/usr/include/bits/iscanonical.h:
-
-/usr/include/bits/libc-header-start.h:
-
 /usr/include/bits/stdio_lim.h:
 
 /usr/include/bits/time.h:
@@ -577,9 +576,9 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/type_traits:
 
-/usr/include/bits/mathcalls.h:
-
 /usr/include/bits/types/__fpos_t.h:
+
+/usr/include/bits/mathcalls.h:
 
 /usr/include/bits/types/clock_t.h:
 
@@ -702,5 +701,3 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/bits/wchar.h:
 
 /usr/include/c++/13.2.1/bits/predefined_ops.h:
-
-/usr/include/c++/13.2.1/bits/requires_hosted.h:

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/rendering_engine.dir/src/core/say.cpp.o"
-  "CMakeFiles/rendering_engine.dir/src/core/say.cpp.o.d"
+  "CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o"
+  "CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o"

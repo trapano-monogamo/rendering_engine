@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chiara/dev/cpp/rendering_engine/engine/src/glad.c" "engine/CMakeFiles/rendering_engine.dir/src/glad.c.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/glad.c.o.d"
-  "/home/chiara/dev/cpp/rendering_engine/engine/src/core/say.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/shader.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/texture.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/vertex_array.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o.d"

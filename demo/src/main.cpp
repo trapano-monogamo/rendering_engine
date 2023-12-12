@@ -6,6 +6,7 @@
 #include "core/vertex_array.hpp"
 #include "core/shader.hpp"
 #include "core/texture.hpp"
+#include "core/camera.hpp"
 #include "math/utils.hpp"
 #include "math/mat.hpp"
 #include "math/vec.hpp"
@@ -20,7 +21,7 @@ void process_input(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, true);
 	}
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
 		wireframe_mode = true;
 	}
 	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
@@ -51,112 +52,40 @@ int main() {
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 	// ..:: DEFINITIONS ::..
-	// float vertices[] = {
-	// 	 0.5f,  0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  1.0f, 1.0f,
-	// 	 0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,
-	// 	-0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
-	// 	-0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,
-	// };
-	// unsigned int indices[] = {
-	// 	0, 1, 3,
-	// 	1, 2, 3,
-	// };
-	// float vertices[] = {
-	// 	-0.5, -0.5,  0.5,  1.0, 0.0, 0.0,  1.0, 0.0,  //0
-    //      0.5, -0.5,  0.5,  0.0, 1.0, 0.0,  0.0, 1.0,  //1
-    //     -0.5,  0.5,  0.5,  0.0, 0.0, 1.0,  0.0, 0.0,  //2
-    //      0.5,  0.5,  0.5,  1.0, 0.0, 0.0,  1.0, 1.0,  //3
-    //     -0.5, -0.5, -0.5,  0.0, 1.0, 0.0,  1.0, 0.0,  //4
-    //      0.5, -0.5, -0.5,  0.0, 0.0, 1.0,  0.0, 1.0,  //5
-    //     -0.5,  0.5, -0.5,  1.0, 0.0, 0.0,  0.0, 0.0,  //6
-    //      0.5,  0.5, -0.5,  0.0, 1.0, 0.0,  1.0, 1.0,  //7
-	// };
-	// unsigned int indices[] = {
-	// 	//Top
-	// 	2, 6, 7,
-	// 	2, 3, 7,
-	// 	//Bottom
-	// 	0, 4, 5,
-	// 	0, 1, 5,
-	// 	//Left
-	// 	0, 2, 6,
-	// 	0, 4, 6,
-	// 	//Right
-	// 	1, 3, 7,
-	// 	1, 5, 7,
-	// 	//Front
-	// 	0, 2, 3,
-	// 	0, 1, 3,
-	// 	//Back
-	// 	4, 6, 7,
-	// 	4, 5, 7,
-	// };
 	float vertices[] = {
-		-0.5f, -0.5f, -0.5f,  1.0, 0.0, 0.0,  0.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,  0.0, 1.0, 0.0,  1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  0.0, 0.0, 1.0,  1.0f, 1.0f,
-		 0.5f,  0.5f, -0.5f,  1.0, 0.0, 0.0,  1.0f, 1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0, 1.0, 0.0,  0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0, 0.0, 1.0,  0.0f, 0.0f,
-
-		-0.5f, -0.5f,  0.5f,  1.0, 0.0, 0.0,  0.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,  0.0, 1.0, 0.0,  1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  0.0, 0.0, 1.0,  1.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  1.0, 0.0, 0.0,  1.0f, 1.0f,
-		-0.5f,  0.5f,  0.5f,  0.0, 1.0, 0.0,  0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,  0.0, 0.0, 1.0,  0.0f, 0.0f,
-
-		-0.5f,  0.5f,  0.5f,  1.0, 0.0, 0.0,  1.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  0.0, 1.0, 0.0,  1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0, 0.0, 1.0,  0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  1.0, 0.0, 0.0,  0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,  0.0, 1.0, 0.0,  0.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,  0.0, 0.0, 1.0,  1.0f, 0.0f,
-
-		 0.5f,  0.5f,  0.5f,  1.0, 0.0, 0.0,  1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  0.0, 1.0, 0.0,  1.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0, 0.0, 1.0,  0.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  1.0, 0.0, 0.0,  0.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,  0.0, 1.0, 0.0,  0.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  0.0, 0.0, 1.0,  1.0f, 0.0f,
-
-		-0.5f, -0.5f, -0.5f,  1.0, 0.0, 0.0,  0.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0, 1.0, 0.0,  1.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,  0.0, 0.0, 1.0,  1.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,  1.0, 0.0, 0.0,  1.0f, 0.0f,
-		-0.5f, -0.5f,  0.5f,  0.0, 1.0, 0.0,  0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,  0.0, 0.0, 1.0,  0.0f, 1.0f,
-
-		-0.5f,  0.5f, -0.5f,  1.0, 0.0, 0.0,  0.0f, 1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0, 1.0, 0.0,  1.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0, 0.0, 1.0,  1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  1.0, 0.0, 0.0,  1.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,  0.0, 1.0, 0.0,  0.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  0.0, 0.0, 1.0,  0.0f, 1.0f
+		-0.5, -0.5, -0.5,  1.0, 0.0, 0.0,  0.0, 0.0,
+		 0.5, -0.5, -0.5,  0.0, 1.0, 0.0,  1.0, 0.0,
+		 0.5,  0.5, -0.5,  0.0, 0.0, 1.0,  1.0, 1.0,
+		-0.5,  0.5, -0.5,  1.0, 0.0, 0.0,  0.0, 1.0,
+		-0.5, -0.5,  0.5,  0.0, 1.0, 0.0,  1.0, 1.0,
+		 0.5, -0.5,  0.5,  0.0, 0.0, 1.0,  0.0, 1.0,
+		 0.5,  0.5,  0.5,  1.0, 0.0, 0.0,  0.0, 0.0,
+		-0.5,  0.5,  0.5,  0.0, 1.0, 0.0,  1.0, 0.0,
+	};
+	unsigned int indices[] = {
+		0, 1, 3, 3, 1, 2,
+		1, 5, 2, 2, 5, 6,
+		5, 4, 6, 6, 4, 7,
+		4, 0, 7, 7, 0, 3,
+		3, 2, 7, 7, 2, 6,
+		4, 5, 0, 0, 5, 1,
 	};
 	VertexArray va = VertexArray();
-	va.write_buffers(vertices, sizeof(vertices), nullptr, 0);
+	va.write_buffers(vertices, sizeof(vertices), indices, sizeof(indices));
 	va.enable_attribute(0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
 	va.enable_attribute(1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	va.enable_attribute(2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 
-	mat4 transform = mat4::transform(
-		vec3(1.0, 0.5, 1.0),
-		vec3(0.0f, 1.0f, 1.0f),
-		deg_to_rad(69),
-		vec3(0.0, 0.0, 0.0)
-	);
-	mat4 projection = mat4::perspective(deg_to_rad(90.0), 1.0, 0.1f, 100.0f);
-	mat4 view = mat4::lookat(vec3(0.0, 0.0, 5.0), VEC3_Y, VEC3_X, -VEC3_Z);
+	Camera camera = Camera(vec3(0.0, 0.0, 3.0))
+		// .with_ortho(0.1, 100.0, -5.0, 5.0, 5.0, -5.0);
+		.with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 100.0f);
+
+	mat4 projection, view, transform;
 
 	Shader program = Shader("/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/fragment.shader");
-	program.set_uniform_matrix_4fv("transform", transform.m);
-	program.set_uniform_matrix_4fv("projection", projection.m);
-	program.set_uniform_matrix_4fv("view", view.m);
+	program.set_uniform_matrix_4fv("projection", camera.projection.m);
 
 	Texture texture = Texture("/home/chiara/dev/cpp/rendering_engine/engine/assets/textures/container.jpg");
-
-	float t = 0.0f;
 
 	vec3 positions[] = {
 		vec3( 0.0f,  0.0f,  0.0f), 
@@ -171,64 +100,81 @@ int main() {
 		vec3(-1.3f,  1.0f, -1.5f)  
 	};
 
-
-
-
-	/* TODO  --  before abstracting a renderable and the scene
-	 *
-	 *
-	 * 1. [x] provide x,y,z unit vectors in vec.hpp
-	 *
-	 * 2. [x] change rotation matrix to accept a vector (non-normalized) as direction, and an angle
-	 *        (using the magnitude of the axis as angle value isn't convenient for the user)
-	 *
-	 * 4. [/] write functions to get angle of and rotate vec3 in vec.hpp
-	 *
-	 * 6. [/] write orthogonal and perspective projection matrices
-	 *
-	 * 7. [x] write camera matrix
-	 *
-	 * 8. [ ] write camera class (and write methods for moving and looking around)
-	 *
-	 * */
-
-
-
+	float speed = 1.5f;
 
 	// ..:: LOOP ::..
+	
+	float a = 0.0f;
+	float t1, t2, dt = 0.0;
+
 	while (!glfwWindowShouldClose(window)) {
+		// dt
+		float t2 = glfwGetTime();
+		dt = t2 - t1;
+		t1 = t2;
+
 		// input
 		process_input(window);
+		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+			vec3 u = vec3::normalize(vec3(camera.dir.x, 0.0, camera.dir.z));
+			camera.pos += (u * speed * dt);
+		}
+		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+			vec3 u = vec3::normalize(vec3(camera.dir.x, 0.0, camera.dir.z));
+			camera.pos += (-u * speed * dt);
+		}
+		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+			camera.pos += (-camera.right * speed * dt);
+		}
+		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+			camera.pos += (camera.right * speed * dt);
+		}
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+			camera.rotate(speed * dt, 0.0);
+		}
+		if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+			camera.rotate(-speed * dt, 0.0);
+		}
+		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+			camera.rotate(0.0, speed * dt);
+		}
+		if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+			camera.rotate(0.0, -speed * dt);
+		}
 
-		// rendering
+		// clearing screen and depth buffer
 		glEnable(GL_DEPTH_TEST);
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		// draw mode
 		if (wireframe_mode)
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		else
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-		t += 0.01;
+		a += 0.01;
 
+		// camera.rotate(0.01f, 0.0f);
+		// camera.pos.rotate(VEC3_X, 0.01f);
+		// camera.pos = vec3::normalize(camera.pos) * (3.0f + std::sin(10.f*a));
+		view = mat4::lookat(camera.pos, camera.up, camera.right, camera.dir);
+		program.set_uniform_matrix_4fv("view", view.m);
+
+		// draw call for each cube
 		for (unsigned int i = 0; i < 10; i++) {
 			transform = mat4::transform(
 				vec3(1.0, 1.0, 1.0),
 				positions[i],
-				t,
+				a,
 				positions[i]
 			);
-			// view = mat4::lookat(vec3(0.0, 1.0, 1.0), vec3(0.0, 1.0, -1.0), vec3(1.0, 0.0, 0.0), -vec3(0.0, 1.0, 1.0));
-			view = mat4::lookat(vec3(0.0, 0.0, 3.0), vec3(0.0, 1.0, 0.0), vec3(1.0, 0.0, 0.0), -vec3(0.0, 0.0, 1.0));
 			program.set_uniform_matrix_4fv("transform", transform.m);
-			program.set_uniform_matrix_4fv("view", view.m);
 
 			texture.use();
 			va.use();
 			program.use();
-			// glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
-			glDrawArrays(GL_TRIANGLES, 0, 36);
+			glDrawElements(GL_TRIANGLES, va.elements_count, GL_UNSIGNED_INT, 0);
 			glBindVertexArray(0);
 		}
 

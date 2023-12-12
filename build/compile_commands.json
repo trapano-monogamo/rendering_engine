@@ -1,9 +1,9 @@
 [
 {
   "directory": "/home/chiara/dev/cpp/rendering_engine/build/engine",
-  "command": "/usr/bin/c++  -I/home/chiara/dev/cpp/rendering_engine/engine/include  -o CMakeFiles/rendering_engine.dir/src/core/say.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/say.cpp",
-  "file": "/home/chiara/dev/cpp/rendering_engine/engine/src/core/say.cpp",
-  "output": "engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o"
+  "command": "/usr/bin/c++  -I/home/chiara/dev/cpp/rendering_engine/engine/include  -o CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp",
+  "file": "/home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp",
+  "output": "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o"
 },
 {
   "directory": "/home/chiara/dev/cpp/rendering_engine/build/engine",

@@ -130,29 +130,29 @@ rendering_engine/fast:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/build
 .PHONY : rendering_engine/fast
 
-src/core/say.o: src/core/say.cpp.o
-.PHONY : src/core/say.o
+src/core/camera.o: src/core/camera.cpp.o
+.PHONY : src/core/camera.o
 
 # target to build an object file
-src/core/say.cpp.o:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.o
-.PHONY : src/core/say.cpp.o
+src/core/camera.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o
+.PHONY : src/core/camera.cpp.o
 
-src/core/say.i: src/core/say.cpp.i
-.PHONY : src/core/say.i
+src/core/camera.i: src/core/camera.cpp.i
+.PHONY : src/core/camera.i
 
 # target to preprocess a source file
-src/core/say.cpp.i:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.i
-.PHONY : src/core/say.cpp.i
+src/core/camera.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.i
+.PHONY : src/core/camera.cpp.i
 
-src/core/say.s: src/core/say.cpp.s
-.PHONY : src/core/say.s
+src/core/camera.s: src/core/camera.cpp.s
+.PHONY : src/core/camera.s
 
 # target to generate assembly for a file
-src/core/say.cpp.s:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/say.cpp.s
-.PHONY : src/core/say.cpp.s
+src/core/camera.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s
+.PHONY : src/core/camera.cpp.s
 
 src/core/shader.o: src/core/shader.cpp.o
 .PHONY : src/core/shader.o
@@ -331,9 +331,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... rendering_engine"
-	@echo "... src/core/say.o"
-	@echo "... src/core/say.i"
-	@echo "... src/core/say.s"
+	@echo "... src/core/camera.o"
+	@echo "... src/core/camera.i"
+	@echo "... src/core/camera.s"
 	@echo "... src/core/shader.o"
 	@echo "... src/core/shader.i"
 	@echo "... src/core/shader.s"

@@ -6,6 +6,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o
  /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h
  /home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h
  /home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp
+ /home/chiara/dev/cpp/rendering_engine/engine/include/core/camera.hpp
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/vertex_array.hpp
@@ -139,7 +140,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o
  /usr/include/c++/13.2.1/bits/stl_iterator_base_funcs.h
  /usr/include/c++/13.2.1/bits/stl_iterator_base_types.h
  /usr/include/c++/13.2.1/bits/stl_pair.h
- /usr/include/c++/13.2.1/bits/stl_relops.h
  /usr/include/c++/13.2.1/bits/stl_uninitialized.h
  /usr/include/c++/13.2.1/bits/stl_vector.h
  /usr/include/c++/13.2.1/bits/streambuf.tcc
@@ -197,7 +197,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o
  /usr/include/c++/13.2.1/tuple
  /usr/include/c++/13.2.1/type_traits
  /usr/include/c++/13.2.1/typeinfo
- /usr/include/c++/13.2.1/utility
  /usr/include/c++/13.2.1/vector
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h

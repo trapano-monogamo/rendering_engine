@@ -21,6 +21,8 @@ void VertexArray::write_buffers(float* vertices, unsigned int n, unsigned int* i
 	// bind buffers and vertex array
 	this->use();
 
+	this->elements_count = m / sizeof(unsigned int);
+
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * n, vertices, GL_STATIC_DRAW);
 	if (indices != nullptr)
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * m, indices, GL_STATIC_DRAW);

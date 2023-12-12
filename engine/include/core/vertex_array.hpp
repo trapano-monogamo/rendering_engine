@@ -7,6 +7,9 @@ private:
 	unsigned int vao, vbo, ebo;
 
 public:
+	unsigned int elements_count;
+
+public:
 	VertexArray();
 	~VertexArray();
 

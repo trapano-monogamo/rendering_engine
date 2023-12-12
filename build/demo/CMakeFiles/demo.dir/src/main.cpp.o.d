@@ -168,9 +168,9 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
- /usr/include/c++/13.2.1/bits/vector.tcc /usr/include/c++/13.2.1/utility \
- /usr/include/c++/13.2.1/bits/stl_relops.h \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/utils.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/mat.hpp \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/camera.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/vec.hpp \
- /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare
+ /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/mat.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/utils.hpp
