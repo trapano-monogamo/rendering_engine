@@ -154,6 +154,54 @@ src/core/camera.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s
 .PHONY : src/core/camera.cpp.s
 
+src/core/mesh.o: src/core/mesh.cpp.o
+.PHONY : src/core/mesh.o
+
+# target to build an object file
+src/core/mesh.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o
+.PHONY : src/core/mesh.cpp.o
+
+src/core/mesh.i: src/core/mesh.cpp.i
+.PHONY : src/core/mesh.i
+
+# target to preprocess a source file
+src/core/mesh.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.i
+.PHONY : src/core/mesh.cpp.i
+
+src/core/mesh.s: src/core/mesh.cpp.s
+.PHONY : src/core/mesh.s
+
+# target to generate assembly for a file
+src/core/mesh.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.s
+.PHONY : src/core/mesh.cpp.s
+
+src/core/renderable.o: src/core/renderable.cpp.o
+.PHONY : src/core/renderable.o
+
+# target to build an object file
+src/core/renderable.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o
+.PHONY : src/core/renderable.cpp.o
+
+src/core/renderable.i: src/core/renderable.cpp.i
+.PHONY : src/core/renderable.i
+
+# target to preprocess a source file
+src/core/renderable.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.i
+.PHONY : src/core/renderable.cpp.i
+
+src/core/renderable.s: src/core/renderable.cpp.s
+.PHONY : src/core/renderable.s
+
+# target to generate assembly for a file
+src/core/renderable.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.s
+.PHONY : src/core/renderable.cpp.s
+
 src/core/shader.o: src/core/shader.cpp.o
 .PHONY : src/core/shader.o
 
@@ -202,6 +250,30 @@ src/core/texture.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.s
 .PHONY : src/core/texture.cpp.s
 
+src/core/transform.o: src/core/transform.cpp.o
+.PHONY : src/core/transform.o
+
+# target to build an object file
+src/core/transform.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o
+.PHONY : src/core/transform.cpp.o
+
+src/core/transform.i: src/core/transform.cpp.i
+.PHONY : src/core/transform.i
+
+# target to preprocess a source file
+src/core/transform.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.i
+.PHONY : src/core/transform.cpp.i
+
+src/core/transform.s: src/core/transform.cpp.s
+.PHONY : src/core/transform.s
+
+# target to generate assembly for a file
+src/core/transform.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.s
+.PHONY : src/core/transform.cpp.s
+
 src/core/vertex_array.o: src/core/vertex_array.cpp.o
 .PHONY : src/core/vertex_array.o
 
@@ -225,6 +297,30 @@ src/core/vertex_array.s: src/core/vertex_array.cpp.s
 src/core/vertex_array.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.s
 .PHONY : src/core/vertex_array.cpp.s
+
+src/ecs/ecs.o: src/ecs/ecs.cpp.o
+.PHONY : src/ecs/ecs.o
+
+# target to build an object file
+src/ecs/ecs.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o
+.PHONY : src/ecs/ecs.cpp.o
+
+src/ecs/ecs.i: src/ecs/ecs.cpp.i
+.PHONY : src/ecs/ecs.i
+
+# target to preprocess a source file
+src/ecs/ecs.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.i
+.PHONY : src/ecs/ecs.cpp.i
+
+src/ecs/ecs.s: src/ecs/ecs.cpp.s
+.PHONY : src/ecs/ecs.s
+
+# target to generate assembly for a file
+src/ecs/ecs.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.s
+.PHONY : src/ecs/ecs.cpp.s
 
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
@@ -334,15 +430,27 @@ help:
 	@echo "... src/core/camera.o"
 	@echo "... src/core/camera.i"
 	@echo "... src/core/camera.s"
+	@echo "... src/core/mesh.o"
+	@echo "... src/core/mesh.i"
+	@echo "... src/core/mesh.s"
+	@echo "... src/core/renderable.o"
+	@echo "... src/core/renderable.i"
+	@echo "... src/core/renderable.s"
 	@echo "... src/core/shader.o"
 	@echo "... src/core/shader.i"
 	@echo "... src/core/shader.s"
 	@echo "... src/core/texture.o"
 	@echo "... src/core/texture.i"
 	@echo "... src/core/texture.s"
+	@echo "... src/core/transform.o"
+	@echo "... src/core/transform.i"
+	@echo "... src/core/transform.s"
 	@echo "... src/core/vertex_array.o"
 	@echo "... src/core/vertex_array.i"
 	@echo "... src/core/vertex_array.s"
+	@echo "... src/ecs/ecs.o"
+	@echo "... src/ecs/ecs.i"
+	@echo "... src/ecs/ecs.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"

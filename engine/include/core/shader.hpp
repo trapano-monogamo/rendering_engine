@@ -5,10 +5,10 @@ private:
 	unsigned int program;
 
 public:
-	Shader() = default;
-	Shader(const char* vertex_shader_filepat, const char* fragment_shader_filepath);
+	Shader();
 	~Shader();
 
+	void load_source_files(const char* vertex_shader_filepat, const char* fragment_shader_filepath);
 	void load_source_string(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
 	void use();
 

@@ -3,7 +3,7 @@
 #include "common.hpp"
 
 class VertexArray {
-private:
+public:
 	unsigned int vao, vbo, ebo;
 
 public:

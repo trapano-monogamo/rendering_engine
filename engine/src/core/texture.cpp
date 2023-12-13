@@ -6,7 +6,7 @@
 
 Texture::Texture(const char* filepath) {
 	glGenTextures(1, &this->texture);
-	glBindTexture(GL_TEXTURE_2D, texture);
+	glBindTexture(GL_TEXTURE_2D, this->texture);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -23,6 +23,7 @@ Texture Texture::load_texture(const char* filepath) {
 	int width, height, nr_channels;
 	unsigned char* data = stbi_load(filepath, &width, &height, &nr_channels, 0);
 	if (data) {
+		glBindTexture(GL_TEXTURE_2D, this->texture);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	} else {
@@ -40,6 +41,7 @@ Texture Texture::with_parameter(GLenum pname, GLint param) {
 
 void Texture::set_params() {
 	for (auto& p : this->params) {
+		glBindTexture(GL_TEXTURE_2D, this->texture);
 		glTexParameteri(GL_TEXTURE_2D, p.first, p.second);
 	}
 }

@@ -6,12 +6,18 @@
 #include <string>
 #include <sstream>
 
-Shader::Shader(const char *vertex_shader_filepath, const char *fragment_shader_filepath) {
+Shader::Shader()
+	: program(glCreateProgram())
+{}
+
+void Shader::load_source_files(const char *vertex_shader_filepath, const char *fragment_shader_filepath) {
 	std::ifstream f1(vertex_shader_filepath); 
 	std::string vertex_shader_src = (std::stringstream() << f1.rdbuf()).str();
 
 	std::ifstream f2(fragment_shader_filepath); 
 	std::string fragment_shader_src = (std::stringstream() << f2.rdbuf()).str();
+
+	glUseProgram(this->program);
 
 	this->load_source_string(vertex_shader_src.c_str(), fragment_shader_src.c_str());
 }
@@ -42,7 +48,6 @@ void Shader::load_source_string(const char* vertex_shader_src, const char* fragm
 		std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED: " << infolog << std::endl;
 	}
 
-	this->program = (unsigned int)glCreateProgram();
 	glAttachShader(this->program, vertex_shader);
 	glAttachShader(this->program, fragment_shader);
 	glLinkProgram(this->program);

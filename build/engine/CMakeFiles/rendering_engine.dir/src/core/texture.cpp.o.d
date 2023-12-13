@@ -16,7 +16,9 @@ engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o: \
  /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
  /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
- /usr/include/GL/gl.h /usr/include/c++/13.2.1/vector \
+ /usr/include/GL/gl.h \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
+ /usr/include/c++/13.2.1/vector \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \

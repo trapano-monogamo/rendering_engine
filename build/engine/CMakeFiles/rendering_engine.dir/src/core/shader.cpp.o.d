@@ -16,6 +16,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: \
  /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
  /usr/include/GL/gl.h \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
  /usr/include/c++/13.2.1/iostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \

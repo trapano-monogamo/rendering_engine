@@ -7,11 +7,11 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/chiara/dev/cpp/rendering_engine/engine/include
 
-C_FLAGS = 
+C_FLAGS = -g
 
 CXX_DEFINES = 
 
 CXX_INCLUDES = -I/home/chiara/dev/cpp/rendering_engine/engine/include
 
-CXX_FLAGS = 
+CXX_FLAGS = -g
 

@@ -18,17 +18,20 @@ void VertexArray::use() {
 }
 
 void VertexArray::write_buffers(float* vertices, unsigned int n, unsigned int* indices, unsigned int m) {
-	// bind buffers and vertex array
-	this->use();
-
 	this->elements_count = m / sizeof(unsigned int);
 
+	glBindVertexArray(this->vao);
+
+	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * n, vertices, GL_STATIC_DRAW);
-	if (indices != nullptr)
+	if (indices != nullptr) {
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * m, indices, GL_STATIC_DRAW);
+	}
 }
 
 void VertexArray::enable_attribute(int index, int size, GLenum type, int stride, void* ptr) {
+	this->use();
 	glVertexAttribPointer(index, size, type, GL_FALSE, stride, ptr);
 	glEnableVertexAttribArray(index);
 }

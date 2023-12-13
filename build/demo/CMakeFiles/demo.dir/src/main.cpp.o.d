@@ -15,7 +15,9 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
- /usr/include/GL/gl.h /usr/include/c++/13.2.1/iostream \
+ /usr/include/GL/gl.h \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/utils.hpp \
+ /usr/include/c++/13.2.1/iostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -161,14 +163,40 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/13.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/13.2.1/tr1/riemann_zeta.tcc \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/vertex_array.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/shader.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/texture.hpp \
  /usr/include/c++/13.2.1/vector \
  /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
  /usr/include/c++/13.2.1/bits/vector.tcc \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/renderable.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/vertex_array.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/shader.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/texture.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/ecs/ecs.hpp \
+ /usr/include/c++/13.2.1/cstdint /usr/include/c++/13.2.1/unordered_map \
+ /usr/include/c++/13.2.1/bits/unordered_map.h \
+ /usr/include/c++/13.2.1/bits/hashtable.h \
+ /usr/include/c++/13.2.1/bits/hashtable_policy.h \
+ /usr/include/c++/13.2.1/ext/aligned_buffer.h \
+ /usr/include/c++/13.2.1/bits/enable_special_members.h \
+ /usr/include/c++/13.2.1/bits/node_handle.h \
+ /usr/include/c++/13.2.1/bits/erase_if.h /usr/include/c++/13.2.1/memory \
+ /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13.2.1/bits/align.h \
+ /usr/include/c++/13.2.1/bits/unique_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/13.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/13.2.1/ext/concurrence.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13.2.1/bits/atomic_base.h \
+ /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13.2.1/backward/auto_ptr.h \
+ /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
+ /usr/include/c++/13.2.1/pstl/execution_defs.h \
+ /usr/include/c++/13.2.1/utility \
+ /usr/include/c++/13.2.1/bits/stl_relops.h \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/camera.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/vec.hpp \
  /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
