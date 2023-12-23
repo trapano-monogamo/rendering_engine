@@ -6,10 +6,11 @@ private:
 
 public:
 	Shader();
+	// Shader(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
 	~Shader();
 
-	void load_source_files(const char* vertex_shader_filepat, const char* fragment_shader_filepath);
-	void load_source_string(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
+	void load_source_files(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
+	void load_source_string(const char* vertex_shader_filepath_src, const char* fragment_shader_src);
 	void use();
 
 	void set_uniform_2f(const char* uniform_name, float x, float y);

@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o.d"
+  "CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o"
+  "CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o"

@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/mesh.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/renderable.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/engine/src/core/scene.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/shader.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/texture.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/transform.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o.d"

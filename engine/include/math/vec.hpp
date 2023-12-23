@@ -23,6 +23,8 @@ struct vec3 {
 	float& operator[](int i);
 
 	float magnitude();
+	static float distance(vec3 a, vec3 b);
+
 	void normalize();
 	static vec3 normalize(vec3 a);
 

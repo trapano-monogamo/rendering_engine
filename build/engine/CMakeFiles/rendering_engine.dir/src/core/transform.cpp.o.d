@@ -121,6 +121,19 @@ engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o: \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
  /usr/include/c++/13.2.1/utility \
  /usr/include/c++/13.2.1/bits/stl_relops.h \
+ /usr/include/c++/13.2.1/algorithm \
+ /usr/include/c++/13.2.1/bits/stl_algo.h \
+ /usr/include/c++/13.2.1/bits/algorithmfwd.h \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
+ /usr/include/c++/13.2.1/cstdlib /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib-float.h /usr/include/c++/13.2.1/bits/std_abs.h \
+ /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
  /home/chiara/dev/cpp/rendering_engine/engine/include/math/vec.hpp \
  /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
  /usr/include/c++/13.2.1/cmath /usr/include/math.h \
@@ -129,15 +142,8 @@ engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o: \
  /usr/include/bits/fp-fast.h \
  /usr/include/bits/mathcalls-helper-functions.h \
  /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
- /usr/include/bits/iscanonical.h /usr/include/c++/13.2.1/bits/std_abs.h \
- /usr/include/stdlib.h /usr/include/bits/waitflags.h \
- /usr/include/bits/waitstatus.h /usr/include/sys/types.h \
- /usr/include/endian.h /usr/include/bits/byteswap.h \
- /usr/include/bits/uintn-identity.h /usr/include/sys/select.h \
- /usr/include/bits/select.h /usr/include/bits/types/sigset_t.h \
- /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
- /usr/include/c++/13.2.1/bits/specfun.h /usr/include/c++/13.2.1/limits \
- /usr/include/c++/13.2.1/tr1/gamma.tcc \
+ /usr/include/bits/iscanonical.h /usr/include/c++/13.2.1/bits/specfun.h \
+ /usr/include/c++/13.2.1/limits /usr/include/c++/13.2.1/tr1/gamma.tcc \
  /usr/include/c++/13.2.1/tr1/special_function_util.h \
  /usr/include/c++/13.2.1/tr1/bessel_function.tcc \
  /usr/include/c++/13.2.1/tr1/beta_function.tcc \

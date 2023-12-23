@@ -7,15 +7,21 @@ ECS::~ECS() {
 }
 
 void ECS::update() {
-	for (auto sys : this->systems) {
-		sys(*this);
+	for (auto system : this->systems) {
+		system(this);
 	}
 }
 
-void ECS::add_entity(uint32_t entity) {
-	this->entities.push_back(Entity{entity});
+uint32_t ECS::add_entity() {
+	int id = this->entities.size();
+	this->entities.push_back(id);
+	return id;
 }
 
-void ECS::add_system(void (*sys)(ECS&)) {
+void ECS::add_system(void (*sys)(ECS*)) {
 	this->systems.push_back(sys);
+}
+
+Query ECS::query_entities() {
+	return Query{ .results = this->entities };
 }

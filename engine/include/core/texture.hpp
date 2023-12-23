@@ -9,14 +9,14 @@ private:
 	unsigned int texture;
 	std::vector<std::pair<GLenum, GLint>> params;
 
-	void set_params();
+	// void set_params();
 
 public:
 	Texture() = default;
 	Texture(const char* filepath);
 	~Texture();
 
-	Texture with_parameter(GLenum pname, GLint param);
+	void with_parameter(GLenum pname, GLint param);
 	Texture load_texture(const char* filepath);
 	void use();
 };

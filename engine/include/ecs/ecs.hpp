@@ -5,35 +5,72 @@
 #include <unordered_map>
 #include <memory>
 #include <utility>
+#include <algorithm>
 
-struct Entity { uint32_t id; };
+
+
+class System {
+public:
+	virtual ~System() = default;
+	virtual void update() = 0; // must override
+};
+
+
+
 
 struct Component {
 	Component() = default;
 	virtual ~Component() = default;
 };
 
+class ECS;
+struct Query {
+	std::vector<uint32_t> results;
+	template<typename T> Query& with_component(ECS* const ecs);
+};
+
 class ECS {
 public:
-	std::vector<Entity> entities;
+	std::vector<uint32_t> entities;
 	std::unordered_map<uint32_t, std::vector<Component*>> components;
-	std::vector<void (*)(ECS&)> systems;
+	std::vector<void (*)(ECS*)> systems;
 
 	ECS() = default;
 	~ECS();
 
 	void update();
 
-	void add_entity(uint32_t entity);
+	uint32_t add_entity();
 	void remove_entity(uint32_t entity);
 	template<typename T> void add_component(uint32_t entity, T* component);
 	template<typename T> void remove_component(uint32_t entity);
-	void add_system(void (*sys)(ECS&));
-	void remove_system(void (*sys)(ECS&));
+	void add_system(void (*sys)(ECS*));
+	void remove_system(void (*sys)(ECS*));
 
 	template<typename T> T* get_component(uint32_t entity);
 	template<typename T> std::vector<T*> query_components();
+	template<typename T> bool has_component(uint32_t entity);
+
+	Query query_entities();
 };
+
+
+
+template<typename T>
+Query& Query::with_component(ECS * const ecs) {
+	std::vector<uint32_t> temp_res{ };
+
+	for (auto& entity : this->results)
+		if (ecs->has_component<T>(entity))
+			temp_res.push_back(entity);
+
+	this->results.clear();
+	this->results = temp_res;
+
+	return *this;
+}
+
+
 
 template<typename T>
 void ECS::add_component(uint32_t entity, T* component) {
@@ -67,4 +104,10 @@ std::vector<T*> ECS::query_components() {
 		}
 	}
 	return res;
+}
+
+template<typename T>
+bool ECS::has_component(uint32_t entity) {
+	if (this->get_component<T>(entity) != nullptr) return true;
+	else return false;
 }

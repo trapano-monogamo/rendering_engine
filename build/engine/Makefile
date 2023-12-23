@@ -202,6 +202,30 @@ src/core/renderable.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.s
 .PHONY : src/core/renderable.cpp.s
 
+src/core/scene.o: src/core/scene.cpp.o
+.PHONY : src/core/scene.o
+
+# target to build an object file
+src/core/scene.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o
+.PHONY : src/core/scene.cpp.o
+
+src/core/scene.i: src/core/scene.cpp.i
+.PHONY : src/core/scene.i
+
+# target to preprocess a source file
+src/core/scene.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.i
+.PHONY : src/core/scene.cpp.i
+
+src/core/scene.s: src/core/scene.cpp.s
+.PHONY : src/core/scene.s
+
+# target to generate assembly for a file
+src/core/scene.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.s
+.PHONY : src/core/scene.cpp.s
+
 src/core/shader.o: src/core/shader.cpp.o
 .PHONY : src/core/shader.o
 
@@ -436,6 +460,9 @@ help:
 	@echo "... src/core/renderable.o"
 	@echo "... src/core/renderable.i"
 	@echo "... src/core/renderable.s"
+	@echo "... src/core/scene.o"
+	@echo "... src/core/scene.i"
+	@echo "... src/core/scene.s"
 	@echo "... src/core/shader.o"
 	@echo "... src/core/shader.i"
 	@echo "... src/core/shader.s"

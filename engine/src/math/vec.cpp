@@ -23,6 +23,10 @@ float vec3::magnitude() {
 	return std::sqrt(vec3::dot(*this, *this));
 }
 
+float vec3::distance(vec3 a, vec3 b) {
+	return (a + -b).magnitude();
+}
+
 void vec3::normalize() {
 	float mag = this->magnitude();
 	if (mag == 0.0) throw std::runtime_error("division by zero");

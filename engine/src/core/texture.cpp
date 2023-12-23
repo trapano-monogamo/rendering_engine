@@ -34,17 +34,22 @@ Texture Texture::load_texture(const char* filepath) {
 	return *this;
 }
 
-Texture Texture::with_parameter(GLenum pname, GLint param) {
-	this->params.push_back(std::make_pair(pname, param));
-	return *this;
+// Texture Texture::with_parameter(GLenum pname, GLint param) {
+// 	this->params.push_back(std::make_pair(pname, param));
+// 	return *this;
+// }
+
+void Texture::with_parameter(GLenum pname, GLint param) {
+		glBindTexture(GL_TEXTURE_2D, this->texture);
+		glTexParameteri(GL_TEXTURE_2D, pname, param);
 }
 
-void Texture::set_params() {
-	for (auto& p : this->params) {
-		glBindTexture(GL_TEXTURE_2D, this->texture);
-		glTexParameteri(GL_TEXTURE_2D, p.first, p.second);
-	}
-}
+// void Texture::set_params() {
+// 	for (auto& p : this->params) {
+// 		glBindTexture(GL_TEXTURE_2D, this->texture);
+// 		glTexParameteri(GL_TEXTURE_2D, p.first, p.second);
+// 	}
+// }
 
 void Texture::use() {
 	glBindTexture(GL_TEXTURE_2D, this->texture);
