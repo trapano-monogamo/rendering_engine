@@ -52,44 +52,75 @@ struct Body : public Component {
 	{}
 };
 
-float G = 0.1f;
+class GravitySystem : public System {
+public:
+	Scene* scene;
+	float dt;
+	float G = 0.1f;
 
-void update_gravity(ECS* ecs) {
-	// static down-casts always succeed
-	Scene* s = static_cast<Scene*>(ecs);
+	GravitySystem() : scene(nullptr), dt(0.0f) {}
 
-	auto query = ecs->query_entities().with_component<Body>(ecs).results;
+public:
+	void update() override {
+		this->update_gravity(scene);
+		this->update_bodies(scene, dt);
+	}
 
-	for (uint32_t& ea : query) {
-		Body* a = ecs->get_component<Body>(ea);
+	void update_gravity(Scene* scene) {
+		auto query = scene->query_entities().with_component<Body>(scene).results;
 
-		for (uint32_t& eb : query) {
-			if (eb != ea) {
-				Body* b = ecs->get_component<Body>(eb);
+		for (uint32_t& ea : query) {
+			Body* a = scene->get_component<Body>(ea);
 
-				float r = std::abs(vec3::distance(a->position, b->position));
-				if ( r > 0.0f ) {
-					a->force += vec3::normalize(b->position + -a->position) * (G * (a->mass * b->mass) / (r*r));
-				} else {
-					continue; // idk do something else
+			for (uint32_t& eb : query) {
+				if (eb != ea) {
+					Body* b = scene->get_component<Body>(eb);
+
+					float r = std::abs(vec3::distance(a->position, b->position));
+					if ( r > 0.0f ) {
+						a->force += vec3::normalize(b->position + -a->position) * (G * (a->mass * b->mass) / (r*r));
+					} else {
+						continue; // idk do something else
+					}
 				}
 			}
 		}
 	}
-}
 
-void update_bodies(ECS* ecs) {
-	auto query = ecs->query_entities().with_component<Body>(ecs).results;
+	void update_bodies(Scene* scene, float dt) {
+		auto query = scene->query_entities().with_component<Body>(scene).results;
 
-	for (uint32_t& ea : query) {
-		Body* a = ecs->get_component<Body>(ea);
+		for (uint32_t& ea : query) {
+			Body* a = scene->get_component<Body>(ea);
 
-		a->acceleration = a->force * (1 / a->mass);
-		a->velocity += a->acceleration;
-		a->position += a->velocity; // positions should be updated by time-dependent systems
-		a->force = vec3();
+			a->acceleration = a->force * (1 / a->mass);
+			a->velocity += a->acceleration;
+			a->position += a->velocity * dt;
+			a->force = vec3();
+		}
 	}
-}
+};
+
+class UpdateTransforsSystem : public System {
+public:
+	Scene* scene;
+
+	UpdateTransforsSystem() : scene(nullptr) {}
+
+public:
+	void update() override {
+		auto query = scene->query_entities()
+			.with_component<Body>(scene)
+			.with_component<Transform>(scene)
+			.results;
+
+		for (auto e : query) {
+			Body* b = scene->get_component<Body>(e);
+			Transform* t = scene->get_component<Transform>(e);
+			t->position = b->position;
+		}
+	}
+};
 
 
 
@@ -141,8 +172,15 @@ int main() {
 
 	Scene scene = Scene();
 	scene.camera = Camera(vec3(0.0, 0.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
-	scene.add_system(update_gravity);
-	scene.add_system(update_bodies);
+
+	GravitySystem* gravity_system = new GravitySystem();
+	gravity_system->scene = &scene;
+	UpdateTransforsSystem* update_transforms_system = new UpdateTransforsSystem();
+	update_transforms_system->scene = &scene;
+	scene.add_system(gravity_system);
+	scene.add_system(update_transforms_system);
+	// scene.add_system(update_gravity);
+	// scene.add_system(update_bodies);
 	
 	// Renderable* sphere = new Renderable();
 	// sphere->default_sphere(6, 10);
@@ -189,17 +227,12 @@ int main() {
 		1.f,
 		1.f,
 	};
-
 	vec3 positions[] = {
 		vec3(-3.f, 0.f, -5.f),
-		vec3( 3.f, 0.f, -5.f),
-	};
-
+		vec3( 3.f, 0.f, -5.f), };
 	vec3 velocities[] = {
-		vec3(0.0f,  .08f, 0.0f),
-		vec3(0.0f, -.08f, 0.0f),
-	};
-
+		vec3(0.0f,  1.0f, 0.0f),
+		vec3(0.0f, -1.0f, 0.0f), };
 	for (int i = 0; i < sizeof(positions) / sizeof(vec3); i++) {
 		Renderable* obj = new Renderable();
 		obj->default_cube();
@@ -225,6 +258,9 @@ int main() {
 	 * */
 
 
+	// error 1282 before first scene.render() call
+
+
 
 	// ..:: LOOP ::..
 
@@ -232,12 +268,13 @@ int main() {
 	float t1, t2, dt = 0.0;
 
 	while (!glfwWindowShouldClose(window)) {
-		scene.update();
-
 		// dt
 		float t2 = glfwGetTime();
 		dt = t2 - t1;
 		t1 = t2;
+
+		gravity_system->dt = dt;
+		scene.update();
 
 		// input
 		process_input(window);
@@ -281,15 +318,15 @@ int main() {
 
 		mat4 view = mat4::lookat(scene.camera.pos, scene.camera.up, scene.camera.right, scene.camera.dir);
 
-		auto gravity_query = scene.query_entities()
-			.with_component<Body>(&scene)
-			.with_component<Transform>(&scene)
-			.results;
-		for (auto& entity : gravity_query) {
-			Transform* t = scene.get_component<Transform>(entity);
-			Body* b = scene.get_component<Body>(entity);
-			t->position = b->position;
-		}
+		// auto gravity_query = scene.query_entities()
+		// 	.with_component<Body>(&scene)
+		// 	.with_component<Transform>(&scene)
+		// 	.results;
+		// for (auto& entity : gravity_query) {
+		// 	Transform* t = scene.get_component<Transform>(entity);
+		// 	Body* b = scene.get_component<Body>(entity);
+		// 	t->position = b->position;
+		// }
 
 		scene.render();
 
