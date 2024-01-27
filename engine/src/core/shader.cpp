@@ -8,7 +8,6 @@
 
 Shader::Shader()
 	: program(glCreateProgram())
-	// : program(0)
 {}
 
 void Shader::load_source_files(const char *vertex_shader_filepath, const char *fragment_shader_filepath) {
@@ -18,8 +17,13 @@ void Shader::load_source_files(const char *vertex_shader_filepath, const char *f
 	std::ifstream f2(fragment_shader_filepath); 
 	std::string fragment_shader_src = (std::stringstream() << f2.rdbuf()).str();
 
-	// this->program = glCreateProgram();
-	LOG_ERROR(glUseProgram(this->program));
+	/* This gives the error 1282 even for the first Shader() call,
+	 * before calling Renderable() for the floor object.
+	 * Maybe calling Shader() and then Renderable() isn't
+	 * what's causing the issue, but that needs to be rewritten
+	 * either way with a resource manager.
+	 * */
+	glUseProgram(this->program);
 
 	this->load_source_string(vertex_shader_src.c_str(), fragment_shader_src.c_str());
 }

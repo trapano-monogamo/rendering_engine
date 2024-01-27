@@ -1,9 +1,11 @@
 #include "common.hpp"
 
+#include <chrono>
 #include <cstdint>
 #include <exception>
 #include <iostream>
 #include <cmath>
+#include <thread>
 #include <vector>
 
 #include "core/transform.hpp"
@@ -56,7 +58,7 @@ class GravitySystem : public System {
 public:
 	Scene* scene;
 	float dt;
-	float G = 0.1f;
+	float G = 0.3f;
 
 	GravitySystem() : scene(nullptr), dt(0.0f) {}
 
@@ -179,8 +181,6 @@ int main() {
 	update_transforms_system->scene = &scene;
 	scene.add_system(gravity_system);
 	scene.add_system(update_transforms_system);
-	// scene.add_system(update_gravity);
-	// scene.add_system(update_bodies);
 	
 	// Renderable* sphere = new Renderable();
 	// sphere->default_sphere(6, 10);
@@ -208,7 +208,7 @@ int main() {
 	va.enable_attribute(1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	va.enable_attribute(2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	Shader shader = Shader();
-	shader.load_source_files("/home/chiara/dev/cpp/rendering_engine/demo/src/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/demo/src/fragment.shader");
+	LOG_ERROR(shader.load_source_files("/home/chiara/dev/cpp/rendering_engine/demo/src/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/demo/src/fragment.shader"));
 	Texture texture = Texture("/home/chiara/dev/cpp/rendering_engine/engine/assets/textures/checkboard.png");
 	texture.with_parameter(GL_TEXTURE_WRAP_S, GL_REPEAT);
 	texture.with_parameter(GL_TEXTURE_WRAP_T, GL_REPEAT);

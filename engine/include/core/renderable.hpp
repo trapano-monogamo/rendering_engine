@@ -17,6 +17,7 @@ public:
 	// }Config;
 
 public:
+	// Renderable(std::shared_ptr<VertexArray> va, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture);
 	Renderable();
 	~Renderable();
 

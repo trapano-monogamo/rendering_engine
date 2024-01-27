@@ -14,6 +14,14 @@ Renderable::Renderable()
 	, program(Shader())
 {}
 
+// Renderable::Renderable(std::shared_ptr<VertexArray> _va, std::shared_ptr<Shader> _shader, std::shared_ptr<Texture> _texture)
+// 	: Component()
+// 	// !!!  NOT INITIALIZING THESE HERE MAKES THEM DEFAULT INITIALIZED, SO NOT VALID WHEN YOU TRY TO RE-INITIALIZE THEM  !!!
+// 	, va(_va)
+// 	, program(_shader)
+// 	, texture(_texture)
+// {}
+
 Renderable::~Renderable() {}
 
 void Renderable::default_cube() {
@@ -48,47 +56,47 @@ void Renderable::default_cube() {
 }
 
 
-void Renderable::default_sphere(int layers, int slices) {
-	std::vector<float> vertices{ 0.0, 1.0, 0.0,   1.0, 1.0, 1.0 };
-	std::vector<unsigned int> indices{ 0 };
-
-	float x,y,z = 0.0;
-	float vangle = M_PI / layers;
-	float hangle = 2 * M_PI / slices;
-	for (int i = 1; i < layers - 1; i++) {
-		y = std::cos(vangle * i);
-
-		for (int j = 0; j < slices; j++) {
-			x = std::cos(hangle * i);
-			z = std::sin(hangle * i);
-
-			vertices.push_back(x);
-			vertices.push_back(y);
-			vertices.push_back(z);
-			vertices.push_back(0.0);
-			vertices.push_back(0.0);
-			vertices.push_back(0.0);
-
-			// wtf should this be???
-			indices.push_back(i);
-		}
-	}
-
-	vertices.push_back(0.0);
-	vertices.push_back(-1.0);
-	vertices.push_back(0.0);
-	vertices.push_back(0.0);
-	vertices.push_back(0.0);
-	vertices.push_back(0.0);
-
-	indices.push_back(indices.size());
-
-	va.write_buffers(vertices.data(), vertices.size() * sizeof(float), indices.data(), indices.size() * sizeof(unsigned int));
-	va.enable_attribute(0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
-	va.enable_attribute(1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-
-	this->program.load_source_files("/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/fragment.shader");
-}
+// void Renderable::default_sphere(int layers, int slices) {
+// 	std::vector<float> vertices{ 0.0, 1.0, 0.0,   1.0, 1.0, 1.0 };
+// 	std::vector<unsigned int> indices{ 0 };
+// 
+// 	float x,y,z = 0.0;
+// 	float vangle = M_PI / layers;
+// 	float hangle = 2 * M_PI / slices;
+// 	for (int i = 1; i < layers - 1; i++) {
+// 		y = std::cos(vangle * i);
+// 
+// 		for (int j = 0; j < slices; j++) {
+// 			x = std::cos(hangle * i);
+// 			z = std::sin(hangle * i);
+// 
+// 			vertices.push_back(x);
+// 			vertices.push_back(y);
+// 			vertices.push_back(z);
+// 			vertices.push_back(0.0);
+// 			vertices.push_back(0.0);
+// 			vertices.push_back(0.0);
+// 
+// 			// wtf should this be???
+// 			indices.push_back(i);
+// 		}
+// 	}
+// 
+// 	vertices.push_back(0.0);
+// 	vertices.push_back(-1.0);
+// 	vertices.push_back(0.0);
+// 	vertices.push_back(0.0);
+// 	vertices.push_back(0.0);
+// 	vertices.push_back(0.0);
+// 
+// 	indices.push_back(indices.size());
+// 
+// 	va.write_buffers(vertices.data(), vertices.size() * sizeof(float), indices.data(), indices.size() * sizeof(unsigned int));
+// 	va.enable_attribute(0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+// 	va.enable_attribute(1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+// 
+// 	this->program.load_source_files("/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/fragment.shader");
+// }
 
 
 void Renderable::load_va(VertexArray& va) {
