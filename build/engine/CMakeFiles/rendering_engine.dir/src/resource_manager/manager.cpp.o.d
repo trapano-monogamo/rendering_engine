@@ -1,35 +1,21 @@
-engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: \
- /home/chiara/dev/cpp/rendering_engine/engine/src/core/renderable.cpp \
+engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: \
+ /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp \
  /usr/include/stdc-predef.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/vertex_array.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h \
- /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
- /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
- /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
- /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
- /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/time64.h /usr/include/bits/wchar.h \
- /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
- /usr/include/GL/gl.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp \
  /usr/include/c++/13.2.1/exception \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
+ /usr/include/features.h /usr/include/features-time64.h \
+ /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
  /usr/include/c++/13.2.1/pstl/pstl_config.h \
  /usr/include/c++/13.2.1/bits/exception.h \
  /usr/include/c++/13.2.1/bits/exception_ptr.h \
  /usr/include/c++/13.2.1/bits/exception_defines.h \
  /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
  /usr/include/c++/13.2.1/typeinfo \
  /usr/include/c++/13.2.1/bits/hash_bytes.h /usr/include/c++/13.2.1/new \
  /usr/include/c++/13.2.1/bits/move.h /usr/include/c++/13.2.1/type_traits \
@@ -40,10 +26,11 @@ engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: \
  /usr/include/c++/13.2.1/bits/memoryfwd.h \
  /usr/include/c++/13.2.1/bits/char_traits.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
- /usr/include/wchar.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h \
+ /usr/include/wchar.h /usr/include/bits/libc-header-start.h \
+ /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h \
- /usr/include/bits/types/wint_t.h /usr/include/bits/types/mbstate_t.h \
+ /usr/include/bits/wchar.h /usr/include/bits/types/wint_t.h \
+ /usr/include/bits/types/mbstate_t.h \
  /usr/include/bits/types/__mbstate_t.h /usr/include/bits/types/__FILE.h \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/locale_t.h \
  /usr/include/bits/types/__locale_t.h \
@@ -57,7 +44,9 @@ engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: \
  /usr/include/c++/13.2.1/clocale /usr/include/locale.h \
  /usr/include/bits/locale.h /usr/include/c++/13.2.1/iosfwd \
  /usr/include/c++/13.2.1/cctype /usr/include/ctype.h \
- /usr/include/bits/endian.h /usr/include/bits/endianness.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/time64.h /usr/include/bits/endian.h \
+ /usr/include/bits/endianness.h \
  /usr/include/c++/13.2.1/bits/ostream_insert.h \
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h \
  /usr/include/c++/13.2.1/bits/stl_iterator_base_funcs.h \
@@ -91,10 +80,11 @@ engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: \
  /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
  /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
  /usr/include/bits/types/clockid_t.h /usr/include/bits/types/time_t.h \
- /usr/include/bits/types/timer_t.h /usr/include/endian.h \
- /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/timer_t.h /usr/include/bits/stdint-intn.h \
+ /usr/include/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/bits/uintn-identity.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/types/sigset_t.h \
+ /usr/include/bits/types/__sigset_t.h \
  /usr/include/bits/types/struct_timeval.h \
  /usr/include/bits/types/struct_timespec.h \
  /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
@@ -129,6 +119,8 @@ engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13.2.1/bits/align.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/stdint-uintn.h \
  /usr/include/c++/13.2.1/bits/unique_ptr.h \
  /usr/include/c++/13.2.1/bits/shared_ptr.h \
  /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
@@ -170,41 +162,4 @@ engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: \
  /usr/include/c++/13.2.1/bits/locale_facets.tcc \
  /usr/include/c++/13.2.1/bits/basic_ios.tcc \
  /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
- /usr/include/c++/13.2.1/bits/istream.tcc \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp \
- /usr/include/c++/13.2.1/vector /usr/include/c++/13.2.1/bits/stl_vector.h \
- /usr/include/c++/13.2.1/bits/stl_bvector.h \
- /usr/include/c++/13.2.1/bits/vector.tcc \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/ecs/ecs.hpp \
- /usr/include/c++/13.2.1/cstdint /usr/include/c++/13.2.1/utility \
- /usr/include/c++/13.2.1/bits/stl_relops.h \
- /usr/include/c++/13.2.1/algorithm \
- /usr/include/c++/13.2.1/bits/stl_algo.h \
- /usr/include/c++/13.2.1/bits/algorithmfwd.h \
- /usr/include/c++/13.2.1/bits/stl_heap.h \
- /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
- /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/math/vec.hpp \
- /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
- /home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
- /usr/include/c++/13.2.1/cmath /usr/include/math.h \
- /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
- /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
- /usr/include/bits/fp-fast.h \
- /usr/include/bits/mathcalls-helper-functions.h \
- /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
- /usr/include/bits/iscanonical.h /usr/include/c++/13.2.1/bits/specfun.h \
- /usr/include/c++/13.2.1/limits /usr/include/c++/13.2.1/tr1/gamma.tcc \
- /usr/include/c++/13.2.1/tr1/special_function_util.h \
- /usr/include/c++/13.2.1/tr1/bessel_function.tcc \
- /usr/include/c++/13.2.1/tr1/beta_function.tcc \
- /usr/include/c++/13.2.1/tr1/ell_integral.tcc \
- /usr/include/c++/13.2.1/tr1/exp_integral.tcc \
- /usr/include/c++/13.2.1/tr1/hypergeometric.tcc \
- /usr/include/c++/13.2.1/tr1/legendre_function.tcc \
- /usr/include/c++/13.2.1/tr1/modified_bessel_func.tcc \
- /usr/include/c++/13.2.1/tr1/poly_hermite.tcc \
- /usr/include/c++/13.2.1/tr1/poly_laguerre.tcc \
- /usr/include/c++/13.2.1/tr1/riemann_zeta.tcc
+ /usr/include/c++/13.2.1/bits/istream.tcc

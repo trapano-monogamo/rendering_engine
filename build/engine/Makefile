@@ -442,6 +442,30 @@ src/math/vec.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.s
 .PHONY : src/math/vec.cpp.s
 
+src/resource_manager/manager.o: src/resource_manager/manager.cpp.o
+.PHONY : src/resource_manager/manager.o
+
+# target to build an object file
+src/resource_manager/manager.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o
+.PHONY : src/resource_manager/manager.cpp.o
+
+src/resource_manager/manager.i: src/resource_manager/manager.cpp.i
+.PHONY : src/resource_manager/manager.i
+
+# target to preprocess a source file
+src/resource_manager/manager.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.i
+.PHONY : src/resource_manager/manager.cpp.i
+
+src/resource_manager/manager.s: src/resource_manager/manager.cpp.s
+.PHONY : src/resource_manager/manager.s
+
+# target to generate assembly for a file
+src/resource_manager/manager.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.s
+.PHONY : src/resource_manager/manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -490,6 +514,9 @@ help:
 	@echo "... src/math/vec.o"
 	@echo "... src/math/vec.i"
 	@echo "... src/math/vec.s"
+	@echo "... src/resource_manager/manager.o"
+	@echo "... src/resource_manager/manager.i"
+	@echo "... src/resource_manager/manager.s"
 .PHONY : help
 
 

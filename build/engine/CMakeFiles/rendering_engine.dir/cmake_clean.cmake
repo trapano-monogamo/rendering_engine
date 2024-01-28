@@ -25,6 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o.d"
+  "CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o"
+  "CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o.d"
   "librendering_engine.a"
   "librendering_engine.pdb"
 )

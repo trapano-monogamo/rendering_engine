@@ -23,6 +23,7 @@ public:
 
 	void default_cube(); // builds hard-coded VA, shader and texture
 	void default_sphere(int layers, int slices);
+	void default_circle(int slices);
 
 	void load_va(VertexArray& va);
 	void load_shader(Shader& program);

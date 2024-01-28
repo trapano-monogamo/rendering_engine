@@ -13,5 +13,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/chiara/dev/cpp/rendering_engine/engine/include
 
-CXX_FLAGS = -g
+CXX_FLAGS = -Wall -Wextra -g -O0
 

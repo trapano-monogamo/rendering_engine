@@ -1,6 +1,8 @@
 #pragma once
 
-class Shader {
+#include "resource_manager/manager.hpp"
+
+class Shader : public Resource {
 private:
 	unsigned int program;
 
@@ -8,6 +10,8 @@ public:
 	Shader();
 	// Shader(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
 	~Shader();
+
+	void load_from_file(std::string& path) override;
 
 	void load_source_files(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
 	void load_source_string(const char* vertex_shader_filepath_src, const char* fragment_shader_src);

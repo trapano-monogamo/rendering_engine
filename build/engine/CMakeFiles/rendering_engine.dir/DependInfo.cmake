@@ -21,6 +21,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chiara/dev/cpp/rendering_engine/engine/src/math/mat.cpp" "engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/math/utils.cpp" "engine/CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/math/vec.cpp" "engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp" "engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

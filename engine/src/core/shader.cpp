@@ -1,5 +1,6 @@
 #include "common.hpp"
 #include "core/shader.hpp"
+#include "resource_manager/manager.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -7,8 +8,48 @@
 #include <sstream>
 
 Shader::Shader()
-	: program(glCreateProgram())
+	: Resource()
+	, program(glCreateProgram())
 {}
+
+
+/* a shader file should contain all shaders (vertex, fragment, geometry...)
+ * each prefaced by the line:
+ *
+ * 		#shader <shader-type>
+ *
+ * where <shader-type> is one of the ones cited (vertex, ...).
+ * */
+void Shader::load_from_file(std::string& path) {
+	enum ShaderType {
+		NONE = -1,
+		VERTEX = 0,
+		FRAGMENT = 1,
+	};
+
+	std::ifstream src(path);
+	std::string line{};
+	std::stringstream ss[2];
+	ShaderType type = ShaderType::NONE;
+
+	while (getline(src, line))
+    {
+        if (line.find("#shader") != std::string::npos)
+        {
+            if (line.find("vertex") != std::string::npos)
+                type = ShaderType::VERTEX;
+            else if (line.find("fragment") != std::string::npos)
+                type = ShaderType::FRAGMENT;
+        }
+        else
+        {
+            ss[(int)type] << line << '\n';
+        }
+    }
+
+	this->load_source_string(ss[0].str().c_str(), ss[1].str().c_str());
+}
+
 
 void Shader::load_source_files(const char *vertex_shader_filepath, const char *fragment_shader_filepath) {
 	std::ifstream f1(vertex_shader_filepath); 
@@ -23,7 +64,7 @@ void Shader::load_source_files(const char *vertex_shader_filepath, const char *f
 	 * what's causing the issue, but that needs to be rewritten
 	 * either way with a resource manager.
 	 * */
-	glUseProgram(this->program);
+	// glUseProgram(this->program);
 
 	this->load_source_string(vertex_shader_src.c_str(), fragment_shader_src.c_str());
 }

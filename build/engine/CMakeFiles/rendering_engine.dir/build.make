@@ -251,6 +251,20 @@ engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/math/vec.cpp.s"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/math/vec.cpp -o CMakeFiles/rendering_engine.dir/src/math/vec.cpp.s
 
+engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
+engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp
+engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o -MF CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp
+
+engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.i"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp > CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.i
+
+engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.s"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp -o CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.s
+
 # Object files for target rendering_engine
 rendering_engine_OBJECTS = \
 "CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o" \
@@ -265,7 +279,8 @@ rendering_engine_OBJECTS = \
 "CMakeFiles/rendering_engine.dir/src/glad.c.o" \
 "CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o" \
-"CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o"
+"CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o" \
+"CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o"
 
 # External object files for target rendering_engine
 rendering_engine_EXTERNAL_OBJECTS =
@@ -283,9 +298,10 @@ engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/glad.c.
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o
+engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/build.make
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX static library librendering_engine.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library librendering_engine.a"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && $(CMAKE_COMMAND) -P CMakeFiles/rendering_engine.dir/cmake_clean_target.cmake
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rendering_engine.dir/link.txt --verbose=$(VERBOSE)
 

@@ -98,6 +98,38 @@ void Renderable::default_cube() {
 // 	this->program.load_source_files("/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/fragment.shader");
 // }
 
+void Renderable::default_circle(int N) {
+	std::vector<float> vertices = { 0.f,0.f,0.f, 1.f,1.f,1.f }; // center of the cirlce (0,0,0, white)
+	std::vector<unsigned int> indices{ };
+
+	float dphi = 2*M_PI / N;
+	int knext = 0;
+
+	for (int k=1; k<=N; k++) {
+		vertices.push_back(cos(k*dphi));
+		vertices.push_back(sin(k*dphi));
+		vertices.push_back(0.f);
+
+		vertices.push_back(1 + .5*sin(k*dphi));
+		vertices.push_back(1 + .5*cos(k*dphi));
+		vertices.push_back(1 + .5*sin(2.*k*dphi));
+
+		knext = (k+1 > N) ? 1 : k+1;
+
+		indices.push_back(0);
+		indices.push_back(k);
+		indices.push_back(knext);
+	}
+
+	// this->va = VertexArray();
+	va.write_buffers(vertices.data(), 6 * N * sizeof(float), indices.data(), 3 * N * sizeof(unsigned int));
+	va.enable_attribute(0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+	va.enable_attribute(1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+
+	// ~ here ~
+	this->program.load_source_files("/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/circle_vertex.shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/circle_fragment.shader");
+}
+
 
 void Renderable::load_va(VertexArray& va) {
 	this->va = va;
