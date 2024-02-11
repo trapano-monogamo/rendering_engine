@@ -10,6 +10,3 @@ bool ResourceManager::register_resource(const std::string& key, const std::strin
 		return true;
 	}
 }
-
-template<typename R>
-std::shared_ptr<R> ResourceManager::load_resource(const std::string&) { }
