@@ -38,5 +38,5 @@ engine/CMakeFiles/rendering_engine.dir/src/glad.c.o: \
  /home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/wchar.h \
- /usr/include/bits/stdint-uintn.h /usr/include/dlfcn.h \
- /usr/include/bits/dlfcn.h
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h \
+ /usr/include/dlfcn.h /usr/include/bits/dlfcn.h

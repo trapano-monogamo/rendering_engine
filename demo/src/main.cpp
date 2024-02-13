@@ -138,7 +138,7 @@ int main() {
 
 	ResourceManager rm = ResourceManager();
 	rm.register_resource("basic shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
-	std::shared_ptr<Shader> s = rm.get_resource<Shader>("basic shader");
+	Shader* s = rm.get_resource<Shader>("basic shader");
 
 	exit(0);
 
