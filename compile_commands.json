@@ -7,6 +7,12 @@
 },
 {
   "directory": "/home/chiara/dev/cpp/rendering_engine/build/engine",
+  "command": "/usr/bin/c++  -I/home/chiara/dev/cpp/rendering_engine/engine/include -Wall -Wextra -g -O0 -o CMakeFiles/rendering_engine.dir/src/core/material.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp",
+  "file": "/home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp",
+  "output": "engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o"
+},
+{
+  "directory": "/home/chiara/dev/cpp/rendering_engine/build/engine",
   "command": "/usr/bin/c++  -I/home/chiara/dev/cpp/rendering_engine/engine/include -Wall -Wextra -g -O0 -o CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/mesh.cpp",
   "file": "/home/chiara/dev/cpp/rendering_engine/engine/src/core/mesh.cpp",
   "output": "engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o"
@@ -40,12 +46,6 @@
   "command": "/usr/bin/c++  -I/home/chiara/dev/cpp/rendering_engine/engine/include -Wall -Wextra -g -O0 -o CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/transform.cpp",
   "file": "/home/chiara/dev/cpp/rendering_engine/engine/src/core/transform.cpp",
   "output": "engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o"
-},
-{
-  "directory": "/home/chiara/dev/cpp/rendering_engine/build/engine",
-  "command": "/usr/bin/c++  -I/home/chiara/dev/cpp/rendering_engine/engine/include -Wall -Wextra -g -O0 -o CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/vertex_array.cpp",
-  "file": "/home/chiara/dev/cpp/rendering_engine/engine/src/core/vertex_array.cpp",
-  "output": "engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o"
 },
 {
   "directory": "/home/chiara/dev/cpp/rendering_engine/build/engine",

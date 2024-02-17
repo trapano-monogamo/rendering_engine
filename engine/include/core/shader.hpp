@@ -8,7 +8,6 @@ private:
 
 public:
 	Shader();
-	// Shader(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
 	~Shader();
 
 	void load_from_file(std::string& path) override;

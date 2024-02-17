@@ -83,10 +83,24 @@ engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp -o CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s
 
+engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
+engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp
+engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/material.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/material.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp
+
+engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rendering_engine.dir/src/core/material.cpp.i"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp > CMakeFiles/rendering_engine.dir/src/core/material.cpp.i
+
+engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/core/material.cpp.s"
+	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp -o CMakeFiles/rendering_engine.dir/src/core/material.cpp.s
+
 engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/mesh.cpp
 engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/mesh.cpp
 
 engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.i: cmake_force
@@ -100,7 +114,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.s: cmake_force
 engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/renderable.cpp
 engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/renderable.cpp
 
 engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.i: cmake_force
@@ -114,7 +128,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.s: cmake_force
 engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/scene.cpp
 engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/scene.cpp
 
 engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.i: cmake_force
@@ -128,7 +142,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.s: cmake_force
 engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/shader.cpp
 engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/shader.cpp
 
 engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.i: cmake_force
@@ -142,7 +156,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.s: cmake_force
 engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/texture.cpp
 engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/texture.cpp
 
 engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.i: cmake_force
@@ -156,7 +170,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.s: cmake_force
 engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/transform.cpp
 engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/transform.cpp
 
 engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.i: cmake_force
@@ -166,20 +180,6 @@ engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.i: cmake_force
 engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/core/transform.cpp.s"
 	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/core/transform.cpp -o CMakeFiles/rendering_engine.dir/src/core/transform.cpp.s
-
-engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
-engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/core/vertex_array.cpp
-engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o: engine/CMakeFiles/rendering_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o"
-	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o -MF CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o.d -o CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o -c /home/chiara/dev/cpp/rendering_engine/engine/src/core/vertex_array.cpp
-
-engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.i"
-	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/engine/src/core/vertex_array.cpp > CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.i
-
-engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.s"
-	cd /home/chiara/dev/cpp/rendering_engine/build/engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/engine/src/core/vertex_array.cpp -o CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.s
 
 engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o: engine/CMakeFiles/rendering_engine.dir/flags.make
 engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/ecs/ecs.cpp
@@ -268,13 +268,13 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.s: cmake
 # Object files for target rendering_engine
 rendering_engine_OBJECTS = \
 "CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o" \
+"CMakeFiles/rendering_engine.dir/src/core/material.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o" \
-"CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o" \
 "CMakeFiles/rendering_engine.dir/src/glad.c.o" \
 "CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o" \
@@ -286,13 +286,13 @@ rendering_engine_OBJECTS = \
 rendering_engine_EXTERNAL_OBJECTS =
 
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o
+engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o
-engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/glad.c.o
 engine/librendering_engine.a: engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o

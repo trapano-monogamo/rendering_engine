@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d"
+  "CMakeFiles/rendering_engine.dir/src/core/material.cpp.o"
+  "CMakeFiles/rendering_engine.dir/src/core/material.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o"
@@ -13,8 +15,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o.d"
-  "CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o"
-  "CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/glad.c.o"

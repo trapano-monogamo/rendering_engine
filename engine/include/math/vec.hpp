@@ -81,7 +81,6 @@ struct vec4 {
 };
 
 
-/*
 struct vec2 {
 	union {
 		struct {
@@ -108,4 +107,3 @@ struct vec2 {
 	static float dot(vec2 a, vec2 b);
 	static vec3 cross(vec2 a, vec2 b);
 };
-*/

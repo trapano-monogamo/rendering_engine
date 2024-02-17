@@ -1,5 +1,6 @@
 #include "math/mat.hpp"
 #include "math/utils.hpp"
+#include "math/vec.hpp"
 #include <cmath>
 
 mat4::mat4(std::array<float, 16> _m) {
@@ -113,9 +114,16 @@ mat4 mat4::rotation(vec3 u, float a) {
 		0.0,                           0.0,                             0.0,                          1.0
 	});
 }
+mat4 mat4::rotation(vec3 euler_angles) {
+	return mat4::rotation(VEC3_X, euler_angles[0]) * mat4::rotation(VEC3_Y, euler_angles[1]) * mat4::rotation(VEC3_Z, euler_angles[2]);
+}
 
 mat4 mat4::transform(vec3 scale, vec3 rotation_axis, float angle, vec3 translation) {
 	return (mat4::scale(scale) * mat4::rotation(rotation_axis, angle)) * mat4::translation(translation);
+}
+
+mat4 mat4::transform(vec3 scale, vec3 euler_angles, vec3 translation) {
+	return (mat4::scale(scale) * mat4::rotation(euler_angles)) * mat4::translation(translation);
 }
 
 

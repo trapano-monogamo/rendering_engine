@@ -1,11 +1,15 @@
 #include "ecs/ecs.hpp"
+#include <algorithm>
 
-ECS::~ECS() { 
+ECS::~ECS() {
+	// ugly as hell solution
+	std::vector<Component*> ptrs{};
 	for (auto entry : this->components) {
 		for (Component* c : entry.second) {
-			delete c;
+			if (std::find(ptrs.begin(), ptrs.end(), c) == ptrs.end()) ptrs.push_back(c);
 		}
 	}
+	for (Component* c : ptrs) delete c;
 	for (auto sys : this->systems) {
 		delete sys;
 	}

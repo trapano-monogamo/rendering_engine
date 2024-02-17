@@ -154,6 +154,30 @@ src/core/camera.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s
 .PHONY : src/core/camera.cpp.s
 
+src/core/material.o: src/core/material.cpp.o
+.PHONY : src/core/material.o
+
+# target to build an object file
+src/core/material.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o
+.PHONY : src/core/material.cpp.o
+
+src/core/material.i: src/core/material.cpp.i
+.PHONY : src/core/material.i
+
+# target to preprocess a source file
+src/core/material.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.i
+.PHONY : src/core/material.cpp.i
+
+src/core/material.s: src/core/material.cpp.s
+.PHONY : src/core/material.s
+
+# target to generate assembly for a file
+src/core/material.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.s
+.PHONY : src/core/material.cpp.s
+
 src/core/mesh.o: src/core/mesh.cpp.o
 .PHONY : src/core/mesh.o
 
@@ -297,30 +321,6 @@ src/core/transform.s: src/core/transform.cpp.s
 src/core/transform.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.s
 .PHONY : src/core/transform.cpp.s
-
-src/core/vertex_array.o: src/core/vertex_array.cpp.o
-.PHONY : src/core/vertex_array.o
-
-# target to build an object file
-src/core/vertex_array.cpp.o:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.o
-.PHONY : src/core/vertex_array.cpp.o
-
-src/core/vertex_array.i: src/core/vertex_array.cpp.i
-.PHONY : src/core/vertex_array.i
-
-# target to preprocess a source file
-src/core/vertex_array.cpp.i:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.i
-.PHONY : src/core/vertex_array.cpp.i
-
-src/core/vertex_array.s: src/core/vertex_array.cpp.s
-.PHONY : src/core/vertex_array.s
-
-# target to generate assembly for a file
-src/core/vertex_array.cpp.s:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/vertex_array.cpp.s
-.PHONY : src/core/vertex_array.cpp.s
 
 src/ecs/ecs.o: src/ecs/ecs.cpp.o
 .PHONY : src/ecs/ecs.o
@@ -478,6 +478,9 @@ help:
 	@echo "... src/core/camera.o"
 	@echo "... src/core/camera.i"
 	@echo "... src/core/camera.s"
+	@echo "... src/core/material.o"
+	@echo "... src/core/material.i"
+	@echo "... src/core/material.s"
 	@echo "... src/core/mesh.o"
 	@echo "... src/core/mesh.i"
 	@echo "... src/core/mesh.s"
@@ -496,9 +499,6 @@ help:
 	@echo "... src/core/transform.o"
 	@echo "... src/core/transform.i"
 	@echo "... src/core/transform.s"
-	@echo "... src/core/vertex_array.o"
-	@echo "... src/core/vertex_array.i"
-	@echo "... src/core/vertex_array.s"
 	@echo "... src/ecs/ecs.o"
 	@echo "... src/ecs/ecs.i"
 	@echo "... src/ecs/ecs.s"

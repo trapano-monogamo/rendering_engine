@@ -1,5 +1,4 @@
 #include "core/transform.hpp"
-#include <cmath>
 
 Transform::Transform()
 	: position(vec3())

@@ -1,5 +1,7 @@
 #include "core/scene.hpp"
+#include "core/mesh.hpp"
 #include "core/renderable.hpp"
+#include "core/shader.hpp"
 #include "core/transform.hpp"
 #include "math/mat.hpp"
 #include "math/utils.hpp"
@@ -20,16 +22,19 @@ void Scene::render() {
 		Renderable* obj = this->get_component<Renderable>(entity);
 		Transform* t = this->get_component<Transform>(entity);
 
-		mat4 transform = mat4::transform(t->scale, vec3(), 0.0, t->position);
+		mat4 transform = mat4::transform(t->scale, t->euler_rotations, t->position);
 
-		obj->program.set_uniform_matrix_4fv("transform", transform.m);
-		obj->program.set_uniform_matrix_4fv("view", view.m);
-		obj->program.set_uniform_matrix_4fv("projection", this->camera.projection.m);
+		auto va = get_resource<VertexArray>(obj->va_key);
+		auto shader = get_resource<Shader>(obj->shader_key);
 
-		obj->texture.use();
-		obj->va.use();
-		obj->program.use();
-		glDrawElements(GL_TRIANGLES, obj->va.elements_count, GL_UNSIGNED_INT, 0);
+		shader->set_uniform_matrix_4fv("transform", transform.m);
+		shader->set_uniform_matrix_4fv("view", view.m);
+		shader->set_uniform_matrix_4fv("projection", this->camera.projection.m);
+
+		// obj->texture.use();
+		va->use();
+		shader->use();
+		glDrawElements(GL_TRIANGLES, (unsigned int)va->indices.size(), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
 }

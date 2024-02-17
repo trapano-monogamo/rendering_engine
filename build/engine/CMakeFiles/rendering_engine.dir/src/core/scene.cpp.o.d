@@ -138,15 +138,6 @@ engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: \
  /home/chiara/dev/cpp/rendering_engine/engine/include/math/vec.hpp \
  /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
  /home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/vertex_array.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h \
- /usr/include/GL/gl.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp \
  /usr/include/c++/13.2.1/string \
  /usr/include/c++/13.2.1/bits/char_traits.h \
@@ -171,6 +162,14 @@ engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: \
  /usr/include/bits/types/error_t.h \
  /usr/include/c++/13.2.1/bits/charconv.h \
  /usr/include/c++/13.2.1/bits/basic_string.tcc \
- /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/core/mesh.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h \
+ /usr/include/GL/gl.h \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp

@@ -1,0 +1,153 @@
+#include "core/mesh.hpp"
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
+#include <string>
+#include <sstream>
+
+Vertex::Vertex()
+	: position()
+	, normal()
+	, color(1.f, 1.f, 1.f)
+	, tex_coords()
+{}
+
+VertexArray::VertexArray()
+	: vertices()
+	, indices()
+{
+	glGenBuffers(1, &this->vbo);
+	glGenBuffers(1, &this->ebo);
+	glGenVertexArrays(1, &this->vao);
+}
+
+VertexArray::~VertexArray() {
+	glDeleteBuffers(1, &this->vbo);
+	glDeleteBuffers(1, &this->ebo);
+}
+
+void VertexArray::load_from_file(std::string& path) {
+	std::ifstream f(path);
+	if (!f.good()) throw std::runtime_error("Could not open VertexArray resource file.");
+
+	enum VertexField {
+		NONE,
+		POSITION,
+		NORMAL,
+		COLOR,
+		TEXTURE,
+		INDEX,
+	};
+
+	int size = -1;
+	int elements = -1;
+	int i = 0;
+
+	std::string tmp;
+
+	std::string line;
+	std::stringstream line_content;
+	VertexField field;
+	while (getline(f,line)) {
+		std::stringstream().swap(line_content);
+		line_content << line;
+
+		if (line.find("#field") != std::string::npos)
+		{
+			i = 0;
+			if (line.find("position") != std::string::npos) field = POSITION;
+			else if (line.find("normal") != std::string::npos) field = NORMAL;
+			else if (line.find("color") != std::string::npos) field = COLOR;
+			else if (line.find("tex_coords") != std::string::npos) field = TEXTURE;
+			else if (line.find("index") != std::string::npos) field = INDEX;
+		}
+		else if (line.find("#param") != std::string::npos)
+		{
+			if (line.find("size") != std::string::npos) {
+				line_content >> tmp >> tmp >> size;
+				vertices = std::vector<Vertex>(size);
+			} else if (line.find("elements") != std::string::npos) {
+				line_content >> tmp >> tmp >> elements;
+				indices = std::vector<unsigned int>(elements);
+			} else { throw std::runtime_error("Invalid argument for '#param'"); }
+
+		}
+		else if (!line.empty())
+		{
+			if (size == -1) { throw std::runtime_error("Missing 'size' parameter for VertexArray."); }
+			switch (field) {
+				case POSITION:
+					line_content >> vertices[i].position.x >> vertices[i].position.y >> vertices[i].position.z;
+					break;
+				case NORMAL:
+					line_content >> vertices[i].normal.x >> vertices[i].normal.y >> vertices[i].normal.z;
+					break;
+				case COLOR:
+					line_content >> vertices[i].color.x >> vertices[i].color.y >> vertices[i].color.z;
+					break;
+				case TEXTURE:
+					line_content >> vertices[i].tex_coords.u >> vertices[i].tex_coords.v;
+					break;
+				case INDEX:
+					line_content >> indices[i];
+					break;
+				default:
+					i--; // do nothing
+					break;
+			}
+			i++;
+		}
+
+		if (elements == -1) {
+			indices.clear();
+			for (int idx=0; idx<elements; idx++) indices.push_back(idx);
+		}
+	}
+
+	write_buffers();
+}
+
+void VertexArray::use() {
+	glBindVertexArray(this->vao);
+	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
+}
+
+void VertexArray::write_buffers() {
+	int gl_vertices_size = vertices.size() * 11;
+	float* gl_vertices = new float[gl_vertices_size]; // 1 Vertex = 11 floats
+	for (unsigned int i = 0; i<vertices.size(); i++) {
+		gl_vertices[i * 11 + 0] = vertices[i].position.x;
+		gl_vertices[i * 11 + 1] = vertices[i].position.y;
+		gl_vertices[i * 11 + 2] = vertices[i].position.z;
+
+		gl_vertices[i * 11 + 3] = vertices[i].normal.x;
+		gl_vertices[i * 11 + 4] = vertices[i].normal.y;
+		gl_vertices[i * 11 + 5] = vertices[i].normal.z;
+
+		gl_vertices[i * 11 + 6] = vertices[i].color.r;
+		gl_vertices[i * 11 + 7] = vertices[i].color.g;
+		gl_vertices[i * 11 + 8] = vertices[i].color.b;
+
+		gl_vertices[i * 11 + 9] = vertices[i].tex_coords.u;
+		gl_vertices[i * 11 +10] = vertices[i].tex_coords.v;
+	}
+
+	glBindVertexArray(vao);
+
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * gl_vertices_size, gl_vertices, GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), indices.data(), GL_STATIC_DRAW);
+
+	enable_attribute(0, 3, GL_FLOAT, 11 * sizeof(float), (void*)0);
+	enable_attribute(1, 3, GL_FLOAT, 11 * sizeof(float), (void*)(3 * sizeof(float)));
+	enable_attribute(2, 3, GL_FLOAT, 11 * sizeof(float), (void*)(6 * sizeof(float)));
+	enable_attribute(3, 2, GL_FLOAT, 11 * sizeof(float), (void*)(9 * sizeof(float)));
+}
+
+void VertexArray::enable_attribute(int index, int size, GLenum type, int stride, void* ptr) {
+	this->use();
+	glVertexAttribPointer(index, size, type, GL_FALSE, stride, ptr);
+	glEnableVertexAttribArray(index);
+}

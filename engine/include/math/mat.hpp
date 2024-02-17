@@ -28,7 +28,9 @@ struct mat4 {
 	static mat4 translation(vec3 pos);
 	static mat4 scale(vec3 scale);
 	static mat4 rotation(vec3 axis, float angle);
+	static mat4 rotation(vec3 euler_angles);
 	static mat4 transform(vec3 scale, vec3 rotation_axis, float angle, vec3 translation);
+	static mat4 transform(vec3 scale, vec3 euler_angles, vec3 translation);
 
 	static mat4 ortho(float near, float far, float left, float right, float top, float bottom);
 	static mat4 perspective(float fovy, float aspect_ratio, float near, float far);

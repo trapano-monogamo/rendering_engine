@@ -1,35 +1,23 @@
 #pragma once
 
-#include "core/vertex_array.hpp"
-#include "core/shader.hpp"
-#include "core/texture.hpp"
 #include "core/transform.hpp"
-#include "ecs/ecs.hpp"
+#include <string>
 
-class Renderable : public Component {
+class Renderable : public Transform {
 public:
-	VertexArray va;
-	Shader program;
-	Texture texture;
-
-	// struct {
-	// 	char* vertex_filepath, fragment_filepath, texture_filepath;
-	// }Config;
+	std::string va_key;
+	std::string light_prop_key;
+	std::string shader_key;
+	std::string texture_key;
 
 public:
-	// Renderable(std::shared_ptr<VertexArray> va, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture);
 	Renderable();
-	~Renderable();
+	Renderable(std::string va_key, std::string light_prop_key, std::string shader_key, std::string texture_key);
+	~Renderable() = default;
 
-	void default_cube(); // builds hard-coded VA, shader and texture
-	void default_sphere(int layers, int slices);
-	void default_circle(int slices);
-
-	void load_va(VertexArray& va);
-	void load_shader(Shader& program);
-	void load_texture(Texture& texture);
-	// Renderable load_obj(const char* filepath);
-	Renderable build();
+	// void default_cube();
+	// void default_sphere(int layers, int slices);
+	// void default_circle(int slices);
 
 	void draw(Transform* t);
 };

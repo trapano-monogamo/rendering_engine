@@ -1,29 +1,21 @@
 #include "core/renderable.hpp"
-#include "ecs/ecs.hpp"
-#include "math/mat.hpp"
-
 #include "utils.hpp"
-#include <cmath>
-#include <iostream>
-#include <vector>
 
 Renderable::Renderable()
-	: Component()
-	// !!!  NOT INITIALIZING THESE HERE MAKES THEM DEFAULT INITIALIZED, SO NOT VALID WHEN YOU TRY TO RE-INITIALIZE THEM  !!!
-	, va(VertexArray())
-	, program(Shader())
+	: va_key("default_va")
+	, light_prop_key("default_light_prop")
+	, shader_key("default_shader")
+	, texture_key("")
 {}
 
-// Renderable::Renderable(std::shared_ptr<VertexArray> _va, std::shared_ptr<Shader> _shader, std::shared_ptr<Texture> _texture)
-// 	: Component()
-// 	// !!!  NOT INITIALIZING THESE HERE MAKES THEM DEFAULT INITIALIZED, SO NOT VALID WHEN YOU TRY TO RE-INITIALIZE THEM  !!!
-// 	, va(_va)
-// 	, program(_shader)
-// 	, texture(_texture)
-// {}
+Renderable::Renderable(std::string va_key, std::string light_prop_key, std::string shader_key, std::string texture_key)
+	: va_key(va_key)
+	, light_prop_key(light_prop_key)
+	, shader_key(shader_key)
+	, texture_key(texture_key)
+{}
 
-Renderable::~Renderable() {}
-
+/*
 void Renderable::default_cube() {
 	float vertices[] = {
 		-0.5, -0.5, -0.5,  1.0, 0.0, 0.0,  0.0, 0.0,
@@ -129,16 +121,4 @@ void Renderable::default_circle(int N) {
 	// ~ here ~
 	this->program.load_source_files("/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/circle_vertex.shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/circle_fragment.shader");
 }
-
-
-void Renderable::load_va(VertexArray& va) {
-	this->va = va;
-}
-
-void Renderable::load_shader(Shader& shader) {
-	this->program = shader;
-}
-
-void Renderable::load_texture(Texture& texture) {
-	this->texture = texture;
-}
+*/

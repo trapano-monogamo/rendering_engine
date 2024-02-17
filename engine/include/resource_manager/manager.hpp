@@ -5,6 +5,13 @@
 #include <memory>
 
 
+/* Provide default filepaths/resources under the keys:
+ *   default_light_prop
+ *   default_shader
+ *   default_texture
+ * */
+
+
 class Resource {
 public:
 	Resource() = default;

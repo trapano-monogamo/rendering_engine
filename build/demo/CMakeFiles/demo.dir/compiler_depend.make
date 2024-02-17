@@ -6,12 +6,13 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /home/chiara/dev/cpp/rendering_engine/engine/include/KHR/khrplatform.h \
   /home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/camera.hpp \
+  /home/chiara/dev/cpp/rendering_engine/engine/include/core/material.hpp \
+  /home/chiara/dev/cpp/rendering_engine/engine/include/core/mesh.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/scene.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp \
-  /home/chiara/dev/cpp/rendering_engine/engine/include/core/vertex_array.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/ecs/ecs.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h \
   /home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp \
@@ -112,8 +113,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/basic_string.tcc \
   /usr/include/c++/13.2.1/bits/char_traits.h \
   /usr/include/c++/13.2.1/bits/charconv.h \
-  /usr/include/c++/13.2.1/bits/chrono.h \
-  /usr/include/c++/13.2.1/bits/codecvt.h \
   /usr/include/c++/13.2.1/bits/concept_check.h \
   /usr/include/c++/13.2.1/bits/cpp_type_traits.h \
   /usr/include/c++/13.2.1/bits/cxxabi_forced.h \
@@ -123,7 +122,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/exception.h \
   /usr/include/c++/13.2.1/bits/exception_defines.h \
   /usr/include/c++/13.2.1/bits/exception_ptr.h \
-  /usr/include/c++/13.2.1/bits/fstream.tcc \
   /usr/include/c++/13.2.1/bits/functexcept.h \
   /usr/include/c++/13.2.1/bits/functional_hash.h \
   /usr/include/c++/13.2.1/bits/hash_bytes.h \
@@ -145,7 +143,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/node_handle.h \
   /usr/include/c++/13.2.1/bits/ostream.tcc \
   /usr/include/c++/13.2.1/bits/ostream_insert.h \
-  /usr/include/c++/13.2.1/bits/parse_numbers.h \
   /usr/include/c++/13.2.1/bits/postypes.h \
   /usr/include/c++/13.2.1/bits/predefined_ops.h \
   /usr/include/c++/13.2.1/bits/ptr_traits.h \
@@ -156,9 +153,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
   /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
   /usr/include/c++/13.2.1/bits/specfun.h \
-  /usr/include/c++/13.2.1/bits/sstream.tcc \
   /usr/include/c++/13.2.1/bits/std_abs.h \
-  /usr/include/c++/13.2.1/bits/std_thread.h \
   /usr/include/c++/13.2.1/bits/stl_algo.h \
   /usr/include/c++/13.2.1/bits/stl_algobase.h \
   /usr/include/c++/13.2.1/bits/stl_bvector.h \
@@ -178,7 +173,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/streambuf_iterator.h \
   /usr/include/c++/13.2.1/bits/string_view.tcc \
   /usr/include/c++/13.2.1/bits/stringfwd.h \
-  /usr/include/c++/13.2.1/bits/this_thread_sleep.h \
   /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
   /usr/include/c++/13.2.1/bits/unique_ptr.h \
   /usr/include/c++/13.2.1/bits/unordered_map.h \
@@ -188,7 +182,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/vector.tcc \
   /usr/include/c++/13.2.1/cctype \
   /usr/include/c++/13.2.1/cerrno \
-  /usr/include/c++/13.2.1/chrono \
   /usr/include/c++/13.2.1/clocale \
   /usr/include/c++/13.2.1/cmath \
   /usr/include/c++/13.2.1/compare \
@@ -196,7 +189,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/cstdint \
   /usr/include/c++/13.2.1/cstdio \
   /usr/include/c++/13.2.1/cstdlib \
-  /usr/include/c++/13.2.1/ctime \
   /usr/include/c++/13.2.1/cwchar \
   /usr/include/c++/13.2.1/cwctype \
   /usr/include/c++/13.2.1/debug/assertions.h \
@@ -209,7 +201,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/ext/numeric_traits.h \
   /usr/include/c++/13.2.1/ext/string_conversions.h \
   /usr/include/c++/13.2.1/ext/type_traits.h \
-  /usr/include/c++/13.2.1/fstream \
   /usr/include/c++/13.2.1/initializer_list \
   /usr/include/c++/13.2.1/ios \
   /usr/include/c++/13.2.1/iosfwd \
@@ -223,14 +214,11 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
   /usr/include/c++/13.2.1/pstl/pstl_config.h \
-  /usr/include/c++/13.2.1/ratio \
-  /usr/include/c++/13.2.1/sstream \
   /usr/include/c++/13.2.1/stdexcept \
   /usr/include/c++/13.2.1/streambuf \
   /usr/include/c++/13.2.1/string \
   /usr/include/c++/13.2.1/string_view \
   /usr/include/c++/13.2.1/system_error \
-  /usr/include/c++/13.2.1/thread \
   /usr/include/c++/13.2.1/tr1/bessel_function.tcc \
   /usr/include/c++/13.2.1/tr1/beta_function.tcc \
   /usr/include/c++/13.2.1/tr1/ell_integral.tcc \
@@ -250,10 +238,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/utility \
   /usr/include/c++/13.2.1/vector \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
-  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
-  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++locale.h \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
   /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h \
@@ -298,6 +284,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/wchar.h:
 
+/usr/include/time.h:
+
 /usr/include/sys/single_threaded.h:
 
 /usr/include/sys/cdefs.h:
@@ -306,17 +294,11 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/pthread.h:
 
-/usr/include/math.h:
+/usr/include/c++/13.2.1/bits/hashtable_policy.h:
 
-/usr/include/locale.h:
+/usr/include/asm-generic/errno.h:
 
-/usr/include/features-time64.h:
-
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
-
-/usr/include/ctype.h:
+/usr/include/bits/fp-logb.h:
 
 /usr/include/c++/13.2.1/bits/functional_hash.h:
 
@@ -334,12 +316,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/cpu-set.h:
 
-/usr/include/c++/13.2.1/bits/cxxabi_forced.h:
-
-/usr/include/c++/13.2.1/bits/uses_allocator_args.h:
-
-/usr/include/c++/13.2.1/bits/chrono.h:
-
 /usr/include/c++/13.2.1/tr1/hypergeometric.tcc:
 
 /usr/include/c++/13.2.1/bits/char_traits.h:
@@ -355,6 +331,10 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h:
 
 /usr/include/c++/13.2.1/bits/stl_iterator.h:
+
+/usr/include/c++/13.2.1/cmath:
+
+/usr/include/features-time64.h:
 
 /usr/include/c++/13.2.1/bits/align.h:
 
@@ -376,19 +356,17 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/postypes.h:
 
-/usr/include/gnu/stubs-64.h:
-
-/usr/include/c++/13.2.1/bits/streambuf.tcc:
-
-/usr/include/c++/13.2.1/cstdlib:
-
-/usr/include/c++/13.2.1/iosfwd:
-
 /usr/include/bits/types/wint_t.h:
 
 /usr/include/c++/13.2.1/bits/streambuf_iterator.h:
 
 /usr/include/bits/waitflags.h:
+
+/usr/include/ctype.h:
+
+/usr/include/c++/13.2.1/bits/hash_bytes.h:
+
+/usr/include/bits/types/struct_sched_param.h:
 
 /usr/include/bits/types/struct_itimerspec.h:
 
@@ -418,11 +396,11 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/cerrno:
 
+/usr/include/bits/types/__mbstate_t.h:
+
 /usr/include/bits/time.h:
 
 /usr/include/bits/stdio_lim.h:
-
-/usr/include/c++/13.2.1/bits/this_thread_sleep.h:
 
 /usr/include/c++/13.2.1/limits:
 
@@ -431,6 +409,10 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/c++/13.2.1/bits/allocated_ptr.h:
 
 /usr/include/bits/errno.h:
+
+/usr/include/bits/time64.h:
+
+/usr/include/bits/stdlib-float.h:
 
 /usr/include/bits/endianness.h:
 
@@ -446,10 +428,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/uintn-identity.h:
 
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h:
-
-/usr/include/bits/typesizes.h:
-
 /usr/include/c++/13.2.1/bits/vector.tcc:
 
 /home/chiara/dev/cpp/rendering_engine/demo/src/main.cpp:
@@ -462,29 +440,21 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/cpp_type_traits.h:
 
-/usr/include/bits/time64.h:
+/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
 
-/usr/include/bits/stdlib-float.h:
+/usr/include/c++/13.2.1/bits/invoke.h:
 
-/usr/include/asm-generic/errno.h:
+/usr/include/c++/13.2.1/bits/basic_ios.h:
 
-/usr/include/bits/fp-logb.h:
+/usr/include/c++/13.2.1/array:
 
-/usr/include/c++/13.2.1/bits/hashtable_policy.h:
+/home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp:
 
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/bits/timex.h:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h:
+/usr/include/bits/floatn.h:
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp:
 
 /usr/include/bits/types/error_t.h:
-
-/usr/include/bits/types/__mbstate_t.h:
-
-/usr/include/c++/13.2.1/chrono:
 
 /usr/include/c++/13.2.1/istream:
 
@@ -504,6 +474,12 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/stdint-least.h:
 
+/usr/include/bits/timex.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h:
+
+/usr/include/asm-generic/errno-base.h:
+
 /usr/include/c++/13.2.1/algorithm:
 
 /usr/include/bits/mathcalls-helper-functions.h:
@@ -520,6 +496,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/stl_uninitialized.h:
 
+/usr/include/c++/13.2.1/string_view:
+
 /usr/include/bits/atomic_wide_counter.h:
 
 /usr/include/bits/locale.h:
@@ -530,17 +508,19 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/cctype:
 
+/usr/include/c++/13.2.1/bits/stl_relops.h:
+
 /usr/include/c++/13.2.1/pstl/execution_defs.h:
 
 /usr/include/bits/endian.h:
 
 /usr/include/c++/13.2.1/clocale:
 
+/usr/include/c++/13.2.1/bits/atomic_base.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/core/material.hpp:
+
 /usr/include/bits/iscanonical.h:
-
-/usr/include/c++/13.2.1/bits/stl_construct.h:
-
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
 
 /usr/include/bits/types/FILE.h:
 
@@ -550,13 +530,19 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/math/vec.hpp:
 
+/usr/include/c++/13.2.1/bits/cxxabi_forced.h:
+
+/usr/include/c++/13.2.1/bits/uses_allocator_args.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/core/mesh.hpp:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp:
+
+/usr/include/c++/13.2.1/bits/stl_construct.h:
+
+/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
+
 /home/chiara/dev/cpp/rendering_engine/engine/include/core/camera.hpp:
-
-/usr/include/errno.h:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/core/vertex_array.hpp:
-
-/usr/include/c++/13.2.1/bits/codecvt.h:
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp:
 
@@ -572,47 +558,25 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/predefined_ops.h:
 
-/usr/include/c++/13.2.1/string_view:
-
-/usr/include/c++/13.2.1/bits/sstream.tcc:
-
 /usr/include/bits/pthreadtypes.h:
 
 /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h:
 
 /usr/include/c++/13.2.1/debug/assertions.h:
 
-/usr/include/c++/13.2.1/bits/fstream.tcc:
-
-/usr/include/c++/13.2.1/bits/uses_allocator.h:
-
-/usr/include/c++/13.2.1/bits/basic_ios.h:
-
-/usr/include/c++/13.2.1/array:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp:
-
-/usr/include/bits/floatn.h:
-
 /usr/include/bits/floatn-common.h:
 
-/home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp:
-
 /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h:
-
-/usr/include/bits/libc-header-start.h:
 
 /usr/include/wctype.h:
 
 /usr/include/sched.h:
 
-/usr/include/bits/fp-fast.h:
-
 /home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp:
 
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
+/usr/include/bits/fp-fast.h:
 
-/usr/include/c++/13.2.1/bits/invoke.h:
+/usr/include/bits/libc-header-start.h:
 
 /usr/include/c++/13.2.1/bits/functexcept.h:
 
@@ -660,6 +624,10 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/node_handle.h:
 
+/usr/include/asm/errno.h:
+
+/usr/include/bits/stdint-uintn.h:
+
 /usr/include/bits/types/sigset_t.h:
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
@@ -684,11 +652,11 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/move.h:
 
-/usr/include/c++/13.2.1/bits/atomic_base.h:
-
-/usr/include/c++/13.2.1/bits/std_thread.h:
-
 /usr/include/c++/13.2.1/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/13.2.1/bits/streambuf.tcc:
+
+/usr/include/gnu/stubs-64.h:
 
 /usr/include/c++/13.2.1/bits/nested_exception.h:
 
@@ -704,15 +672,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/ostream_insert.h:
 
-/usr/include/c++/13.2.1/fstream:
-
 /usr/include/c++/13.2.1/string:
-
-/usr/include/asm/errno.h:
-
-/usr/include/bits/stdint-uintn.h:
-
-/usr/include/c++/13.2.1/bits/parse_numbers.h:
 
 /usr/include/c++/13.2.1/bits/refwrap.h:
 
@@ -734,14 +694,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/stl_algobase.h:
 
-/usr/include/stdio.h:
-
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
-
-/usr/include/bits/wordsize.h:
-
-/usr/include/c++/13.2.1/bits/stl_bvector.h:
-
 /usr/include/c++/13.2.1/tr1/exp_integral.tcc:
 
 /usr/include/c++/13.2.1/bits/stl_function.h:
@@ -758,17 +710,17 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/unordered_map.h:
 
+/usr/include/c++/13.2.1/bits/uses_allocator.h:
+
 /usr/include/c++/13.2.1/cstdint:
 
-/usr/include/c++/13.2.1/ctime:
+/usr/include/c++/13.2.1/cstdlib:
+
+/usr/include/c++/13.2.1/iosfwd:
 
 /usr/include/sys/types.h:
 
 /usr/include/c++/13.2.1/cwchar:
-
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
-
-/usr/include/c++/13.2.1/cwctype:
 
 /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h:
 
@@ -810,21 +762,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/pstl/pstl_config.h:
 
-/usr/include/c++/13.2.1/bits/hash_bytes.h:
-
-/usr/include/bits/types/struct_sched_param.h:
-
-/usr/include/c++/13.2.1/ratio:
-
-/usr/include/time.h:
-
-/usr/include/c++/13.2.1/sstream:
-
 /usr/include/c++/13.2.1/streambuf:
-
-/usr/include/c++/13.2.1/cmath:
-
-/usr/include/c++/13.2.1/thread:
 
 /usr/include/c++/13.2.1/ext/aligned_buffer.h:
 
@@ -850,16 +788,36 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/vector:
 
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/basic_file.h:
-
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
 
-/usr/include/c++/13.2.1/bits/stl_relops.h:
-
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++io.h:
-
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h:
+
+/usr/include/stdio.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/c++/13.2.1/bits/stl_bvector.h:
+
+/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h:
+
+/usr/include/c++/13.2.1/cwctype:
+
+/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
+
+/usr/include/stdint.h:
+
+/usr/include/endian.h:
+
+/usr/include/errno.h:
+
+/usr/include/locale.h:
+
+/usr/include/math.h:

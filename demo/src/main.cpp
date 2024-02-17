@@ -1,27 +1,21 @@
 #include "common.hpp"
 
-#include <chrono>
 #include <cstdint>
-#include <exception>
 #include <iostream>
 #include <cmath>
 #include <memory>
-#include <thread>
 #include <vector>
 
-#include <fstream>
 #include <string>
-#include <sstream>
 
 #include "core/transform.hpp"
 #include "core/renderable.hpp"
 #include "core/scene.hpp"
-#include "core/vertex_array.hpp"
+#include "core/mesh.hpp"
 #include "core/shader.hpp"
 #include "core/texture.hpp"
 #include "core/camera.hpp"
 #include "math/utils.hpp"
-#include "math/mat.hpp"
 #include "math/vec.hpp"
 #include "ecs/ecs.hpp"
 #include "resource_manager/manager.hpp"
@@ -156,23 +150,34 @@ int main() {
 
 
 
-
-
-	ResourceManager rm = ResourceManager();
-	rm.register_resource("basic_shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
-	rm.register_resource("basic_texture", "/home/chiara/dev/cpp/rendering_engine/engine/assets/textures/container.jpg");
-
-
-
-
-
 	// ..:: DEFINITIONS ::..
 
 	float speed = 2.5f;
 
 	Scene scene = Scene();
-	scene.camera = Camera(vec3(0.0, 0.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
 
+	scene.camera = Camera(vec3(0.0, 0.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
+	scene.register_resource("basic_va", "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/test_mesh.mesh");
+	scene.register_resource("basic_shader",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
+
+	Renderable* rend = new Renderable("basic_va", "", "basic_shader", "");
+	Transform* tr1 = new Transform();
+	Transform* tr2 = new Transform();
+	tr2->rotate_euler(vec3(0,0,1));
+	tr2->translate(vec3(1.2, 1.2, 1.0));
+	tr2->resize(vec3(1.2, 1.2, 1.2));
+
+	uint32_t id1 = scene.add_entity();
+	scene.add_component<Transform>(id1, tr1);
+	scene.add_component<Renderable>(id1, rend);
+
+	uint32_t id2 = scene.add_entity();
+	scene.add_component<Transform>(id2, tr2);
+	scene.add_component<Renderable>(id2, rend);
+
+
+
+	/*
 	GravitySystem* gravity_system = new GravitySystem();
 	gravity_system->scene = &scene;
 	UpdateTransforsSystem* update_transforms_system = new UpdateTransforsSystem();
@@ -191,7 +196,7 @@ int main() {
 	Transform* floor_t = new Transform();
 	floor_t->translate(vec3(0.0, -10.0, 0.0));
 	floor_t->resize(vec3(500.0, 0.0, 500.0));
-	VertexArray va = VertexArray();
+	Mesh va = Mesh();
 	va.write_buffers(vertices, sizeof(vertices), indices, sizeof(indices));
 	va.enable_attribute(0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
 	va.enable_attribute(1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
@@ -237,6 +242,7 @@ int main() {
 		scene.add_component<Transform>(id, t);
 		scene.add_component<Body>(id, b);
 	}
+	*/
 
 
 
@@ -245,15 +251,13 @@ int main() {
 	float t1, t2, dt = 0.0;
 
 	while (!glfwWindowShouldClose(window)) {
-		// dt
 		t2 = glfwGetTime();
 		dt = t2 - t1;
 		t1 = t2;
 
-		gravity_system->dt = dt;
+		// gravity_system->dt = dt;
 		scene.update();
 
-		// input
 		process_input(window);
 		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 			vec3 u = vec3::normalize(vec3(scene.camera.dir.x, 0.0, scene.camera.dir.z));
@@ -280,12 +284,10 @@ int main() {
 		if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 			scene.camera.translate(-VEC3_Y * speed * dt);
 
-		// clearing screen and depth buffer
 		glEnable(GL_DEPTH_TEST);
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// draw mode
 		if (wireframe_mode)
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		else

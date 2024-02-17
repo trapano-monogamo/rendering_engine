@@ -1,9 +1,34 @@
-#pragma
+#pragma once
 
-#include "core/vertex_array.hpp"
-#include "core/shader.hpp"
+#include "common.hpp"
+#include "math/vec.hpp"
+#include "resource_manager/manager.hpp"
+#include <string>
+#include <vector>
 
-class Mesh {
+struct Vertex {
+	vec3 position;
+	vec3 normal;
+	vec3 color;
+	vec2 tex_coords;
+
+	Vertex();
+	Vertex(Vertex& v) = default;
+};
+
+class VertexArray : public Resource {
+public:
+	unsigned int vao, vbo, ebo;
+	std::vector<Vertex> vertices;
+	std::vector<unsigned int> indices;
+
+	VertexArray();
+	~VertexArray();
+
+	void load_from_file(std::string& path) override;
+	void use();
+
 private:
-	VertexArray va;
+	void write_buffers();
+	void enable_attribute(int index, int size, GLenum type, int stride, void* ptr);
 };
