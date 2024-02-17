@@ -20,21 +20,12 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: \
  /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp \
- /usr/include/c++/13.2.1/exception \
+ /usr/include/c++/13.2.1/string \
+ /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
  /usr/include/c++/13.2.1/pstl/pstl_config.h \
- /usr/include/c++/13.2.1/bits/exception.h \
- /usr/include/c++/13.2.1/bits/exception_ptr.h \
- /usr/include/c++/13.2.1/bits/exception_defines.h \
- /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
- /usr/include/c++/13.2.1/typeinfo \
- /usr/include/c++/13.2.1/bits/hash_bytes.h /usr/include/c++/13.2.1/new \
- /usr/include/c++/13.2.1/bits/move.h /usr/include/c++/13.2.1/type_traits \
- /usr/include/c++/13.2.1/bits/nested_exception.h \
- /usr/include/c++/13.2.1/string \
- /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/memoryfwd.h \
  /usr/include/c++/13.2.1/bits/char_traits.h \
@@ -45,11 +36,14 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: \
  /usr/include/bits/types/wint_t.h /usr/include/bits/types/mbstate_t.h \
  /usr/include/bits/types/__mbstate_t.h /usr/include/bits/types/__FILE.h \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/locale_t.h \
- /usr/include/bits/types/__locale_t.h \
+ /usr/include/bits/types/__locale_t.h /usr/include/c++/13.2.1/type_traits \
  /usr/include/c++/13.2.1/bits/allocator.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
- /usr/include/c++/13.2.1/bits/new_allocator.h \
+ /usr/include/c++/13.2.1/bits/new_allocator.h /usr/include/c++/13.2.1/new \
+ /usr/include/c++/13.2.1/bits/exception.h \
  /usr/include/c++/13.2.1/bits/functexcept.h \
+ /usr/include/c++/13.2.1/bits/exception_defines.h \
+ /usr/include/c++/13.2.1/bits/move.h \
  /usr/include/c++/13.2.1/bits/cpp_type_traits.h \
  /usr/include/c++/13.2.1/bits/localefwd.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++locale.h \
@@ -84,6 +78,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_construct.h \
  /usr/include/c++/13.2.1/string_view \
  /usr/include/c++/13.2.1/bits/functional_hash.h \
+ /usr/include/c++/13.2.1/bits/hash_bytes.h \
  /usr/include/c++/13.2.1/bits/string_view.tcc \
  /usr/include/c++/13.2.1/ext/string_conversions.h \
  /usr/include/c++/13.2.1/cstdlib /usr/include/stdlib.h \
@@ -131,6 +126,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: \
  /usr/include/c++/13.2.1/bits/unique_ptr.h \
  /usr/include/c++/13.2.1/bits/shared_ptr.h \
  /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/13.2.1/typeinfo \
  /usr/include/c++/13.2.1/bits/allocated_ptr.h \
  /usr/include/c++/13.2.1/ext/atomicity.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr.h \
@@ -145,6 +141,10 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
  /usr/include/sys/single_threaded.h \
  /usr/include/c++/13.2.1/ext/concurrence.h \
+ /usr/include/c++/13.2.1/exception \
+ /usr/include/c++/13.2.1/bits/exception_ptr.h \
+ /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
+ /usr/include/c++/13.2.1/bits/nested_exception.h \
  /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
  /usr/include/c++/13.2.1/bits/atomic_base.h \
  /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \

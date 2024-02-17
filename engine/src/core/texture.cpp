@@ -54,3 +54,5 @@ void Texture::with_parameter(GLenum pname, GLint param) {
 void Texture::use() {
 	glBindTexture(GL_TEXTURE_2D, this->texture);
 }
+
+void Texture::load_from_file(std::string& path) { }

@@ -4,7 +4,7 @@
 
 class Shader : public Resource {
 private:
-	unsigned int program;
+	unsigned int program = 0;
 
 public:
 	Shader();

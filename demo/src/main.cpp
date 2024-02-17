@@ -133,17 +133,6 @@ public:
 
 
 int main() {
-
-
-
-	ResourceManager rm = ResourceManager();
-	rm.register_resource("basic shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
-	Shader* s = rm.get_resource<Shader>("basic shader");
-
-	exit(0);
-
-
-
 	// ..:: INITIALIZATION ::..
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -164,6 +153,16 @@ int main() {
 	}
 
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+
+
+
+
+	ResourceManager rm = ResourceManager();
+	rm.register_resource("basic_shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
+	rm.register_resource("basic_texture", "/home/chiara/dev/cpp/rendering_engine/engine/assets/textures/container.jpg");
+
+
 
 
 
@@ -197,8 +196,8 @@ int main() {
 	va.enable_attribute(0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
 	va.enable_attribute(1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	va.enable_attribute(2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-	Shader shader = Shader();
-	shader.load_source_files("/home/chiara/dev/cpp/rendering_engine/demo/src/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/demo/src/fragment.shader");
+	std::shared_ptr<Shader> shader = rm.get_resource<Shader>("basic_shader");
+	// shader.load_source_files("/home/chiara/dev/cpp/rendering_engine/demo/src/vertex.shader", "/home/chiara/dev/cpp/rendering_engine/demo/src/fragment.shader");
 	Texture texture = Texture("/home/chiara/dev/cpp/rendering_engine/engine/assets/textures/checkboard.png");
 	texture.with_parameter(GL_TEXTURE_WRAP_S, GL_REPEAT);
 	texture.with_parameter(GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -206,7 +205,7 @@ int main() {
 	texture.with_parameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	Renderable* floor = new Renderable();
 	floor->load_va(va);
-	floor->load_shader(shader);
+	floor->load_shader(*shader);
 	floor->load_texture(texture);
 
 	uint32_t id = scene.add_entity();

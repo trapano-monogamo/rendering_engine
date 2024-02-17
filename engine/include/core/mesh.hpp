@@ -6,6 +6,4 @@
 class Mesh {
 private:
 	VertexArray va;
-	Shader* shader;
-	// Material material;
 };

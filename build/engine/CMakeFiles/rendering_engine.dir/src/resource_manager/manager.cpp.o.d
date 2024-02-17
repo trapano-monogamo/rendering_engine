@@ -2,7 +2,8 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: \
  /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp \
  /usr/include/stdc-predef.h \
  /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp \
- /usr/include/c++/13.2.1/exception \
+ /usr/include/c++/13.2.1/string \
+ /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -11,33 +12,26 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
  /usr/include/c++/13.2.1/pstl/pstl_config.h \
- /usr/include/c++/13.2.1/bits/exception.h \
- /usr/include/c++/13.2.1/bits/exception_ptr.h \
- /usr/include/c++/13.2.1/bits/exception_defines.h \
- /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
- /usr/include/c++/13.2.1/typeinfo \
- /usr/include/c++/13.2.1/bits/hash_bytes.h /usr/include/c++/13.2.1/new \
- /usr/include/c++/13.2.1/bits/move.h /usr/include/c++/13.2.1/type_traits \
- /usr/include/c++/13.2.1/bits/nested_exception.h \
- /usr/include/c++/13.2.1/string \
- /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/memoryfwd.h \
  /usr/include/c++/13.2.1/bits/char_traits.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
  /usr/include/wchar.h /usr/include/bits/libc-header-start.h \
  /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h \
  /usr/include/bits/wchar.h /usr/include/bits/types/wint_t.h \
  /usr/include/bits/types/mbstate_t.h \
  /usr/include/bits/types/__mbstate_t.h /usr/include/bits/types/__FILE.h \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/locale_t.h \
- /usr/include/bits/types/__locale_t.h \
+ /usr/include/bits/types/__locale_t.h /usr/include/c++/13.2.1/type_traits \
  /usr/include/c++/13.2.1/bits/allocator.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
- /usr/include/c++/13.2.1/bits/new_allocator.h \
+ /usr/include/c++/13.2.1/bits/new_allocator.h /usr/include/c++/13.2.1/new \
+ /usr/include/c++/13.2.1/bits/exception.h \
  /usr/include/c++/13.2.1/bits/functexcept.h \
+ /usr/include/c++/13.2.1/bits/exception_defines.h \
+ /usr/include/c++/13.2.1/bits/move.h \
  /usr/include/c++/13.2.1/bits/cpp_type_traits.h \
  /usr/include/c++/13.2.1/bits/localefwd.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++locale.h \
@@ -74,6 +68,7 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_construct.h \
  /usr/include/c++/13.2.1/string_view \
  /usr/include/c++/13.2.1/bits/functional_hash.h \
+ /usr/include/c++/13.2.1/bits/hash_bytes.h \
  /usr/include/c++/13.2.1/bits/string_view.tcc \
  /usr/include/c++/13.2.1/ext/string_conversions.h \
  /usr/include/c++/13.2.1/cstdlib /usr/include/stdlib.h \
@@ -125,6 +120,7 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: \
  /usr/include/c++/13.2.1/bits/unique_ptr.h \
  /usr/include/c++/13.2.1/bits/shared_ptr.h \
  /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/13.2.1/typeinfo \
  /usr/include/c++/13.2.1/bits/allocated_ptr.h \
  /usr/include/c++/13.2.1/ext/atomicity.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr.h \
@@ -139,28 +135,13 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
  /usr/include/sys/single_threaded.h \
  /usr/include/c++/13.2.1/ext/concurrence.h \
+ /usr/include/c++/13.2.1/exception \
+ /usr/include/c++/13.2.1/bits/exception_ptr.h \
+ /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
+ /usr/include/c++/13.2.1/bits/nested_exception.h \
  /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
  /usr/include/c++/13.2.1/bits/atomic_base.h \
  /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \
  /usr/include/c++/13.2.1/backward/auto_ptr.h \
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
- /usr/include/c++/13.2.1/pstl/execution_defs.h \
- /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/ostream \
- /usr/include/c++/13.2.1/ios /usr/include/c++/13.2.1/bits/ios_base.h \
- /usr/include/c++/13.2.1/bits/locale_classes.h \
- /usr/include/c++/13.2.1/bits/locale_classes.tcc \
- /usr/include/c++/13.2.1/system_error \
- /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/error_constants.h \
- /usr/include/c++/13.2.1/stdexcept /usr/include/c++/13.2.1/streambuf \
- /usr/include/c++/13.2.1/bits/streambuf.tcc \
- /usr/include/c++/13.2.1/bits/basic_ios.h \
- /usr/include/c++/13.2.1/bits/locale_facets.h \
- /usr/include/c++/13.2.1/cwctype /usr/include/wctype.h \
- /usr/include/bits/wctype-wchar.h \
- /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h \
- /usr/include/c++/13.2.1/bits/streambuf_iterator.h \
- /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h \
- /usr/include/c++/13.2.1/bits/locale_facets.tcc \
- /usr/include/c++/13.2.1/bits/basic_ios.tcc \
- /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
- /usr/include/c++/13.2.1/bits/istream.tcc
+ /usr/include/c++/13.2.1/pstl/execution_defs.h
