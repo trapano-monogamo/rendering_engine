@@ -2,7 +2,6 @@
 #include "core/mesh.hpp"
 #include "core/renderable.hpp"
 #include "core/shader.hpp"
-#include "core/transform.hpp"
 #include "math/mat.hpp"
 #include "math/utils.hpp"
 
@@ -16,6 +15,10 @@ void Scene::render() {
 	auto query = this->query_entities()
 			.with_component<Renderable>(this)
 			.results;
+
+	// for (auto& entity : query) {
+	// 	std::cout << "entity: " << entity << "\t" << get_component<Renderable>(entity) << std::endl;
+	// }
 
 	for (auto& entity : query) {
 		Renderable* obj = this->get_component<Renderable>(entity);
@@ -35,5 +38,6 @@ void Scene::render() {
 		shader->use();
 		glDrawElements(GL_TRIANGLES, (unsigned int)mesh->indices.size(), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+		glUseProgram(0);
 	}
 }

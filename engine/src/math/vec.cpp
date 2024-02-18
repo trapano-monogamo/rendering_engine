@@ -1,5 +1,4 @@
 #include "math/vec.hpp"
-#include "math/mat.hpp"
 #include <cmath>
 #include <stdexcept>
 

@@ -31,7 +31,6 @@ engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o: \
  /usr/include/c++/13.2.1/debug/debug.h \
  /usr/include/c++/13.2.1/bits/predefined_ops.h \
  /usr/include/c++/13.2.1/bit /usr/include/c++/13.2.1/bits/range_access.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp \
  /usr/include/c++/13.2.1/cmath \
  /usr/include/c++/13.2.1/bits/requires_hosted.h /usr/include/math.h \
  /usr/include/bits/libc-header-start.h /usr/include/bits/types.h \

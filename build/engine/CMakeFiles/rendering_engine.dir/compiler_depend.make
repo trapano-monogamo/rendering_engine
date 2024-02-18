@@ -1819,7 +1819,6 @@ engine/CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o: /home/chiara/dev/cp
   /usr/include/stdc-predef.h
 
 engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o: /home/chiara/dev/cpp/rendering_engine/engine/src/math/vec.cpp \
-  /home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/math/vec.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
