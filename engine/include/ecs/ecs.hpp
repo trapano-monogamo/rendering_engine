@@ -3,9 +3,7 @@
 #include <cstdint>
 #include <vector>
 #include <unordered_map>
-#include <memory>
 #include <utility>
-#include <algorithm>
 
 
 
@@ -34,7 +32,6 @@ public:
 	std::vector<uint32_t> entities;
 	std::unordered_map<uint32_t, std::vector<Component*>> components;
 	std::vector<System*> systems;
-	// std::vector<void (*)(ECS*)> systems;
 
 	ECS() = default;
 	~ECS();
@@ -45,11 +42,8 @@ public:
 	void remove_entity(uint32_t entity);
 	template<typename T> void add_component(uint32_t entity, T* component);
 	template<typename T> void remove_component(uint32_t entity);
-	// template<typename S, typename P> void set_system_parameter(P p);
 	void add_system(System* sys);
 	void remove_system(System* sys);
-	// void add_system(void (*sys)(ECS*));
-	// void remove_system(void (*sys)(ECS*));
 
 	template<typename T> T* get_component(uint32_t entity);
 	template<typename T> std::vector<T*> query_components();
@@ -115,14 +109,3 @@ bool ECS::has_component(uint32_t entity) {
 	if (this->get_component<T>(entity) != nullptr) return true;
 	else return false;
 }
-
-
-// template<typename S, typename P>
-// void ECS::set_system_parameter(P p) {
-// 	S* sys = nullptr;
-// 	for (auto& system : this->systems) {
-// 		if ((sys = dynamic_cast<S*>(system)) != nullptr) {
-// 			sys->
-// 		}
-// 	}
-// }

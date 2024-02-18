@@ -12,7 +12,7 @@ Vertex::Vertex()
 	, tex_coords()
 {}
 
-VertexArray::VertexArray()
+Mesh::Mesh()
 	: vertices()
 	, indices()
 {
@@ -21,14 +21,14 @@ VertexArray::VertexArray()
 	glGenVertexArrays(1, &this->vao);
 }
 
-VertexArray::~VertexArray() {
+Mesh::~Mesh() {
 	glDeleteBuffers(1, &this->vbo);
 	glDeleteBuffers(1, &this->ebo);
 }
 
-void VertexArray::load_from_file(std::string& path) {
+void Mesh::load_from_file(std::string& path) {
 	std::ifstream f(path);
-	if (!f.good()) throw std::runtime_error("Could not open VertexArray resource file.");
+	if (!f.good()) throw std::runtime_error("Could not open Mesh resource file.");
 
 	enum VertexField {
 		NONE,
@@ -74,7 +74,7 @@ void VertexArray::load_from_file(std::string& path) {
 		}
 		else if (!line.empty())
 		{
-			if (size == -1) { throw std::runtime_error("Missing 'size' parameter for VertexArray."); }
+			if (size == -1) { throw std::runtime_error("Missing 'size' parameter for Mesh."); }
 			switch (field) {
 				case POSITION:
 					line_content >> vertices[i].position.x >> vertices[i].position.y >> vertices[i].position.z;
@@ -107,13 +107,13 @@ void VertexArray::load_from_file(std::string& path) {
 	write_buffers();
 }
 
-void VertexArray::use() {
+void Mesh::use() {
 	glBindVertexArray(this->vao);
 	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
 }
 
-void VertexArray::write_buffers() {
+void Mesh::write_buffers() {
 	int gl_vertices_size = vertices.size() * 11;
 	float* gl_vertices = new float[gl_vertices_size]; // 1 Vertex = 11 floats
 	for (unsigned int i = 0; i<vertices.size(); i++) {
@@ -146,7 +146,7 @@ void VertexArray::write_buffers() {
 	enable_attribute(3, 2, GL_FLOAT, 11 * sizeof(float), (void*)(9 * sizeof(float)));
 }
 
-void VertexArray::enable_attribute(int index, int size, GLenum type, int stride, void* ptr) {
+void Mesh::enable_attribute(int index, int size, GLenum type, int stride, void* ptr) {
 	this->use();
 	glVertexAttribPointer(index, size, type, GL_FALSE, stride, ptr);
 	glEnableVertexAttribArray(index);

@@ -15,16 +15,14 @@ void Scene::render() {
 
 	auto query = this->query_entities()
 			.with_component<Renderable>(this)
-			.with_component<Transform>(this)
 			.results;
 
 	for (auto& entity : query) {
 		Renderable* obj = this->get_component<Renderable>(entity);
-		Transform* t = this->get_component<Transform>(entity);
 
-		mat4 transform = mat4::transform(t->scale, t->euler_rotations, t->position);
+		mat4 transform = mat4::transform(obj->scale, obj->euler_rotations, obj->position);
 
-		auto va = get_resource<VertexArray>(obj->va_key);
+		auto mesh = get_resource<Mesh>(obj->mesh_key);
 		auto shader = get_resource<Shader>(obj->shader_key);
 
 		shader->set_uniform_matrix_4fv("transform", transform.m);
@@ -32,9 +30,10 @@ void Scene::render() {
 		shader->set_uniform_matrix_4fv("projection", this->camera.projection.m);
 
 		// obj->texture.use();
-		va->use();
+		// ~ Mesh and Shader are mandatory for rendering ~
+		mesh->use();
 		shader->use();
-		glDrawElements(GL_TRIANGLES, (unsigned int)va->indices.size(), GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, (unsigned int)mesh->indices.size(), GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
 }

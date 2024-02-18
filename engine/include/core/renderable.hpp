@@ -5,14 +5,14 @@
 
 class Renderable : public Transform {
 public:
-	std::string va_key;
+	std::string mesh_key;
 	std::string light_prop_key;
 	std::string shader_key;
 	std::string texture_key;
 
 public:
 	Renderable();
-	Renderable(std::string va_key, std::string light_prop_key, std::string shader_key, std::string texture_key);
+	Renderable(std::string mesh_key, std::string light_prop_key, std::string shader_key, std::string texture_key);
 	~Renderable() = default;
 
 	// void default_cube();

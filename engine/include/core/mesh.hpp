@@ -16,14 +16,14 @@ struct Vertex {
 	Vertex(Vertex& v) = default;
 };
 
-class VertexArray : public Resource {
+class Mesh : public Resource {
 public:
 	unsigned int vao, vbo, ebo;
 	std::vector<Vertex> vertices;
 	std::vector<unsigned int> indices;
 
-	VertexArray();
-	~VertexArray();
+	Mesh();
+	~Mesh();
 
 	void load_from_file(std::string& path) override;
 	void use();

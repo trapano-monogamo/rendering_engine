@@ -23,9 +23,9 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
  /usr/include/c++/13.2.1/pstl/pstl_config.h \
- /usr/include/c++/13.2.1/iostream \
+ /usr/include/c++/13.2.1/fstream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
- /usr/include/c++/13.2.1/ostream /usr/include/c++/13.2.1/ios \
+ /usr/include/c++/13.2.1/istream /usr/include/c++/13.2.1/ios \
  /usr/include/c++/13.2.1/iosfwd /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/memoryfwd.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
@@ -144,8 +144,13 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h \
  /usr/include/c++/13.2.1/bits/locale_facets.tcc \
  /usr/include/c++/13.2.1/bits/basic_ios.tcc \
- /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
- /usr/include/c++/13.2.1/bits/istream.tcc /usr/include/c++/13.2.1/cmath \
+ /usr/include/c++/13.2.1/ostream /usr/include/c++/13.2.1/bits/ostream.tcc \
+ /usr/include/c++/13.2.1/bits/istream.tcc \
+ /usr/include/c++/13.2.1/bits/codecvt.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
+ /usr/include/c++/13.2.1/bits/fstream.tcc \
+ /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/cmath \
  /usr/include/math.h /usr/include/bits/math-vector.h \
  /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -165,24 +170,9 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/13.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/13.2.1/tr1/riemann_zeta.tcc \
- /usr/include/c++/13.2.1/memory \
- /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/13.2.1/vector \
  /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
- /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13.2.1/bits/align.h \
- /usr/include/c++/13.2.1/bits/unique_ptr.h \
- /usr/include/c++/13.2.1/bits/shared_ptr.h \
- /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
- /usr/include/c++/13.2.1/bits/allocated_ptr.h \
- /usr/include/c++/13.2.1/ext/aligned_buffer.h \
- /usr/include/c++/13.2.1/ext/concurrence.h \
- /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
- /usr/include/c++/13.2.1/bits/atomic_base.h \
- /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \
- /usr/include/c++/13.2.1/backward/auto_ptr.h \
- /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
- /usr/include/c++/13.2.1/pstl/execution_defs.h \
- /usr/include/c++/13.2.1/vector /usr/include/c++/13.2.1/bits/stl_vector.h \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
  /usr/include/c++/13.2.1/bits/vector.tcc \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/transform.hpp \
@@ -191,16 +181,11 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/bits/unordered_map.h \
  /usr/include/c++/13.2.1/bits/hashtable.h \
  /usr/include/c++/13.2.1/bits/hashtable_policy.h \
+ /usr/include/c++/13.2.1/ext/aligned_buffer.h \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
  /usr/include/c++/13.2.1/bits/erase_if.h /usr/include/c++/13.2.1/utility \
  /usr/include/c++/13.2.1/bits/stl_relops.h \
- /usr/include/c++/13.2.1/algorithm \
- /usr/include/c++/13.2.1/bits/stl_algo.h \
- /usr/include/c++/13.2.1/bits/algorithmfwd.h \
- /usr/include/c++/13.2.1/bits/stl_heap.h \
- /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
- /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/vec.hpp \
  /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/renderable.hpp \
@@ -208,7 +193,19 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/camera.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/mat.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/resource_manager/manager.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/mesh.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/shader.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/texture.hpp \
+ /usr/include/c++/13.2.1/memory \
+ /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13.2.1/bits/align.h \
+ /usr/include/c++/13.2.1/bits/unique_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/13.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/13.2.1/ext/concurrence.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13.2.1/bits/atomic_base.h \
+ /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13.2.1/backward/auto_ptr.h \
+ /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
+ /usr/include/c++/13.2.1/pstl/execution_defs.h \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/utils.hpp

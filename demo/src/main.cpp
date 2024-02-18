@@ -1,9 +1,9 @@
 #include "common.hpp"
 
 #include <cstdint>
+#include <fstream>
 #include <iostream>
 #include <cmath>
-#include <memory>
 #include <vector>
 
 #include <string>
@@ -11,14 +11,10 @@
 #include "core/transform.hpp"
 #include "core/renderable.hpp"
 #include "core/scene.hpp"
-#include "core/mesh.hpp"
-#include "core/shader.hpp"
-#include "core/texture.hpp"
 #include "core/camera.hpp"
 #include "math/utils.hpp"
 #include "math/vec.hpp"
 #include "ecs/ecs.hpp"
-#include "resource_manager/manager.hpp"
 
 bool wireframe_mode = false;
 
@@ -40,6 +36,43 @@ void process_input(GLFWwindow* window) {
 
 
 
+void create_circle_mesh_file(const char* filename, int N) {
+	std::ofstream f(filename);
+	if (!f.good()) return;
+
+	f << "#param size " << N + 1 << std::endl;
+	f << "#param elements " << 3 * N << std::endl;
+
+	float dphi = 2*M_PI / N;
+	int knext = 0;
+
+	f << "#field position" << std::endl;
+	f << "0.0 0.0 0.0" << std::endl;
+	for (int k=1; k<=N; k++) // positions
+		f << cos(k*dphi) << " " << sin(k*dphi) << " " << 0.f << std::endl;
+
+	f << "#field normal" << std::endl;
+	f << "0.0 0.0 0.0" << std::endl;
+	for (int k=1; k<=N; k++) // normals
+		f << 0.0 << " " << 0.0 << " " << 0.0 << std::endl;
+
+	f << "#field color" << std::endl;
+	f << "0.0 0.0 1.0" << std::endl;
+	for (int k=1; k<=N; k++) // colors
+		f << 1 + .5*sin(k*dphi) << " " << 1 + .5*cos(k*dphi) << " " << 1 + .5*sin(2.*k*dphi) << std::endl;
+
+	f << "#field index" << std::endl;
+	for (int k=1; k<=N; k++) { // indices
+		knext = (k+1 > N) ? 1 : k+1;
+
+		f << 0 << "\n" << k << "\n" << knext << "\n";
+	}
+
+	f.close();
+}
+
+
+
 struct Rotating : public Component {};
 
 struct Body : public Component {
@@ -49,6 +82,7 @@ struct Body : public Component {
 	vec3 acceleration;
 	vec3 force;
 
+	Body() = default;
 	Body(float m, vec3 p, vec3 v, vec3 a, vec3 f)
 		: mass(m), position(p), velocity(v), acceleration(a), force(f)
 	{}
@@ -151,30 +185,46 @@ int main() {
 
 
 	// ..:: DEFINITIONS ::..
-
 	float speed = 2.5f;
+	
+	create_circle_mesh_file("/home/chiara/dev/cpp/rendering_engine/demo/src/circle.mesh", 20);
 
 	Scene scene = Scene();
 
 	scene.camera = Camera(vec3(0.0, 0.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
-	scene.register_resource("basic_va", "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/test_mesh.mesh");
+	scene.register_resource("basic_mesh", "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/test_mesh.mesh");
 	scene.register_resource("basic_shader",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
+	scene.register_resource("circle_mesh", "/home/chiara/dev/cpp/rendering_engine/demo/src/circle.mesh");
 
-	Renderable* rend = new Renderable("basic_va", "", "basic_shader", "");
-	Transform* tr1 = new Transform();
-	Transform* tr2 = new Transform();
-	tr2->rotate_euler(vec3(0,0,1));
-	tr2->translate(vec3(1.2, 1.2, 1.0));
-	tr2->resize(vec3(1.2, 1.2, 1.2));
+	Renderable* rend1 = new Renderable("basic_mesh", "", "basic_shader", "");
+	Renderable* rend2 = new Renderable("basic_mesh", "", "basic_shader", "");
+	rend1->rotate_euler(vec3(0,0,1));
+	rend1->translate(vec3(1.2, 1.2, 1.0));
+	rend1->resize(vec3(1.2, 1.2, 1.2));
 
 	uint32_t id1 = scene.add_entity();
-	scene.add_component<Transform>(id1, tr1);
-	scene.add_component<Renderable>(id1, rend);
+	scene.add_component<Renderable>(id1, rend1);
+	scene.add_component<Body>(id1, new Body());
 
 	uint32_t id2 = scene.add_entity();
-	scene.add_component<Transform>(id2, tr2);
-	scene.add_component<Renderable>(id2, rend);
+	scene.add_component<Renderable>(id2, rend2);
 
+	Renderable* circle = new Renderable("circle_mesh", "", "basic_shader", "");
+	circle->rotate_euler(vec3(0,1,0));
+	circle->translate(vec3(-1,0,-2));
+	circle->resize(vec3(1,1,1));
+	uint32_t circle_id = scene.add_entity();
+	scene.add_component<Renderable>(circle_id, circle);
+
+
+	auto query = scene.query_entities()
+			.with_component<Body>(&scene)
+			.results;
+
+	for (auto& id : query) {
+		std::cout << "id " << id << std::endl;
+		std::cout << scene.get_component<Body>(id) << std::endl;
+	}
 
 
 	/*
