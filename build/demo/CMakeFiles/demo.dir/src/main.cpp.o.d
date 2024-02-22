@@ -175,8 +175,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
  /usr/include/c++/13.2.1/bits/vector.tcc \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/transform.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/ecs/ecs.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/shader.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/resource_manager/manager.hpp \
  /usr/include/c++/13.2.1/unordered_map \
  /usr/include/c++/13.2.1/bits/unordered_map.h \
  /usr/include/c++/13.2.1/bits/hashtable.h \
@@ -184,16 +184,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/ext/aligned_buffer.h \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
- /usr/include/c++/13.2.1/bits/erase_if.h /usr/include/c++/13.2.1/utility \
- /usr/include/c++/13.2.1/bits/stl_relops.h \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/vec.hpp \
- /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/renderable.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/scene.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/camera.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/mat.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/resource_manager/manager.hpp \
- /usr/include/c++/13.2.1/memory \
+ /usr/include/c++/13.2.1/bits/erase_if.h /usr/include/c++/13.2.1/memory \
  /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
  /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13.2.1/bits/align.h \
@@ -208,4 +199,20 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/backward/auto_ptr.h \
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/transform.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/ecs/ecs.hpp \
+ /usr/include/c++/13.2.1/utility \
+ /usr/include/c++/13.2.1/bits/stl_relops.h \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/vec.hpp \
+ /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/compare \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/renderable.hpp \
+ /usr/include/c++/13.2.1/functional \
+ /usr/include/c++/13.2.1/bits/std_function.h \
+ /usr/include/c++/13.2.1/bits/stl_algo.h \
+ /usr/include/c++/13.2.1/bits/algorithmfwd.h \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/scene.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/camera.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/mat.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/utils.hpp

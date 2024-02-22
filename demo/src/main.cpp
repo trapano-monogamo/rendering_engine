@@ -8,6 +8,7 @@
 
 #include <string>
 
+#include "core/shader.hpp"
 #include "core/transform.hpp"
 #include "core/renderable.hpp"
 #include "core/scene.hpp"
@@ -15,6 +16,7 @@
 #include "math/utils.hpp"
 #include "math/vec.hpp"
 #include "ecs/ecs.hpp"
+#include "resource_manager/manager.hpp"
 
 bool wireframe_mode = false;
 
@@ -112,8 +114,8 @@ public:
 			Renderable* r = scene->get_component<Renderable>(ea);
 			Body* a = scene->get_component<Body>(ea);
 
-			std::cout << "position:\t" << r->position.x << ", " << r->position.y << ", " << r->position.z << std::endl;
-			std::cout << "velocity:\t" << a->velocity.x << ", " << a->velocity.y << ", " << a->velocity.z << std::endl;
+			// std::cout << std::endl << "position:\t" << r->position.x << ", " << r->position.y << ", " << r->position.z << std::endl;
+			// std::cout << "velocity:\t" << a->velocity.x << ", " << a->velocity.y << ", " << a->velocity.z << std::endl;
 
 			for (uint32_t& eb : query) {
 				if (eb != ea) {
@@ -124,11 +126,11 @@ public:
 					float d = w.magnitude();
 					// float d = std::abs(vec3::distance(a->position, b->position));
 					if ( d > 0.0f ) {
-						std::cout << "distance:   \t" << d << std::endl;
-						std::cout << "dist vector:\t"
-							<< w.x << ", " << w.y << ", " << w.z << std::endl;
-						std::cout << "normalized: \t"
-							<< u.x << ", " << u.y << ", " << u.z << std::endl;
+						// std::cout << "distance:   \t" << d << std::endl;
+						// std::cout << "dist vector:\t"
+						// 	<< w.x << ", " << w.y << ", " << w.z << std::endl;
+						// std::cout << "normalized: \t"
+						// 	<< u.x << ", " << u.y << ", " << u.z << std::endl;
 						a->force += u * (G * (a->mass * b->mass) / (d*d));
 					} else {
 						continue; // idk do something else
@@ -141,14 +143,19 @@ public:
 	void update_bodies(Scene* scene) {
 		auto query = scene->query_entities().with_component<Body>(scene).results;
 
+		// std::cout << "sys dt: " << dt << std::endl;
+
 		for (uint32_t& ea : query) {
 			Body* a = scene->get_component<Body>(ea);
 			Renderable* r = scene->get_component<Renderable>(ea);
 
+			// std::cout << "sys body " << ea << ": " << a << "\t" << a->position.x << ", " << a->position.y << ", " << a->position.z << std::endl;
+			// std::cout << "sys rend " << ea << ": " << r << "\t" << r->position.x << ", " << r->position.y << ", " << r->position.z << std::endl;
+
 			a->acceleration = a->force * (1 / a->mass);
 			a->velocity += a->acceleration;
-			a->position += a->velocity * dt;
-			if (r != nullptr) r->position += a->velocity * this->dt;
+			a->position += (a->velocity * dt);
+			if (r != nullptr) r->position += (a->velocity * this->dt);
 			a->force = vec3();
 		}
 	}
@@ -192,6 +199,7 @@ int main() {
 
 	scene.register_resource("square_mesh",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/square.mesh");
 	scene.register_resource("basic_shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
+	scene.register_resource("basic2_shader",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic2.shader");
 	scene.register_resource("circle_mesh",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/circle.mesh");
 
 	GravitySystem* gravity_system = new GravitySystem();
@@ -224,22 +232,51 @@ int main() {
 		vec3(0.0f,  1.0f, 0.0f),
 		vec3(0.0f, -1.0f, 0.0f), };
 
-	/* a volte va... a volte non va.
-	 * questa cosa comincia a seccarmi.
-	 * ho come la vaga impressione che la colpa sia dell'ECS o del ResourceManager.
-	 * se la colpa e' di un Component o delle draw calls...... mi incazzo.
-	 * */
+	float t = 10.f;
+
 	for (int i = 0; i < (int)(sizeof(positions) / sizeof(vec3)); i++) {
-		Renderable* obj = new Renderable("circle_mesh", "", "basic_shader", "");
+		Renderable* obj = new Renderable("circle_mesh", "", "basic2_shader", "");
 		obj->translate(positions[i]);
-		// obj->resize(vec3(1,1,1) * ( .5 + .5 * masses[i]));
+
+		/* it can't possibly work, `float& t` is evaluated at declaration time, so
+		 * t will never be updated
+		 * */
+		// obj->load_uniforms = [&](Renderable& r, ResourceManager& rm) {
+		// 	std::shared_ptr<Shader> shader = rm.get_resource<Shader>(r.shader_key);
+		// 	float v[2] = {(float)sin(t),(float)cos(t)};
+		// 	shader->set_uniform_2fv("t", v);
+		// };
 
 		Body* b = new Body{ masses[i], positions[i], velocities[i], vec3(), vec3() };
 
 		uint32_t id = scene.add_entity();
-		scene.add_component<Body>(id, b);
 		scene.add_component<Renderable>(id, obj);
+		scene.add_component<Body>(id, b);
+
+		// std::cout << "rend local " << id << ": " << obj << "\t" << obj->position.x << ", " << obj->position.y << ", " << obj->position.z << std::endl;
+		// std::cout << "body local " << id << ": " << b << "\t" << b->position.x << ", " << b->position.y << ", " << b->position.z << std::endl;
+		// Renderable* rend = scene.get_component<Renderable>(id);
+		// Body* body = scene.get_component<Body>(id);
+		// std::cout << "rend ECS " << id << ":   " << rend << "\t" << rend->position.x << ", " << rend->position.y << ", " << rend->position.z << std::endl;
+		// std::cout << "body ECS " << id << ":   " << body << "\t" << body->position.x << ", " << body->position.y << ", " << body->position.z << std::endl;
 	}
+	// std::cout << "~~~~~" << std::endl;
+
+
+
+	// auto query = scene.query_entities()
+	// 	.with_component<Renderable>(&scene)
+	// 	.results;
+
+	// for (auto& id : query) {
+	// 	Renderable* rend = scene.get_component<Renderable>(id);
+	// 	vec3 p = rend->position;
+	// 	Body* body = scene.get_component<Body>(id);
+	// 	vec3 q = (body != nullptr) ? body->position : vec3();
+	// 	std::cout << "after rend " << id << ": " << rend << "\t" << p.x << ", " << p.y << ", " << p.z << std::endl;
+	// 	std::cout << "after body " << id << ": " << body << "\t" << q.x << ", " << q.y << ", " << q.z << std::endl;
+	// }
+	// std::cout << "~~~~~" << std::endl;
 
 
 
@@ -248,14 +285,22 @@ int main() {
 	// ..:: LOOP ::..
 
 	float t1, t2, dt = 0.0;
+	int i = 0;
 
 	while (!glfwWindowShouldClose(window)) {
 		t2 = glfwGetTime();
 		dt = t2 - t1;
 		t1 = t2;
 
+		t+=0.1f;
+
+		// if (i == 0) gravity_system->dt = 0.f;
+		// else gravity_system->dt = dt;
 		gravity_system->dt = dt;
-		scene.update();
+		// std::cout << "main dt: " << dt << std::endl;
+		// scene.update();
+
+		i++;
 
 		process_input(window);
 		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -292,7 +337,7 @@ int main() {
 		else
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-		// scene.render();
+		scene.render();
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

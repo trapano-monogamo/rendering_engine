@@ -28,6 +28,9 @@ void Scene::render() {
 		auto mesh = get_resource<Mesh>(obj->mesh_key);
 		auto shader = get_resource<Shader>(obj->shader_key);
 
+		// if (obj->load_uniforms != nullptr) obj->load_uniforms(*obj, *this);
+		if (obj->load_uniforms) obj->load_uniforms(*obj, *this);
+
 		shader->set_uniform_matrix_4fv("transform", transform.m);
 		shader->set_uniform_matrix_4fv("view", view.m);
 		shader->set_uniform_matrix_4fv("projection", this->camera.projection.m);

@@ -86,7 +86,9 @@ T* ECS::get_component(uint32_t entity) {
 	if (it != this->components.end()) {
 		for (Component*& comp : it->second) {
 			T* res = dynamic_cast<T*>(comp);
-			if (res != nullptr) { return res; }
+			if (res != nullptr) {
+				return res;
+			}
 		}
 	}
 	return nullptr;

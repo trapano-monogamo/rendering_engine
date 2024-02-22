@@ -137,6 +137,12 @@ void Shader::set_uniform_4f(const char* uniform_name, float x, float y, float z,
 	glUniform4f(uniform_location, x, y, z, w);
 }
 
+void Shader::set_uniform_2fv(const char* uniform_name, float v[2]) {
+	int uniform_location = glGetUniformLocation(this->program, uniform_name);
+	glUseProgram(this->program);
+	glUniform2fv(uniform_location, 2, v);
+}
+
 void Shader::set_uniform_matrix_4fv(const char* uniform_name, float m[16]) {
 	int uniform_location = glGetUniformLocation(this->program, uniform_name);
 	glUseProgram(this->program);

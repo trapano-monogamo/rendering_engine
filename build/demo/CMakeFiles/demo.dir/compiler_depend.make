@@ -8,6 +8,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/camera.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/scene.hpp \
+  /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/ecs/ecs.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h \
@@ -95,6 +96,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/backward/auto_ptr.h \
   /usr/include/c++/13.2.1/backward/binders.h \
   /usr/include/c++/13.2.1/bit \
+  /usr/include/c++/13.2.1/bits/algorithmfwd.h \
   /usr/include/c++/13.2.1/bits/align.h \
   /usr/include/c++/13.2.1/bits/alloc_traits.h \
   /usr/include/c++/13.2.1/bits/allocated_ptr.h \
@@ -150,10 +152,13 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
   /usr/include/c++/13.2.1/bits/specfun.h \
   /usr/include/c++/13.2.1/bits/std_abs.h \
+  /usr/include/c++/13.2.1/bits/std_function.h \
+  /usr/include/c++/13.2.1/bits/stl_algo.h \
   /usr/include/c++/13.2.1/bits/stl_algobase.h \
   /usr/include/c++/13.2.1/bits/stl_bvector.h \
   /usr/include/c++/13.2.1/bits/stl_construct.h \
   /usr/include/c++/13.2.1/bits/stl_function.h \
+  /usr/include/c++/13.2.1/bits/stl_heap.h \
   /usr/include/c++/13.2.1/bits/stl_iterator.h \
   /usr/include/c++/13.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13.2.1/bits/stl_iterator_base_types.h \
@@ -167,6 +172,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/bits/streambuf_iterator.h \
   /usr/include/c++/13.2.1/bits/string_view.tcc \
   /usr/include/c++/13.2.1/bits/stringfwd.h \
+  /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
   /usr/include/c++/13.2.1/bits/unique_ptr.h \
   /usr/include/c++/13.2.1/bits/unordered_map.h \
   /usr/include/c++/13.2.1/bits/uses_allocator.h \
@@ -195,6 +201,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /usr/include/c++/13.2.1/ext/string_conversions.h \
   /usr/include/c++/13.2.1/ext/type_traits.h \
   /usr/include/c++/13.2.1/fstream \
+  /usr/include/c++/13.2.1/functional \
   /usr/include/c++/13.2.1/initializer_list \
   /usr/include/c++/13.2.1/ios \
   /usr/include/c++/13.2.1/iosfwd \
@@ -277,15 +284,19 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h:
 
-/usr/include/wchar.h:
-
 /usr/include/time.h:
 
 /usr/include/sys/single_threaded.h:
 
 /usr/include/sys/cdefs.h:
 
-/home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp:
+/usr/include/stdc-predef.h:
+
+/usr/include/pthread.h:
+
+/usr/include/math.h:
+
+/usr/include/locale.h:
 
 /usr/include/c++/13.2.1/bits/hashtable_policy.h:
 
@@ -361,10 +372,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/types/wint_t.h:
 
-/usr/include/c++/13.2.1/bits/predefined_ops.h:
-
-/usr/include/bits/types/struct_timespec.h:
-
 /usr/include/c++/13.2.1/bits/streambuf_iterator.h:
 
 /usr/include/bits/waitflags.h:
@@ -386,12 +393,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/bits/types/locale_t.h:
 
 /usr/include/c++/13.2.1/bits/allocator.h:
-
-/usr/include/c++/13.2.1/bits/locale_classes.tcc:
-
-/usr/include/bits/libm-simd-decl-stubs.h:
-
-/usr/include/c++/13.2.1/bits/memoryfwd.h:
 
 /usr/include/bits/types/clock_t.h:
 
@@ -417,15 +418,21 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/limits:
 
-/usr/include/bits/floatn-common.h:
+/usr/include/bits/types.h:
 
 /usr/include/c++/13.2.1/bits/allocated_ptr.h:
 
-/usr/include/bits/types.h:
+/usr/include/bits/floatn-common.h:
 
 /usr/include/bits/endianness.h:
 
 /usr/include/c++/13.2.1/tuple:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
+
+/usr/include/c++/13.2.1/bits/locale_classes.tcc:
+
+/usr/include/c++/13.2.1/bits/memoryfwd.h:
 
 /usr/include/c++/13.2.1/bits/charconv.h:
 
@@ -479,14 +486,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/floatn.h:
 
-/usr/include/bits/flt-eval-method.h:
-
-/usr/include/bits/types/FILE.h:
-
-/usr/include/c++/13.2.1/bits/locale_facets.h:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp:
-
 /usr/include/bits/types/error_t.h:
 
 /usr/include/c++/13.2.1/istream:
@@ -521,7 +520,17 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/ext/alloc_traits.h:
 
+/home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp:
+
 /usr/include/bits/stdint-least.h:
+
+/usr/include/bits/types/FILE.h:
+
+/usr/include/bits/flt-eval-method.h:
+
+/usr/include/c++/13.2.1/bits/locale_facets.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/math/vec.hpp:
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/core/camera.hpp:
 
@@ -532,6 +541,14 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/bits/long-double.h:
 
 /usr/include/c++/13.2.1/bits/shared_ptr.h:
+
+/usr/include/c++/13.2.1/bits/predefined_ops.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/13.2.1/debug/assertions.h:
 
 /usr/include/c++/13.2.1/bits/stl_construct.h:
 
@@ -545,15 +562,15 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/iscanonical.h:
 
-/home/chiara/dev/cpp/rendering_engine/engine/include/math/vec.hpp:
+/home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp:
 
 /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h:
 
 /usr/include/wctype.h:
 
-/home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp:
-
 /usr/include/sched.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/common.hpp:
 
 /usr/include/bits/fp-fast.h:
 
@@ -562,6 +579,16 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/c++/13.2.1/bits/functexcept.h:
 
 /usr/include/bits/math-vector.h:
+
+/usr/include/bits/types/struct_timespec.h:
+
+/usr/include/c++/13.2.1/bits/algorithmfwd.h:
+
+/usr/include/c++/13.2.1/bits/ptr_traits.h:
+
+/usr/include/c++/13.2.1/bits/stl_vector.h:
+
+/usr/include/c++/13.2.1/cstddef:
 
 /usr/include/bits/types/time_t.h:
 
@@ -573,21 +600,15 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/stdexcept:
 
+/usr/include/c++/13.2.1/bits/string_view.tcc:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/ecs/ecs.hpp:
+
 /usr/include/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/c++/13.2.1/bits/range_access.h:
-
-/usr/include/bits/pthreadtypes.h:
-
-/usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/ecs/ecs.hpp:
-
-/usr/include/c++/13.2.1/bits/string_view.tcc:
-
-/usr/include/c++/13.2.1/debug/assertions.h:
 
 /usr/include/c++/13.2.1/compare:
 
@@ -643,6 +664,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/nested_exception.h:
 
+/usr/include/c++/13.2.1/bits/uniform_int_dist.h:
+
 /usr/include/c++/13.2.1/bits/new_allocator.h:
 
 /usr/include/c++/13.2.1/tr1/bessel_function.tcc:
@@ -656,12 +679,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 /usr/include/c++/13.2.1/fstream:
 
 /usr/include/c++/13.2.1/string:
-
-/usr/include/c++/13.2.1/bits/ptr_traits.h:
-
-/usr/include/c++/13.2.1/bits/stl_vector.h:
-
-/usr/include/c++/13.2.1/cstddef:
 
 /usr/include/c++/13.2.1/bits/refwrap.h:
 
@@ -677,13 +694,23 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/specfun.h:
 
+/usr/include/wchar.h:
+
+/usr/include/c++/13.2.1/bits/std_function.h:
+
+/usr/include/c++/13.2.1/bits/stl_algo.h:
+
 /usr/include/c++/13.2.1/bits/memory_resource.h:
 
 /usr/include/c++/13.2.1/bits/stl_algobase.h:
 
+/usr/include/c++/13.2.1/functional:
+
 /usr/include/c++/13.2.1/tr1/exp_integral.tcc:
 
 /usr/include/c++/13.2.1/bits/stl_function.h:
+
+/usr/include/c++/13.2.1/bits/stl_heap.h:
 
 /usr/include/c++/13.2.1/bits/locale_classes.h:
 
@@ -707,13 +734,15 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/ext/concurrence.h:
 
-/usr/include/c++/13.2.1/bits/hashtable.h:
-
 /usr/include/bits/types/clockid_t.h:
 
 /usr/include/bits/stdint-intn.h:
 
+/usr/include/c++/13.2.1/bits/hashtable.h:
+
 /usr/include/c++/13.2.1/ext/numeric_traits.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp:
 
 /usr/include/c++/13.2.1/ext/string_conversions.h:
 
@@ -777,6 +806,14 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h:
 
+/usr/include/stdio.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/c++/13.2.1/bits/stl_bvector.h:
+
+/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
+
 /usr/include/bits/typesizes.h:
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h:
@@ -785,24 +822,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
 
-/usr/include/errno.h:
-
-/usr/include/locale.h:
-
-/usr/include/math.h:
-
-/usr/include/pthread.h:
-
-/usr/include/stdc-predef.h:
+/usr/include/stdint.h:
 
 /usr/include/endian.h:
 
-/usr/include/stdint.h:
-
-/usr/include/bits/wordsize.h:
-
-/usr/include/c++/13.2.1/bits/stl_bvector.h:
-
-/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/error_constants.h:
-
-/usr/include/stdio.h:
+/usr/include/errno.h:

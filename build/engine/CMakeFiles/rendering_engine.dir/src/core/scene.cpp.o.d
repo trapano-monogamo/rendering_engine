@@ -164,5 +164,11 @@ engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: \
  /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp \
+ /usr/include/c++/13.2.1/functional \
+ /usr/include/c++/13.2.1/bits/std_function.h \
+ /usr/include/c++/13.2.1/bits/stl_algo.h \
+ /usr/include/c++/13.2.1/bits/algorithmfwd.h \
+ /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp

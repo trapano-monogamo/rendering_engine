@@ -20,5 +20,6 @@ public:
 	void set_uniform_2f(const char* uniform_name, float x, float y);
 	void set_uniform_3f(const char* uniform_name, float x, float y, float z);
 	void set_uniform_4f(const char* uniform_name, float x, float y, float z, float w);
+	void set_uniform_2fv(const char* uniform_name, float v[2]);
 	void set_uniform_matrix_4fv(const char* uniform_name, float m[16]);
 };
