@@ -29,7 +29,8 @@ void Scene::render() {
 		auto shader = get_resource<Shader>(obj->shader_key);
 
 		// if (obj->load_uniforms != nullptr) obj->load_uniforms(*obj, *this);
-		if (obj->load_uniforms) obj->load_uniforms(*obj, *this);
+		// if (obj->load_uniforms) obj->load_uniforms(*obj, *this);
+		shader->apply_uniforms();
 
 		shader->set_uniform_matrix_4fv("transform", transform.m);
 		shader->set_uniform_matrix_4fv("view", view.m);

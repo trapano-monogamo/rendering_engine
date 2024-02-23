@@ -10,13 +10,13 @@ uniform mat4 view;
 uniform mat4 projection;
 uniform mat4 transform;
 
-uniform float t;
+uniform vec2 t;
 
 out vec3 vert_color;
 
 void main() {
-	gl_Position = projection * view * transform * vec4(aPos, 1.0);
-	vert_color = vec3(sin(t), cos(t), aCol.z);
+	gl_Position = projection * view * transform * vec4(t.x, t.y, aPos.z, 1.0);
+	vert_color = aCol;
 }
 
 #shader fragment

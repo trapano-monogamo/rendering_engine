@@ -202,6 +202,9 @@ int main() {
 	scene.register_resource("basic2_shader",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic2.shader");
 	scene.register_resource("circle_mesh",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/circle.mesh");
 
+	auto test_shader = scene.get_resource<Shader>("basic2_shader");
+	test_shader->set_uniform<float>("t", 1.f, Shader::UniformType::FLOAT, 1);
+
 	GravitySystem* gravity_system = new GravitySystem();
 	scene.add_system(gravity_system);
 	gravity_system->scene = &scene;
@@ -285,7 +288,6 @@ int main() {
 	// ..:: LOOP ::..
 
 	float t1, t2, dt = 0.0;
-	int i = 0;
 
 	while (!glfwWindowShouldClose(window)) {
 		t2 = glfwGetTime();
@@ -293,14 +295,10 @@ int main() {
 		t1 = t2;
 
 		t+=0.1f;
+		scene.get_resource<Shader>("basic2_shader")->set_uniform("t", t, Shader::UniformType::FLOAT, 1);
 
-		// if (i == 0) gravity_system->dt = 0.f;
-		// else gravity_system->dt = dt;
 		gravity_system->dt = dt;
-		// std::cout << "main dt: " << dt << std::endl;
-		// scene.update();
-
-		i++;
+		scene.update();
 
 		process_input(window);
 		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {

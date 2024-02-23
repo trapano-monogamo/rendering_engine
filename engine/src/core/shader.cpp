@@ -148,3 +148,45 @@ void Shader::set_uniform_matrix_4fv(const char* uniform_name, float m[16]) {
 	glUseProgram(this->program);
 	glUniformMatrix4fv(uniform_location, 1, GL_FALSE, m);
 }
+
+void Shader::apply_uniforms() {
+	for (auto& u : uniforms) {
+		int uniform_location = glGetUniformLocation(program, u.first.c_str());
+		glUseProgram(program);
+		switch(u.second.type) {
+			case Shader::UniformType::FLOAT:
+				glUniform1f(uniform_location, *(float*)u.second.data);
+				break;
+			case Shader::UniformType::INT:
+				glUniform1i(uniform_location, *(int*)u.second.data);
+				break;
+			case Shader::UniformType::FLOAT_2:
+				glUniform2f(uniform_location, ((float*)u.second.data)[0], ((float*)u.second.data)[1]);
+				break;
+			case Shader::UniformType::FLOAT_3:
+				glUniform3f(uniform_location, ((float*)u.second.data)[0], ((float*)u.second.data)[1], ((float*)u.second.data)[2]);
+				break;
+			case Shader::UniformType::FLOAT_4:
+				glUniform4f(uniform_location, ((float*)u.second.data)[0], ((float*)u.second.data)[1], ((float*)u.second.data)[2], ((float*)u.second.data)[3]);
+				break;
+			case Shader::UniformType::INT_2:
+				glUniform2i(uniform_location, ((int*)u.second.data)[0], ((int*)u.second.data)[1]);
+				break;
+			case Shader::UniformType::INT_3:
+				glUniform3i(uniform_location, ((int*)u.second.data)[0], ((int*)u.second.data)[1], ((int*)u.second.data)[2]);
+				break;
+			case Shader::UniformType::INT_4:
+				glUniform4i(uniform_location, ((int*)u.second.data)[0], ((int*)u.second.data)[1], ((int*)u.second.data)[2], ((int*)u.second.data)[3]);
+				break;
+			case Shader::UniformType::FLOAT_ARRAY:
+				glUniform1fv(uniform_location, u.second.size, (float*)u.second.data);
+				break;
+			case Shader::UniformType::INT_ARRAY:
+				glUniform1iv(uniform_location, u.second.size, (int*)u.second.data);
+				break;
+			default:
+				glUniform1fv(uniform_location, u.second.size, (float*)u.second.data);
+				break;
+		}
+	}
+}
