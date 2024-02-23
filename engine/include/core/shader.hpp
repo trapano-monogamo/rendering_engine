@@ -54,10 +54,6 @@ public:
 	void set_uniform(const std::string& name, const T& value, UniformType type, GLint size);
 
 	void apply_uniforms();
-
-private:
-	template<std::size_t N, typename U>
-	void deduce_uniform_type(GLenum& type, GLint& size);
 };
 
 
@@ -73,14 +69,3 @@ void Shader::set_uniform(const std::string &name, const T &value, UniformType ty
 		uniforms.insert({name, ud});
 	}
 }
-
-
-// // default to float for unknown types
-// template<std::size_t N, typename U>
-// void Shader::deduce_uniform_type(GLenum& type, GLint& size) {
-// 	type = GL_FLOAT;
-// 	size = N;
-// 	switch (typeid(U).hash_code()) {
-// 		// or something like this
-// 	}
-// }

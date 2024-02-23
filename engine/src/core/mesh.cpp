@@ -1,6 +1,5 @@
 #include "core/mesh.hpp"
 #include <fstream>
-#include <iostream>
 #include <stdexcept>
 #include <string>
 #include <sstream>

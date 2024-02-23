@@ -16,10 +16,6 @@ void Scene::render() {
 			.with_component<Renderable>(this)
 			.results;
 
-	// for (auto& entity : query) {
-	// 	std::cout << "entity: " << entity << "\t" << get_component<Renderable>(entity) << std::endl;
-	// }
-
 	for (auto& entity : query) {
 		Renderable* obj = this->get_component<Renderable>(entity);
 
@@ -28,8 +24,6 @@ void Scene::render() {
 		auto mesh = get_resource<Mesh>(obj->mesh_key);
 		auto shader = get_resource<Shader>(obj->shader_key);
 
-		// if (obj->load_uniforms != nullptr) obj->load_uniforms(*obj, *this);
-		// if (obj->load_uniforms) obj->load_uniforms(*obj, *this);
 		shader->apply_uniforms();
 
 		shader->set_uniform_matrix_4fv("transform", transform.m);

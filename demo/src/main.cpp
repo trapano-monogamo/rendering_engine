@@ -1,3 +1,62 @@
+/* ~ TODO ~
+ *
+ * - introduce textures:
+ *   - sampling in the shader:
+ *   	- check renderable keys (if there's no texture)
+ *   - loading from file
+ *
+ * - introduce materials:
+ *   - usage in the shader:
+ *   	- check renderable keys (if there's no material)
+ *   - loading from file
+ *   - lighting:
+ *   	- entities with LightSource component
+ *   	- scene queries for those components and computes the light data to send to the shader as uniforms
+ *
+ * - tidy up ECS and ResourceManager:
+ *   - ECS:
+ *   	- delete components
+ *   	- better query entities and query components interfaces [OPTIONAL]
+ *   - ResouceManager:
+ *   	- unloading resources
+ *   	- deleting resources (requires making sure the destructors
+ *   	  of the Resource inheritors are set up correctly)
+ *   	  	- on demand
+ *   	  	- when needed ?
+ *   	- caching [OPTIONAL, also... scary]
+ *
+ * - create Window/App class with:
+ *   - array Scenes[]
+ *   - fn on_create()
+ *   - fn on_update()
+ *
+ * - provide default resources:
+ *   - default shaders with appropriate uniforms:
+ *   	- if lighting is going to be supported, build shaders to be included into other shaders
+ *   	  to provide an easy way of implementing different lighting techniques
+ *   - default textures [OPTIONAL]
+ *   - default meshes (cube, sphere, square, circle, triangle, BEAN)
+ *
+ * - separation between 2D and 3D (???) [OPTIONAL]
+ *
+ * - physics module: (easier said than done...)
+ *   - rigid body colliders (for default meshes and custom (1:1 with mesh or following other vertex data))
+ *   - collision logic:
+ *   	- collision detection (you bastard)
+ *   	- collision response (conservation laws for physical rigid bodies)
+ *   - joints (lol)
+ *   - springs
+ *   - skeletons:
+ *   	- tree of transforms
+ *   	- recursive transformations and forces
+ *
+ * - make project compile into a library and have the demo be a project that uses it
+ *   rather than being part of the root project.
+ *
+ * */
+
+
+
 #include "common.hpp"
 
 #include <cstdint>
@@ -114,9 +173,6 @@ public:
 			Renderable* r = scene->get_component<Renderable>(ea);
 			Body* a = scene->get_component<Body>(ea);
 
-			// std::cout << std::endl << "position:\t" << r->position.x << ", " << r->position.y << ", " << r->position.z << std::endl;
-			// std::cout << "velocity:\t" << a->velocity.x << ", " << a->velocity.y << ", " << a->velocity.z << std::endl;
-
 			for (uint32_t& eb : query) {
 				if (eb != ea) {
 					Body* b = scene->get_component<Body>(eb);
@@ -124,13 +180,7 @@ public:
 					vec3 w = b->position + -a->position;
 					vec3 u = vec3::normalize(w);
 					float d = w.magnitude();
-					// float d = std::abs(vec3::distance(a->position, b->position));
 					if ( d > 0.0f ) {
-						// std::cout << "distance:   \t" << d << std::endl;
-						// std::cout << "dist vector:\t"
-						// 	<< w.x << ", " << w.y << ", " << w.z << std::endl;
-						// std::cout << "normalized: \t"
-						// 	<< u.x << ", " << u.y << ", " << u.z << std::endl;
 						a->force += u * (G * (a->mass * b->mass) / (d*d));
 					} else {
 						continue; // idk do something else
@@ -143,14 +193,9 @@ public:
 	void update_bodies(Scene* scene) {
 		auto query = scene->query_entities().with_component<Body>(scene).results;
 
-		// std::cout << "sys dt: " << dt << std::endl;
-
 		for (uint32_t& ea : query) {
 			Body* a = scene->get_component<Body>(ea);
 			Renderable* r = scene->get_component<Renderable>(ea);
-
-			// std::cout << "sys body " << ea << ": " << a << "\t" << a->position.x << ", " << a->position.y << ", " << a->position.z << std::endl;
-			// std::cout << "sys rend " << ea << ": " << r << "\t" << r->position.x << ", " << r->position.y << ", " << r->position.z << std::endl;
 
 			a->acceleration = a->force * (1 / a->mass);
 			a->velocity += a->acceleration;
@@ -241,48 +286,12 @@ int main() {
 		Renderable* obj = new Renderable("circle_mesh", "", "basic2_shader", "");
 		obj->translate(positions[i]);
 
-		/* it can't possibly work, `float& t` is evaluated at declaration time, so
-		 * t will never be updated
-		 * */
-		// obj->load_uniforms = [&](Renderable& r, ResourceManager& rm) {
-		// 	std::shared_ptr<Shader> shader = rm.get_resource<Shader>(r.shader_key);
-		// 	float v[2] = {(float)sin(t),(float)cos(t)};
-		// 	shader->set_uniform_2fv("t", v);
-		// };
-
 		Body* b = new Body{ masses[i], positions[i], velocities[i], vec3(), vec3() };
 
 		uint32_t id = scene.add_entity();
 		scene.add_component<Renderable>(id, obj);
 		scene.add_component<Body>(id, b);
-
-		// std::cout << "rend local " << id << ": " << obj << "\t" << obj->position.x << ", " << obj->position.y << ", " << obj->position.z << std::endl;
-		// std::cout << "body local " << id << ": " << b << "\t" << b->position.x << ", " << b->position.y << ", " << b->position.z << std::endl;
-		// Renderable* rend = scene.get_component<Renderable>(id);
-		// Body* body = scene.get_component<Body>(id);
-		// std::cout << "rend ECS " << id << ":   " << rend << "\t" << rend->position.x << ", " << rend->position.y << ", " << rend->position.z << std::endl;
-		// std::cout << "body ECS " << id << ":   " << body << "\t" << body->position.x << ", " << body->position.y << ", " << body->position.z << std::endl;
 	}
-	// std::cout << "~~~~~" << std::endl;
-
-
-
-	// auto query = scene.query_entities()
-	// 	.with_component<Renderable>(&scene)
-	// 	.results;
-
-	// for (auto& id : query) {
-	// 	Renderable* rend = scene.get_component<Renderable>(id);
-	// 	vec3 p = rend->position;
-	// 	Body* body = scene.get_component<Body>(id);
-	// 	vec3 q = (body != nullptr) ? body->position : vec3();
-	// 	std::cout << "after rend " << id << ": " << rend << "\t" << p.x << ", " << p.y << ", " << p.z << std::endl;
-	// 	std::cout << "after body " << id << ": " << body << "\t" << q.x << ", " << q.y << ", " << q.z << std::endl;
-	// }
-	// std::cout << "~~~~~" << std::endl;
-
-
-
 
 
 	// ..:: LOOP ::..
