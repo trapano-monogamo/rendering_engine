@@ -9,6 +9,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/scene.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
+  /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/ecs/ecs.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h \
@@ -422,6 +423,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/bits/allocated_ptr.h:
 
+/usr/include/bits/errno.h:
+
 /usr/include/bits/floatn-common.h:
 
 /usr/include/bits/endianness.h:
@@ -454,16 +457,6 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/stdlib-float.h:
 
-/usr/include/c++/13.2.1/bits/stl_uninitialized.h:
-
-/usr/include/c++/13.2.1/string_view:
-
-/usr/include/bits/atomic_wide_counter.h:
-
-/usr/include/bits/errno.h:
-
-/usr/include/bits/locale.h:
-
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/bits/timex.h:
@@ -486,11 +479,27 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/bits/floatn.h:
 
+/home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp:
+
 /usr/include/bits/types/error_t.h:
 
 /usr/include/c++/13.2.1/istream:
 
 /usr/include/c++/13.2.1/typeinfo:
+
+/usr/include/bits/struct_mutex.h:
+
+/usr/include/c++/13.2.1/ext/alloc_traits.h:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp:
+
+/usr/include/alloca.h:
+
+/usr/include/c++/13.2.1/cstdio:
+
+/usr/include/c++/13.2.1/tr1/gamma.tcc:
+
+/usr/include/bits/stdint-least.h:
 
 /usr/include/c++/13.2.1/backward/auto_ptr.h:
 
@@ -502,27 +511,19 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/math/mat.hpp:
 
+/usr/include/c++/13.2.1/bits/stl_uninitialized.h:
+
+/usr/include/c++/13.2.1/string_view:
+
+/usr/include/bits/atomic_wide_counter.h:
+
+/usr/include/bits/locale.h:
+
 /usr/include/stdlib.h:
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/GLFW/glfw3.h:
 
 /usr/include/c++/13.2.1/cctype:
-
-/usr/include/c++/13.2.1/bits/istream.tcc:
-
-/usr/include/alloca.h:
-
-/usr/include/c++/13.2.1/cstdio:
-
-/usr/include/c++/13.2.1/tr1/gamma.tcc:
-
-/usr/include/bits/struct_mutex.h:
-
-/usr/include/c++/13.2.1/ext/alloc_traits.h:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp:
-
-/usr/include/bits/stdint-least.h:
 
 /usr/include/bits/types/FILE.h:
 
@@ -650,6 +651,8 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/clocale:
 
+/usr/include/c++/13.2.1/bits/istream.tcc:
+
 /usr/include/gnu/stubs.h:
 
 /usr/include/c++/13.2.1/bits/locale_facets.tcc:
@@ -734,9 +737,9 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/d
 
 /usr/include/c++/13.2.1/ext/concurrence.h:
 
-/usr/include/bits/types/clockid_t.h:
-
 /usr/include/bits/stdint-intn.h:
+
+/usr/include/bits/types/clockid_t.h:
 
 /usr/include/c++/13.2.1/bits/hashtable.h:
 

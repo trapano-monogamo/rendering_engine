@@ -199,6 +199,7 @@ demo/CMakeFiles/demo.dir/src/main.cpp.o: \
  /usr/include/c++/13.2.1/backward/auto_ptr.h \
  /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/texture.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/transform.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/ecs/ecs.hpp \
  /usr/include/c++/13.2.1/utility \

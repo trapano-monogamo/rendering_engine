@@ -2,8 +2,10 @@
  *
  * - introduce textures:
  *   - sampling in the shader:
- *   	- check renderable keys (if there's no texture)
+ *   	- check renderable array of keys (enable each texture)
  *   - loading from file
+ *   - reloading of resources (reload a texture from the file on
+ *     demand after changes)
  *
  * - introduce materials:
  *   - usage in the shader:
@@ -68,6 +70,7 @@
 #include <string>
 
 #include "core/shader.hpp"
+#include "core/texture.hpp"
 #include "core/transform.hpp"
 #include "core/renderable.hpp"
 #include "core/scene.hpp"
@@ -154,6 +157,9 @@ struct Body : public Component {
 
 
 class GravitySystem : public System {
+private:
+	bool running = false;
+
 public:
 	Scene* scene;
 	float dt = 0.0f;
@@ -162,15 +168,19 @@ public:
 	GravitySystem() : scene(nullptr), dt(0.0f) {}
 
 	void update() override {
-		this->update_gravity(scene);
-		this->update_bodies(scene);
+		// for some reason, the first iteration seems to make the simulation explode
+		if (running) {
+			this->update_gravity(scene);
+			this->update_bodies(scene);
+		} else {
+			running = true;
+		}
 	}
 
 	void update_gravity(Scene* scene) {
 		auto query = scene->query_entities().with_component<Body>(scene).results;
 
 		for (uint32_t& ea : query) {
-			Renderable* r = scene->get_component<Renderable>(ea);
 			Body* a = scene->get_component<Body>(ea);
 
 			for (uint32_t& eb : query) {
@@ -242,30 +252,32 @@ int main() {
 
 	scene.camera = Camera(vec3(0.0, 0.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
 
-	scene.register_resource("square_mesh",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/square.mesh");
-	scene.register_resource("basic_shader", "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
-	scene.register_resource("basic2_shader",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic2.shader");
-	scene.register_resource("circle_mesh",  "/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/circle.mesh");
+	scene.register_resource("basic_shader",			"/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic.shader");
+	scene.register_resource("basic2_shader",		"/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic2.shader");
+	scene.register_resource("basic3_shader",		"/home/chiara/dev/cpp/rendering_engine/engine/assets/shaders/basic3.shader");
+	scene.register_resource("square_mesh",			"/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/square.mesh");
+	scene.register_resource("circle_mesh",			"/home/chiara/dev/cpp/rendering_engine/engine/assets/meshes/circle.mesh");
+	scene.register_resource("container_texture",	"/home/chiara/dev/cpp/rendering_engine/engine/assets/textures/container.jpg");
 
 	auto test_shader = scene.get_resource<Shader>("basic2_shader");
 	test_shader->set_uniform<float>("t", 1.f, Shader::UniformType::FLOAT, 1);
+
+	auto test_texture = scene.get_resource<Texture>("container_texture");
+	test_texture->with_parameter(GL_TEXTURE_WRAP_S, GL_REPEAT);
+	test_texture->with_parameter(GL_TEXTURE_WRAP_T, GL_REPEAT);
+	test_texture->with_parameter(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	test_texture->with_parameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
 	GravitySystem* gravity_system = new GravitySystem();
 	scene.add_system(gravity_system);
 	gravity_system->scene = &scene;
 
 	uint32_t id = scene.add_entity();
-	Renderable* floor = new Renderable("square_mesh", "", "basic_shader", "");
+	Renderable* floor = new Renderable("square_mesh", "", "basic3_shader", "container_texture");
 	floor->translate(vec3(0.0, -5.0, 0.0));
 	floor->rotate_euler(vec3(PI/2,0,0));
 	floor->resize(vec3(10.0, 10.0, 0.0));
 	scene.add_component<Renderable>(id, floor);
-
-	// Texture texture = Texture("/home/chiara/dev/cpp/rendering_engine/engine/assets/textures/checkboard.png");
-	// texture.with_parameter(GL_TEXTURE_WRAP_S, GL_REPEAT);
-	// texture.with_parameter(GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// texture.with_parameter(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	// texture.with_parameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	
 	float masses[] = {
 		1.f,
@@ -304,7 +316,8 @@ int main() {
 		t1 = t2;
 
 		t+=0.1f;
-		scene.get_resource<Shader>("basic2_shader")->set_uniform("t", t, Shader::UniformType::FLOAT, 1);
+		// scene.get_resource<Shader>("basic2_shader")->set_uniform("t", t, Shader::UniformType::FLOAT, 1);
+		test_shader->set_uniform("t", t, Shader::UniformType::FLOAT, 1);
 
 		gravity_system->dt = dt;
 		scene.update();

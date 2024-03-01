@@ -171,4 +171,5 @@ engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_heap.h \
  /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp

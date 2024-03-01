@@ -482,7 +482,6 @@ engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o: /home/chiara/dev/cpp
   /usr/include/c++/13.2.1/initializer_list \
   /usr/include/c++/13.2.1/ios \
   /usr/include/c++/13.2.1/iosfwd \
-  /usr/include/c++/13.2.1/iostream \
   /usr/include/c++/13.2.1/istream \
   /usr/include/c++/13.2.1/memory \
   /usr/include/c++/13.2.1/new \
@@ -761,6 +760,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/scene.cpp.o: /home/chiara/dev/cp
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/renderable.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/scene.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
+  /home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/ecs/ecs.hpp \
   /home/chiara/dev/cpp/rendering_engine/engine/include/glad/glad.h \
@@ -2274,9 +2274,9 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: /home
 
 /usr/include/bits/local_lim.h:
 
-/home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp:
-
 /home/chiara/dev/cpp/rendering_engine/engine/src/core/shader.cpp:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/core/texture.hpp:
 
 /home/chiara/dev/cpp/rendering_engine/engine/include/core/scene.hpp:
 
@@ -2305,8 +2305,6 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: /home
 /usr/include/c++/13.2.1/system_error:
 
 /usr/include/c++/13.2.1/streambuf:
-
-/usr/include/c++/13.2.1/stdexcept:
 
 /usr/include/bits/types/__mbstate_t.h:
 
@@ -2449,6 +2447,8 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: /home
 /usr/include/c++/13.2.1/pstl/pstl_config.h:
 
 /usr/include/bits/mathcalls-narrow.h:
+
+/usr/include/c++/13.2.1/stdexcept:
 
 /usr/include/bits/types/timer_t.h:
 
@@ -2639,6 +2639,12 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: /home
 /usr/include/c++/13.2.1/typeinfo:
 
 /usr/include/c++/13.2.1/istream:
+
+/usr/include/c++/13.2.1/iostream:
+
+/home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp:
+
+/usr/include/bits/types/mbstate_t.h:
 
 /usr/include/bits/types/struct_FILE.h:
 
@@ -2853,12 +2859,6 @@ engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: /home
 /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
 
 /usr/include/c++/13.2.1/cwctype:
-
-/home/chiara/dev/cpp/rendering_engine/engine/include/core/transform.hpp:
-
-/usr/include/bits/types/mbstate_t.h:
-
-/usr/include/c++/13.2.1/iostream:
 
 /usr/include/bits/types/__locale_t.h:
 

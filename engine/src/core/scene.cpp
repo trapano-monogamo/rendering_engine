@@ -2,6 +2,7 @@
 #include "core/mesh.hpp"
 #include "core/renderable.hpp"
 #include "core/shader.hpp"
+#include "core/texture.hpp"
 #include "math/mat.hpp"
 #include "math/utils.hpp"
 
@@ -30,7 +31,10 @@ void Scene::render() {
 		shader->set_uniform_matrix_4fv("view", view.m);
 		shader->set_uniform_matrix_4fv("projection", this->camera.projection.m);
 
-		// obj->texture.use();
+		if (!obj->texture_key.empty()) {
+			auto texture = get_resource<Texture>(obj->texture_key);
+			texture->use();
+		}
 		// ~ Mesh and Shader are mandatory for rendering ~
 		mesh->use();
 		shader->use();
