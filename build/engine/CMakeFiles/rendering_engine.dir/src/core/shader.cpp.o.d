@@ -19,7 +19,7 @@ engine/CMakeFiles/rendering_engine.dir/src/core/shader.cpp.o: \
  /usr/include/GL/gl.h \
  /home/chiara/dev/cpp/rendering_engine/engine/include/utils.hpp \
  /home/chiara/dev/cpp/rendering_engine/engine/include/core/shader.hpp \
- /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/resource_manager.hpp \
  /usr/include/c++/13.2.1/string \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \

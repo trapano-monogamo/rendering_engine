@@ -1,6 +1,6 @@
 #pragma once
 
-#include "resource_manager/manager.hpp"
+#include "resource_manager/resource_manager.hpp"
 #include "common.hpp"
 
 #include <cstddef>
@@ -50,15 +50,16 @@ public:
 	void set_uniform_2fv(const char* uniform_name, float v[2]);
 	void set_uniform_matrix_4fv(const char* uniform_name, float m[16]);
 
+	// TODO: T value should be a const reference or a normal reference
 	template<typename T>
-	void set_uniform(const std::string& name, const T& value, UniformType type, GLint size);
+	void set_uniform(const std::string& name, T value, UniformType type, GLint size);
 
 	void apply_uniforms();
 };
 
 
 template<typename T>
-void Shader::set_uniform(const std::string &name, const T &value, UniformType type, GLint size) {
+void Shader::set_uniform(const std::string &name, T value, UniformType type, GLint size) {
 	auto it = uniforms.find(name);
 	if (it != uniforms.end()) {
 		it->second.type = type;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 #include <vector>
 #include <unordered_map>
 #include <utility>
@@ -15,17 +16,20 @@ public:
 
 
 
-
 struct Component {
 	Component() = default;
 	virtual ~Component() = default;
 };
+
+
 
 class ECS;
 struct Query {
 	std::vector<uint32_t> results;
 	template<typename T> Query& with_component(ECS* const ecs);
 };
+
+
 
 class ECS {
 public:
@@ -44,6 +48,8 @@ public:
 	template<typename T> void remove_component(uint32_t entity);
 	void add_system(System* sys);
 	void remove_system(System* sys);
+
+	template<typename T> T* get_system();
 
 	template<typename T> T* get_component(uint32_t entity);
 	template<typename T> std::vector<T*> query_components();
@@ -110,4 +116,15 @@ template<typename T>
 bool ECS::has_component(uint32_t entity) {
 	if (this->get_component<T>(entity) != nullptr) return true;
 	else return false;
+}
+
+template<typename T>
+T* ECS::get_system() {
+	for (System*& sys : this->systems) {
+		T* res = dynamic_cast<T*>(sys);
+		if (res != nullptr) {
+			return res;
+		}
+	}
+	return nullptr;
 }

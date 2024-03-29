@@ -2,7 +2,7 @@
 
 #include "common.hpp"
 #include "math/vec.hpp"
-#include "resource_manager/manager.hpp"
+#include "resource_manager/resource_manager.hpp"
 #include <string>
 #include <vector>
 

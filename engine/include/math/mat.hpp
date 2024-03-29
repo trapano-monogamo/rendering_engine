@@ -8,8 +8,10 @@ struct mat4 {
 	float m[16];
 
 	mat4() = default;
-	mat4(mat4& m) = default;
+	mat4(mat4&) = default;
 	mat4(std::array<float, 16>);
+
+	void operator=(const mat4&);
 
 	static mat4 zeros();
 	static mat4 identity();

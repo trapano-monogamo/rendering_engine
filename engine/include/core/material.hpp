@@ -1,7 +1,7 @@
 #pragma once
 
 #include "math/vec.hpp"
-#include "resource_manager/manager.hpp"
+#include "resource_manager/resource_manager.hpp"
 #include <string>
 
 class LightProperties : public Resource {

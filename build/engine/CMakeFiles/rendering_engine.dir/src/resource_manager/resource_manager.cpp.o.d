@@ -1,7 +1,7 @@
-engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o: \
- /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp \
+engine/CMakeFiles/rendering_engine.dir/src/resource_manager/resource_manager.cpp.o: \
+ /home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/resource_manager.cpp \
  /usr/include/stdc-predef.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/resource_manager.hpp \
  /usr/include/c++/13.2.1/string \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \

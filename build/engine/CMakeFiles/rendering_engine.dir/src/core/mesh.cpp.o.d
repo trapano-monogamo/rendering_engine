@@ -45,21 +45,54 @@ engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o: \
  /usr/include/c++/13.2.1/debug/debug.h \
  /usr/include/c++/13.2.1/bits/predefined_ops.h \
  /usr/include/c++/13.2.1/bit /usr/include/c++/13.2.1/bits/range_access.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/manager.hpp \
- /usr/include/c++/13.2.1/string \
- /usr/include/c++/13.2.1/bits/requires_hosted.h \
- /usr/include/c++/13.2.1/bits/stringfwd.h \
+ /usr/include/c++/13.2.1/cmath \
+ /usr/include/c++/13.2.1/bits/requires_hosted.h /usr/include/math.h \
+ /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
+ /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
+ /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
+ /usr/include/bits/fp-fast.h \
+ /usr/include/bits/mathcalls-helper-functions.h \
+ /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
+ /usr/include/bits/iscanonical.h /usr/include/c++/13.2.1/bits/std_abs.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/bits/types/locale_t.h \
+ /usr/include/bits/types/__locale_t.h /usr/include/sys/types.h \
+ /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
+ /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
+ /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/bits/endianness.h /usr/include/bits/byteswap.h \
+ /usr/include/bits/uintn-identity.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/types/sigset_t.h \
+ /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timeval.h \
+ /usr/include/bits/types/struct_timespec.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib-float.h /usr/include/c++/13.2.1/bits/specfun.h \
+ /usr/include/c++/13.2.1/limits /usr/include/c++/13.2.1/tr1/gamma.tcc \
+ /usr/include/c++/13.2.1/tr1/special_function_util.h \
+ /usr/include/c++/13.2.1/tr1/bessel_function.tcc \
+ /usr/include/c++/13.2.1/tr1/beta_function.tcc \
+ /usr/include/c++/13.2.1/tr1/ell_integral.tcc \
+ /usr/include/c++/13.2.1/tr1/exp_integral.tcc \
+ /usr/include/c++/13.2.1/tr1/hypergeometric.tcc \
+ /usr/include/c++/13.2.1/tr1/legendre_function.tcc \
+ /usr/include/c++/13.2.1/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/13.2.1/tr1/poly_hermite.tcc \
+ /usr/include/c++/13.2.1/tr1/poly_laguerre.tcc \
+ /usr/include/c++/13.2.1/tr1/riemann_zeta.tcc \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/resource_manager/resource_manager.hpp \
+ /usr/include/c++/13.2.1/string /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/memoryfwd.h \
  /usr/include/c++/13.2.1/bits/char_traits.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
- /usr/include/wchar.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h \
+ /usr/include/wchar.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h \
  /usr/include/bits/types/wint_t.h /usr/include/bits/types/mbstate_t.h \
  /usr/include/bits/types/__mbstate_t.h /usr/include/bits/types/__FILE.h \
- /usr/include/bits/types/FILE.h /usr/include/bits/types/locale_t.h \
- /usr/include/bits/types/__locale_t.h \
- /usr/include/c++/13.2.1/bits/allocator.h \
+ /usr/include/bits/types/FILE.h /usr/include/c++/13.2.1/bits/allocator.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
  /usr/include/c++/13.2.1/bits/new_allocator.h /usr/include/c++/13.2.1/new \
  /usr/include/c++/13.2.1/bits/exception.h \
@@ -68,7 +101,6 @@ engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o: \
  /usr/include/c++/13.2.1/clocale /usr/include/locale.h \
  /usr/include/bits/locale.h /usr/include/c++/13.2.1/iosfwd \
  /usr/include/c++/13.2.1/cctype /usr/include/ctype.h \
- /usr/include/bits/endian.h /usr/include/bits/endianness.h \
  /usr/include/c++/13.2.1/bits/ostream_insert.h \
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h \
  /usr/include/c++/13.2.1/bits/stl_function.h \
@@ -84,23 +116,9 @@ engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o: \
  /usr/include/c++/13.2.1/bits/hash_bytes.h \
  /usr/include/c++/13.2.1/bits/string_view.tcc \
  /usr/include/c++/13.2.1/ext/string_conversions.h \
- /usr/include/c++/13.2.1/cstdlib /usr/include/stdlib.h \
- /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
- /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
- /usr/include/bits/types/clockid_t.h /usr/include/bits/types/time_t.h \
- /usr/include/bits/types/timer_t.h /usr/include/endian.h \
- /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
- /usr/include/sys/select.h /usr/include/bits/select.h \
- /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
- /usr/include/bits/types/struct_timeval.h \
- /usr/include/bits/types/struct_timespec.h \
- /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
- /usr/include/bits/pthreadtypes-arch.h \
- /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
- /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h /usr/include/c++/13.2.1/bits/std_abs.h \
- /usr/include/c++/13.2.1/cstdio /usr/include/stdio.h \
- /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__fpos64_t.h \
+ /usr/include/c++/13.2.1/cstdlib /usr/include/c++/13.2.1/cstdio \
+ /usr/include/stdio.h /usr/include/bits/types/__fpos_t.h \
+ /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
  /usr/include/bits/stdio_lim.h /usr/include/c++/13.2.1/cerrno \

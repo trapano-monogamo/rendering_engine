@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chiara/dev/cpp/rendering_engine/engine/src/glad.c" "engine/CMakeFiles/rendering_engine.dir/src/glad.c.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/glad.c.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/engine/src/core/game_app.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/mesh.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/renderable.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o.d"
@@ -18,10 +19,11 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/texture.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/texture.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/transform.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/transform.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/ecs/ecs.cpp" "engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/ecs/ecs.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/engine/src/input_handler/input_handler.cpp" "engine/CMakeFiles/rendering_engine.dir/src/input_handler/input_handler.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/input_handler/input_handler.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/math/mat.cpp" "engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/math/utils.cpp" "engine/CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/math/utils.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/math/vec.cpp" "engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.o.d"
-  "/home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/manager.cpp" "engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/engine/src/resource_manager/resource_manager.cpp" "engine/CMakeFiles/rendering_engine.dir/src/resource_manager/resource_manager.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/resource_manager/resource_manager.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

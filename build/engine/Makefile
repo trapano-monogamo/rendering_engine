@@ -154,6 +154,30 @@ src/core/camera.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.s
 .PHONY : src/core/camera.cpp.s
 
+src/core/game_app.o: src/core/game_app.cpp.o
+.PHONY : src/core/game_app.o
+
+# target to build an object file
+src/core/game_app.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.o
+.PHONY : src/core/game_app.cpp.o
+
+src/core/game_app.i: src/core/game_app.cpp.i
+.PHONY : src/core/game_app.i
+
+# target to preprocess a source file
+src/core/game_app.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.i
+.PHONY : src/core/game_app.cpp.i
+
+src/core/game_app.s: src/core/game_app.cpp.s
+.PHONY : src/core/game_app.s
+
+# target to generate assembly for a file
+src/core/game_app.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.s
+.PHONY : src/core/game_app.cpp.s
+
 src/core/material.o: src/core/material.cpp.o
 .PHONY : src/core/material.o
 
@@ -370,6 +394,30 @@ src/glad.c.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/glad.c.s
 .PHONY : src/glad.c.s
 
+src/input_handler/input_handler.o: src/input_handler/input_handler.cpp.o
+.PHONY : src/input_handler/input_handler.o
+
+# target to build an object file
+src/input_handler/input_handler.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/input_handler/input_handler.cpp.o
+.PHONY : src/input_handler/input_handler.cpp.o
+
+src/input_handler/input_handler.i: src/input_handler/input_handler.cpp.i
+.PHONY : src/input_handler/input_handler.i
+
+# target to preprocess a source file
+src/input_handler/input_handler.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/input_handler/input_handler.cpp.i
+.PHONY : src/input_handler/input_handler.cpp.i
+
+src/input_handler/input_handler.s: src/input_handler/input_handler.cpp.s
+.PHONY : src/input_handler/input_handler.s
+
+# target to generate assembly for a file
+src/input_handler/input_handler.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/input_handler/input_handler.cpp.s
+.PHONY : src/input_handler/input_handler.cpp.s
+
 src/math/mat.o: src/math/mat.cpp.o
 .PHONY : src/math/mat.o
 
@@ -442,29 +490,29 @@ src/math/vec.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/math/vec.cpp.s
 .PHONY : src/math/vec.cpp.s
 
-src/resource_manager/manager.o: src/resource_manager/manager.cpp.o
-.PHONY : src/resource_manager/manager.o
+src/resource_manager/resource_manager.o: src/resource_manager/resource_manager.cpp.o
+.PHONY : src/resource_manager/resource_manager.o
 
 # target to build an object file
-src/resource_manager/manager.cpp.o:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.o
-.PHONY : src/resource_manager/manager.cpp.o
+src/resource_manager/resource_manager.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/resource_manager.cpp.o
+.PHONY : src/resource_manager/resource_manager.cpp.o
 
-src/resource_manager/manager.i: src/resource_manager/manager.cpp.i
-.PHONY : src/resource_manager/manager.i
+src/resource_manager/resource_manager.i: src/resource_manager/resource_manager.cpp.i
+.PHONY : src/resource_manager/resource_manager.i
 
 # target to preprocess a source file
-src/resource_manager/manager.cpp.i:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.i
-.PHONY : src/resource_manager/manager.cpp.i
+src/resource_manager/resource_manager.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/resource_manager.cpp.i
+.PHONY : src/resource_manager/resource_manager.cpp.i
 
-src/resource_manager/manager.s: src/resource_manager/manager.cpp.s
-.PHONY : src/resource_manager/manager.s
+src/resource_manager/resource_manager.s: src/resource_manager/resource_manager.cpp.s
+.PHONY : src/resource_manager/resource_manager.s
 
 # target to generate assembly for a file
-src/resource_manager/manager.cpp.s:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/manager.cpp.s
-.PHONY : src/resource_manager/manager.cpp.s
+src/resource_manager/resource_manager.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/resource_manager/resource_manager.cpp.s
+.PHONY : src/resource_manager/resource_manager.cpp.s
 
 # Help Target
 help:
@@ -478,6 +526,9 @@ help:
 	@echo "... src/core/camera.o"
 	@echo "... src/core/camera.i"
 	@echo "... src/core/camera.s"
+	@echo "... src/core/game_app.o"
+	@echo "... src/core/game_app.i"
+	@echo "... src/core/game_app.s"
 	@echo "... src/core/material.o"
 	@echo "... src/core/material.i"
 	@echo "... src/core/material.s"
@@ -505,6 +556,9 @@ help:
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"
+	@echo "... src/input_handler/input_handler.o"
+	@echo "... src/input_handler/input_handler.i"
+	@echo "... src/input_handler/input_handler.s"
 	@echo "... src/math/mat.o"
 	@echo "... src/math/mat.i"
 	@echo "... src/math/mat.s"
@@ -514,9 +568,9 @@ help:
 	@echo "... src/math/vec.o"
 	@echo "... src/math/vec.i"
 	@echo "... src/math/vec.s"
-	@echo "... src/resource_manager/manager.o"
-	@echo "... src/resource_manager/manager.i"
-	@echo "... src/resource_manager/manager.s"
+	@echo "... src/resource_manager/resource_manager.o"
+	@echo "... src/resource_manager/resource_manager.i"
+	@echo "... src/resource_manager/resource_manager.s"
 .PHONY : help
 
 

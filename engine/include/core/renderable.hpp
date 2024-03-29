@@ -1,11 +1,12 @@
 #pragma once
 
 #include "core/transform.hpp"
-#include "resource_manager/manager.hpp"
+#include "ecs/ecs.hpp"
+#include "resource_manager/resource_manager.hpp"
 #include <functional>
 #include <string>
 
-class Renderable : public Transform {
+class Renderable : public Component {
 public:
 	std::string mesh_key;
 	std::string light_prop_key;

@@ -14,6 +14,10 @@ vec3::vec3(std::array<float, 3> _v) {
 	for (int i = 0; i < 3; i++) this->v[i] = _v[i];
 }
 
+void vec3::operator=(const vec3& a) {
+	for (int i = 0; i < 3; i++) v[i] = a.v[i];
+}
+
 float& vec3::operator[](int i) {
 	return this->v[i];
 }
@@ -141,4 +145,12 @@ void vec4::operator*=(float x) {
 
 float vec4::dot(vec4 a, vec4 b) {
 	return a.x*b.x + a.y*b.y + a.z*b.z + a.w*b.w;
+}
+
+
+// ..:: vec2 ::..
+
+void vec2::operator=(const vec2& a) {
+	x = a.x;
+	y = a.y;
 }

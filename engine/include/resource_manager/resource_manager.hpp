@@ -41,8 +41,6 @@ public:
 
 template<typename R>
 std::shared_ptr<R> ResourceManager::get_resource(const std::string &key) {
-	// static_assert(!std::is_abstract_v<R>, "nope");
-
 	auto it = this->resources.find(key);
 	if (it != this->resources.end()) {
 		return std::dynamic_pointer_cast<R>(it->second);

@@ -7,6 +7,14 @@ mat4::mat4(std::array<float, 16> _m) {
 	for (int i = 0; i<16; i++) m[i] = _m[i];
 }
 
+void mat4::operator=(const mat4& a) {
+	for (int i = 0; i < 16; i++) m[i] = a.m[i];
+}
+
+mat4 mat4::zeros() {
+	return mat4(std::array<float, 16>());
+}
+
 mat4 mat4::identity() {
 	return mat4({
 		1.0, 0.0, 0.0, 0.0,

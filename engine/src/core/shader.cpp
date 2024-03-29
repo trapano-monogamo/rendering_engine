@@ -1,6 +1,5 @@
 #include "common.hpp"
 #include "core/shader.hpp"
-#include "resource_manager/manager.hpp"
 
 #include <iostream>
 #include <fstream>

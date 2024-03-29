@@ -32,7 +32,6 @@ engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o: \
  /usr/include/c++/13.2.1/debug/debug.h \
  /usr/include/c++/13.2.1/bits/predefined_ops.h \
  /usr/include/c++/13.2.1/bit /usr/include/c++/13.2.1/bits/range_access.h \
- /home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp \
  /usr/include/c++/13.2.1/cmath \
  /usr/include/c++/13.2.1/bits/requires_hosted.h /usr/include/math.h \
  /usr/include/bits/libc-header-start.h /usr/include/bits/types.h \
@@ -74,4 +73,5 @@ engine/CMakeFiles/rendering_engine.dir/src/math/mat.cpp.o: \
  /usr/include/c++/13.2.1/tr1/modified_bessel_func.tcc \
  /usr/include/c++/13.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/13.2.1/tr1/poly_laguerre.tcc \
- /usr/include/c++/13.2.1/tr1/riemann_zeta.tcc
+ /usr/include/c++/13.2.1/tr1/riemann_zeta.tcc \
+ /home/chiara/dev/cpp/rendering_engine/engine/include/math/utils.hpp

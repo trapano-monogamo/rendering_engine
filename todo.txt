@@ -1,0 +1,92 @@
+
+
+!!!
+consider separating Transform from Renderable,
+so that physics components don't need to store a separate transform
+and align it to the renderable's transform (needs checking and is stoopid)
+!!!
+
+
+[ ] build default meshes in code rather than providing mesh files for them default meshes
+
+- introduce textures:
+  - sampling in the shader:
+  	[x] check renderable array of keys (enable each texture)
+  [x] loading from file
+  [ ] reloading of resources (reload a texture from the file on
+      demand or after changes (?))
+
+- introduce materials:
+  - usage in the shader:
+  	[ ] check renderable keys (if there's no material)
+  [ ] loading from file
+  - lighting:
+  	[ ] entities with LightSource component
+  	[ ] scene queries for those components and computes the light data to send to the shader as uniforms
+
+- create GameApp class with:
+  [ ] array Scenes[]
+  [x] fn on_create()
+  [x] fn on_update()
+
+- build InputHandler:
+  [x] update() logic
+  [ ] make InputHandler accept an unordered_map for keybindings
+
+- build Clock:
+  - maybe have a "global" clock synchronized with GLFW?
+	- has to be visible by all scenes
+	- goes hand in hand with a GLFWwindow
+  	=> GameApp could manage it
+  - ECS systems:
+  	[ ] should be able to autonomously keep track of time
+	[ ] should be able to read "global" clock?
+
+- better Vector and Matrix interfaces
+  [ ] arbitrary size for both
+  [ ] arbitrary type for both
+  (Matrix<N,M,type> and Vector<N,type>)
+  [ ] conversions between matrices and row/column vectors
+  [ ] are size and type specializations needed?
+  	- vec2f, vec3f, vec4f
+	- vec2i for grids. Approximation stuff when rotating scaling?
+	- mat4f
+  - more functionality:
+    [ ] inverse
+	[ ] transpose
+	[ ] slicing (e.g. extract mat3x3/vec4/... from mat4x4)
+
+[ ] make project compile into a library and have the demo be a project that uses it
+    rather than being part of the root project.
+
+- tidy up ECS and ResourceManager:
+  - ECS:
+  	[ ] delete components
+  	[ ] better query entities and query components interfaces [OPTIONAL]
+  - ResouceManager:
+  	[ ] unloading resources
+  	[ ] deleting resources (requires making sure the destructors
+  	    of the Resource inheritors are set up correctly)
+  	  	- on demand
+  	  	- when needed ?
+  	[ ] caching [OPTIONAL, also... scary]
+
+- provide default resources:
+  [ ] default shaders with appropriate uniforms:
+  [ ] if lighting is going to be supported, build shaders to be included into other shaders
+	  to provide an easy way of implementing different lighting techniques
+  [ ] default textures [OPTIONAL]
+  [ ] default meshes (cube, sphere, square, circle, triangle, BEAN)
+
+[ ] separation between 2D and 3D (???) [OPTIONAL]
+
+- physics module: (easier said than done...)
+  [ ] rigid body colliders (for default meshes and custom (1:1 with mesh or following other vertex data))
+  - collision logic:
+  	[ ] collision detection (you bastard)
+  	[ ] collision response (conservation laws for physical rigid bodies)
+  [ ] joints (lol)
+  [ ] springs
+  - skeletons:
+  	[ ] tree of transforms
+  	[ ] recursive transformations and forces: inverse kinematics
