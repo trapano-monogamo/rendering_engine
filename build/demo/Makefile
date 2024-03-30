@@ -130,6 +130,54 @@ demo/fast:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/build
 .PHONY : demo/fast
 
+src/gravity.o: src/gravity.cpp.o
+.PHONY : src/gravity.o
+
+# target to build an object file
+src/gravity.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/gravity.cpp.o
+.PHONY : src/gravity.cpp.o
+
+src/gravity.i: src/gravity.cpp.i
+.PHONY : src/gravity.i
+
+# target to preprocess a source file
+src/gravity.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/gravity.cpp.i
+.PHONY : src/gravity.cpp.i
+
+src/gravity.s: src/gravity.cpp.s
+.PHONY : src/gravity.s
+
+# target to generate assembly for a file
+src/gravity.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/gravity.cpp.s
+.PHONY : src/gravity.cpp.s
+
+src/lighting.o: src/lighting.cpp.o
+.PHONY : src/lighting.o
+
+# target to build an object file
+src/lighting.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/lighting.cpp.o
+.PHONY : src/lighting.cpp.o
+
+src/lighting.i: src/lighting.cpp.i
+.PHONY : src/lighting.i
+
+# target to preprocess a source file
+src/lighting.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/lighting.cpp.i
+.PHONY : src/lighting.cpp.i
+
+src/lighting.s: src/lighting.cpp.s
+.PHONY : src/lighting.s
+
+# target to generate assembly for a file
+src/lighting.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/lighting.cpp.s
+.PHONY : src/lighting.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -154,30 +202,6 @@ src/main.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/scenes.o: src/scenes.cpp.o
-.PHONY : src/scenes.o
-
-# target to build an object file
-src/scenes.cpp.o:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/scenes.cpp.o
-.PHONY : src/scenes.cpp.o
-
-src/scenes.i: src/scenes.cpp.i
-.PHONY : src/scenes.i
-
-# target to preprocess a source file
-src/scenes.cpp.i:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/scenes.cpp.i
-.PHONY : src/scenes.cpp.i
-
-src/scenes.s: src/scenes.cpp.s
-.PHONY : src/scenes.s
-
-# target to generate assembly for a file
-src/scenes.cpp.s:
-	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f demo/CMakeFiles/demo.dir/build.make demo/CMakeFiles/demo.dir/src/scenes.cpp.s
-.PHONY : src/scenes.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -187,12 +211,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... demo"
+	@echo "... src/gravity.o"
+	@echo "... src/gravity.i"
+	@echo "... src/gravity.s"
+	@echo "... src/lighting.o"
+	@echo "... src/lighting.i"
+	@echo "... src/lighting.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/scenes.o"
-	@echo "... src/scenes.i"
-	@echo "... src/scenes.s"
 .PHONY : help
 
 

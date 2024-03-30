@@ -69,10 +69,38 @@ include demo/CMakeFiles/demo.dir/progress.make
 # Include the compile flags for this target's objects.
 include demo/CMakeFiles/demo.dir/flags.make
 
+demo/CMakeFiles/demo.dir/src/gravity.cpp.o: demo/CMakeFiles/demo.dir/flags.make
+demo/CMakeFiles/demo.dir/src/gravity.cpp.o: /home/chiara/dev/cpp/rendering_engine/demo/src/gravity.cpp
+demo/CMakeFiles/demo.dir/src/gravity.cpp.o: demo/CMakeFiles/demo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object demo/CMakeFiles/demo.dir/src/gravity.cpp.o"
+	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT demo/CMakeFiles/demo.dir/src/gravity.cpp.o -MF CMakeFiles/demo.dir/src/gravity.cpp.o.d -o CMakeFiles/demo.dir/src/gravity.cpp.o -c /home/chiara/dev/cpp/rendering_engine/demo/src/gravity.cpp
+
+demo/CMakeFiles/demo.dir/src/gravity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/gravity.cpp.i"
+	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/demo/src/gravity.cpp > CMakeFiles/demo.dir/src/gravity.cpp.i
+
+demo/CMakeFiles/demo.dir/src/gravity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/gravity.cpp.s"
+	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/demo/src/gravity.cpp -o CMakeFiles/demo.dir/src/gravity.cpp.s
+
+demo/CMakeFiles/demo.dir/src/lighting.cpp.o: demo/CMakeFiles/demo.dir/flags.make
+demo/CMakeFiles/demo.dir/src/lighting.cpp.o: /home/chiara/dev/cpp/rendering_engine/demo/src/lighting.cpp
+demo/CMakeFiles/demo.dir/src/lighting.cpp.o: demo/CMakeFiles/demo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object demo/CMakeFiles/demo.dir/src/lighting.cpp.o"
+	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT demo/CMakeFiles/demo.dir/src/lighting.cpp.o -MF CMakeFiles/demo.dir/src/lighting.cpp.o.d -o CMakeFiles/demo.dir/src/lighting.cpp.o -c /home/chiara/dev/cpp/rendering_engine/demo/src/lighting.cpp
+
+demo/CMakeFiles/demo.dir/src/lighting.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/lighting.cpp.i"
+	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/demo/src/lighting.cpp > CMakeFiles/demo.dir/src/lighting.cpp.i
+
+demo/CMakeFiles/demo.dir/src/lighting.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/lighting.cpp.s"
+	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/demo/src/lighting.cpp -o CMakeFiles/demo.dir/src/lighting.cpp.s
+
 demo/CMakeFiles/demo.dir/src/main.cpp.o: demo/CMakeFiles/demo.dir/flags.make
 demo/CMakeFiles/demo.dir/src/main.cpp.o: /home/chiara/dev/cpp/rendering_engine/demo/src/main.cpp
 demo/CMakeFiles/demo.dir/src/main.cpp.o: demo/CMakeFiles/demo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object demo/CMakeFiles/demo.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object demo/CMakeFiles/demo.dir/src/main.cpp.o"
 	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT demo/CMakeFiles/demo.dir/src/main.cpp.o -MF CMakeFiles/demo.dir/src/main.cpp.o.d -o CMakeFiles/demo.dir/src/main.cpp.o -c /home/chiara/dev/cpp/rendering_engine/demo/src/main.cpp
 
 demo/CMakeFiles/demo.dir/src/main.cpp.i: cmake_force
@@ -83,34 +111,22 @@ demo/CMakeFiles/demo.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/main.cpp.s"
 	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/demo/src/main.cpp -o CMakeFiles/demo.dir/src/main.cpp.s
 
-demo/CMakeFiles/demo.dir/src/scenes.cpp.o: demo/CMakeFiles/demo.dir/flags.make
-demo/CMakeFiles/demo.dir/src/scenes.cpp.o: /home/chiara/dev/cpp/rendering_engine/demo/src/scenes.cpp
-demo/CMakeFiles/demo.dir/src/scenes.cpp.o: demo/CMakeFiles/demo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object demo/CMakeFiles/demo.dir/src/scenes.cpp.o"
-	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT demo/CMakeFiles/demo.dir/src/scenes.cpp.o -MF CMakeFiles/demo.dir/src/scenes.cpp.o.d -o CMakeFiles/demo.dir/src/scenes.cpp.o -c /home/chiara/dev/cpp/rendering_engine/demo/src/scenes.cpp
-
-demo/CMakeFiles/demo.dir/src/scenes.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/scenes.cpp.i"
-	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chiara/dev/cpp/rendering_engine/demo/src/scenes.cpp > CMakeFiles/demo.dir/src/scenes.cpp.i
-
-demo/CMakeFiles/demo.dir/src/scenes.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/scenes.cpp.s"
-	cd /home/chiara/dev/cpp/rendering_engine/build/demo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chiara/dev/cpp/rendering_engine/demo/src/scenes.cpp -o CMakeFiles/demo.dir/src/scenes.cpp.s
-
 # Object files for target demo
 demo_OBJECTS = \
-"CMakeFiles/demo.dir/src/main.cpp.o" \
-"CMakeFiles/demo.dir/src/scenes.cpp.o"
+"CMakeFiles/demo.dir/src/gravity.cpp.o" \
+"CMakeFiles/demo.dir/src/lighting.cpp.o" \
+"CMakeFiles/demo.dir/src/main.cpp.o"
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS =
 
+demo/demo: demo/CMakeFiles/demo.dir/src/gravity.cpp.o
+demo/demo: demo/CMakeFiles/demo.dir/src/lighting.cpp.o
 demo/demo: demo/CMakeFiles/demo.dir/src/main.cpp.o
-demo/demo: demo/CMakeFiles/demo.dir/src/scenes.cpp.o
 demo/demo: demo/CMakeFiles/demo.dir/build.make
 demo/demo: engine/librendering_engine.a
 demo/demo: demo/CMakeFiles/demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable demo"
 	cd /home/chiara/dev/cpp/rendering_engine/build/demo && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

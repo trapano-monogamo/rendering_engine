@@ -50,9 +50,9 @@ void GravitySim::on_create() {
 
 	for (int i = 0; i < (int)(sizeof(positions) / sizeof(vec3)); i++) {
 		// Renderable* obj = new Renderable("circle_mesh", "", "basic2_shader", "");
-		Renderable* obj = new Renderable("cube_mesh", "", "light_shader", "");
-		std::shared_ptr<Shader> shader = scene.get_resource<Shader>("light_shader");
-		shader->set_uniform("light_color", this->light_color, Shader::UniformType::FLOAT_3, 1);
+		Renderable* obj = new Renderable("cube_mesh", "", "basic2_shader", "");
+		// std::shared_ptr<Shader> shader = scene.get_resource<Shader>("light_shader");
+		// shader->set_uniform("light_color", this->light_color, Shader::UniformType::FLOAT_3, 1);
 		Transform* t = new Transform();
 		t->translate(positions[i]);
 
@@ -67,7 +67,7 @@ void GravitySim::on_create() {
 
 void GravitySim::on_update(float dt) {
 	t+=0.1f;
-	scene.get_resource<Shader>("light_shader")
+	scene.get_resource<Shader>("basic2_shader")
 		->set_uniform("t", t, Shader::UniformType::FLOAT, 1);
 
 	scene.get_system<GravitySystem>()->dt = dt; // ewwww

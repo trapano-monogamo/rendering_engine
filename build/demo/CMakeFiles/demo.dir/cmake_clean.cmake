@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/demo.dir/src/gravity.cpp.o"
+  "CMakeFiles/demo.dir/src/gravity.cpp.o.d"
+  "CMakeFiles/demo.dir/src/lighting.cpp.o"
+  "CMakeFiles/demo.dir/src/lighting.cpp.o.d"
   "CMakeFiles/demo.dir/src/main.cpp.o"
   "CMakeFiles/demo.dir/src/main.cpp.o.d"
-  "CMakeFiles/demo.dir/src/scenes.cpp.o"
-  "CMakeFiles/demo.dir/src/scenes.cpp.o.d"
   "demo"
   "demo.pdb"
 )

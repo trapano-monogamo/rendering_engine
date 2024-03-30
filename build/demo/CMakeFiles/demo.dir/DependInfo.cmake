@@ -8,8 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/chiara/dev/cpp/rendering_engine/demo/src/gravity.cpp" "demo/CMakeFiles/demo.dir/src/gravity.cpp.o" "gcc" "demo/CMakeFiles/demo.dir/src/gravity.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/demo/src/lighting.cpp" "demo/CMakeFiles/demo.dir/src/lighting.cpp.o" "gcc" "demo/CMakeFiles/demo.dir/src/lighting.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/demo/src/main.cpp" "demo/CMakeFiles/demo.dir/src/main.cpp.o" "gcc" "demo/CMakeFiles/demo.dir/src/main.cpp.o.d"
-  "/home/chiara/dev/cpp/rendering_engine/demo/src/scenes.cpp" "demo/CMakeFiles/demo.dir/src/scenes.cpp.o" "gcc" "demo/CMakeFiles/demo.dir/src/scenes.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

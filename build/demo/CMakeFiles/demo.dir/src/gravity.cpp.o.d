@@ -1,7 +1,8 @@
-demo/CMakeFiles/demo.dir/src/scenes.cpp.o: \
- /home/chiara/dev/cpp/rendering_engine/demo/src/scenes.cpp \
+demo/CMakeFiles/demo.dir/src/gravity.cpp.o: \
+ /home/chiara/dev/cpp/rendering_engine/demo/src/gravity.cpp \
  /usr/include/stdc-predef.h \
  /home/chiara/dev/cpp/rendering_engine/demo/src/scenes.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/src/gravity.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/common.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/glad/glad.h \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/KHR/khrplatform.h \
@@ -219,4 +220,5 @@ demo/CMakeFiles/demo.dir/src/scenes.cpp.o: \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/texture.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/transform.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/renderable.hpp \
- /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/utils.hpp
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/utils.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/src/lighting.hpp
