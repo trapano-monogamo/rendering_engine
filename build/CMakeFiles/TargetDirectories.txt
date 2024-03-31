@@ -1,8 +1,0 @@
-/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles/edit_cache.dir
-/home/chiara/dev/cpp/rendering_engine/build/CMakeFiles/rebuild_cache.dir
-/home/chiara/dev/cpp/rendering_engine/build/engine/CMakeFiles/rendering_engine.dir
-/home/chiara/dev/cpp/rendering_engine/build/engine/CMakeFiles/edit_cache.dir
-/home/chiara/dev/cpp/rendering_engine/build/engine/CMakeFiles/rebuild_cache.dir
-/home/chiara/dev/cpp/rendering_engine/build/demo/CMakeFiles/demo.dir
-/home/chiara/dev/cpp/rendering_engine/build/demo/CMakeFiles/edit_cache.dir
-/home/chiara/dev/cpp/rendering_engine/build/demo/CMakeFiles/rebuild_cache.dir
