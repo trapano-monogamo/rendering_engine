@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/chiara/dev/cpp/rendering_engine/engine/src/glad.c" "engine/CMakeFiles/rendering_engine.dir/src/glad.c.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/glad.c.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/camera.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/game_app.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.o.d"
+  "/home/chiara/dev/cpp/rendering_engine/engine/src/core/light.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/light.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/light.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/material.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/material.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/mesh.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o.d"
   "/home/chiara/dev/cpp/rendering_engine/engine/src/core/renderable.cpp" "engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o" "gcc" "engine/CMakeFiles/rendering_engine.dir/src/core/renderable.cpp.o.d"

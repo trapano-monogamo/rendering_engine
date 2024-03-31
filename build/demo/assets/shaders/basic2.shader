@@ -10,6 +10,7 @@ uniform mat4 view;
 uniform mat4 projection;
 uniform mat4 transform;
 
+// the light source is going to have the color of the light it emits
 uniform vec3 light_color;
 
 out vec3 vert_color;

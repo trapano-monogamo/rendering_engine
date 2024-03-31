@@ -178,6 +178,30 @@ src/core/game_app.cpp.s:
 	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.s
 .PHONY : src/core/game_app.cpp.s
 
+src/core/light.o: src/core/light.cpp.o
+.PHONY : src/core/light.o
+
+# target to build an object file
+src/core/light.cpp.o:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/light.cpp.o
+.PHONY : src/core/light.cpp.o
+
+src/core/light.i: src/core/light.cpp.i
+.PHONY : src/core/light.i
+
+# target to preprocess a source file
+src/core/light.cpp.i:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/light.cpp.i
+.PHONY : src/core/light.cpp.i
+
+src/core/light.s: src/core/light.cpp.s
+.PHONY : src/core/light.s
+
+# target to generate assembly for a file
+src/core/light.cpp.s:
+	cd /home/chiara/dev/cpp/rendering_engine/build && $(MAKE) $(MAKESILENT) -f engine/CMakeFiles/rendering_engine.dir/build.make engine/CMakeFiles/rendering_engine.dir/src/core/light.cpp.s
+.PHONY : src/core/light.cpp.s
+
 src/core/material.o: src/core/material.cpp.o
 .PHONY : src/core/material.o
 
@@ -529,6 +553,9 @@ help:
 	@echo "... src/core/game_app.o"
 	@echo "... src/core/game_app.i"
 	@echo "... src/core/game_app.s"
+	@echo "... src/core/light.o"
+	@echo "... src/core/light.i"
+	@echo "... src/core/light.s"
 	@echo "... src/core/material.o"
 	@echo "... src/core/material.i"
 	@echo "... src/core/material.s"

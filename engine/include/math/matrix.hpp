@@ -1,54 +1,56 @@
 #pragma once
 #include "./types.hpp"
-#include <array>
+#include <iostream>
 #include <ostream>
 #include <stdexcept>
 
-template<typename T, int SIZE> class Vector;
+struct mat4;
 
-template<class T, int ROWS, int COLS>
-class Matrix {
+template<class T> class Matrix {
 public:
-	int rows = ROWS;
-	int cols = COLS;
-	T m[ROWS * COLS];
+	int rows;
+	int cols;
+	T* m;
 
 public:
-	Matrix() = default;
-	Matrix(T);
-	Matrix(Matrix&) = default;
-	Matrix(std::array<T, ROWS * COLS>);
-	~Matrix() = default;
+	Matrix(int rows, int cols);
+	Matrix(int rows, int cols, const T& value);
+	Matrix(int rows, int cols, const T* values);
+	Matrix(const Matrix& m);
+	virtual ~Matrix();
 
-	void operator=(Matrix&);
+	void operator=(const Matrix&);
+	operator mat4();
 
 
 	// basic functionalities:
+	
+	T& at(int r, int c);
 
-	Vector<T, COLS> row(int r);
-	Vector<T, ROWS> col(int c);
+	Vector<T> row(int r);
+	Vector<T> col(int c);
 
 	void transpose();
-	static Matrix<T, COLS, ROWS> transpose(Matrix&);
+	static Matrix transpose(const Matrix&);
 
 
 	// operators:
 
-	friend Matrix operator*(Matrix&, T);
-	friend Matrix operator*(T, Matrix&);
-	void operator*=(T);
+	template<class _T> friend Matrix operator*(const Matrix&, const T&);
+	template<class _T> friend Matrix operator*(const T&, const Matrix&);
+	void operator*=(const T&);
 
-	friend Matrix operator+(Matrix&, Matrix&);
-	friend Matrix operator-(Matrix&);
-	friend Matrix operator-(Matrix&, Matrix&);
-	void operator+=(Matrix&);
-	void operator-=(Matrix&);
+	template<class _T> friend Matrix operator+(const Matrix&, const Matrix&);
+	template<class _T> friend Matrix operator-(const Matrix&);
+	template<class _T> friend Matrix operator-(const Matrix&, const Matrix&);
+	void operator+=(const Matrix&);
+	void operator-=(const Matrix&);
 
-	friend Matrix operator*(Matrix&, Matrix&);
-	void operator*=(Matrix&);
+	template<class _T> friend Matrix operator*(const Matrix&, const Matrix&);
+	void operator*=(const Matrix&);
 
 	friend std::ostream& operator<<(std::ostream& out, Matrix a) {
-		out << "{ ";
+		out << std::endl << "{ ";
 		for (int r=0; r<a.rows; r++) {
 			for (int c=0; c<a.cols; c++) {
 				out << a.m[r * a.cols + c] << ", ";
@@ -66,57 +68,100 @@ public:
 };
 
 
-typedef Matrix<float,2,2> mat2;
-typedef Matrix<float,3,3> mat3;
-typedef Matrix<float,4,4> mat4;
+struct mat4 : public Matrix<float> {
+	mat4() : Matrix<float>(4,4) {}
+	mat4(float x) : Matrix<float>(4,4,x) {}
+	mat4(const std::array<float, 16>& values) : Matrix<float>(4,4,values.data()) {}
+};
+
+// typedef Matrix<float,2,2> mat2;
+// typedef Matrix<float,3,3> mat3;
+// typedef Matrix<float,4,4> mat4;
 
 
 
 // ..:: implementations ::..
 
-// constructors
+// constructors and destructor
 
-template<typename T, int ROWS, int COLS>
-Matrix<T,ROWS,COLS>::Matrix(T x) : m{x} {}
-
-template<typename T, int ROWS, int COLS>
-Matrix<T,ROWS,COLS>::Matrix(std::array<T, ROWS*COLS> a) {
-	for (int i=0; i<ROWS*COLS; i++) m[i] = a[i];
+template<class T> Matrix<T>::Matrix(int rows, int cols)
+	: rows(rows)
+	, cols(cols)
+{
+	m = new T[rows * cols]();
 }
 
-template<typename T, int ROWS, int COLS>
-void Matrix<T,ROWS,COLS>::operator=(Matrix& a) {
-	if (rows != a.rows || cols != a.cols)
-		throw std::invalid_argument("Matrices of incompatible size.");
-	else
-		for (int i=0; i<rows*cols; i++) m[i] = a[i];
+template<class T> Matrix<T>::Matrix(int rows, int cols, const T& x)
+	: rows(rows)
+	, cols(cols)
+{
+	m = new T[rows * cols];
+	for (int i=0; i<rows*cols; i++) m[i] = x;
+}
+
+template<class T> Matrix<T>::Matrix(int rows, int cols, const T* a)
+	: rows(rows)
+	, cols(cols)
+{
+	m = new T[rows * cols];
+	for (int i=0; i<rows*cols; i++) m[i] = a[i];
+}
+
+template<class T> Matrix<T>::Matrix(const Matrix& a)
+	: rows(a.rows)
+	, cols(a.cols)
+{
+	m = new T[rows * cols];
+	for (int i=0; i<rows*cols; i++) m[i] = a.m[i];
+}
+
+template<class T> Matrix<T>::~Matrix() {
+	delete[] m;
+}
+
+template<class T> void Matrix<T>::operator=(const Matrix& a) {
+	rows = a.rows;
+	cols = a.cols;
+	delete[] m;
+	m = new T[rows * cols];
+	for (int i=0; i<rows*cols; i++) m[i] = a[i];
+}
+
+// WHY DO YOU HAVE TO BE SO BITCHY, C++... HUH???? JUST DO WHAT I ASK YOU TO DO FOR FUCK'S SAKE
+template<class T> Matrix<T>::operator mat4() {
+	mat4* res = dynamic_cast<mat4*>(this);
+	if (res != nullptr) {
+		return *res;
+	} else {
+		throw std::invalid_argument("Could not cast 'Matrix<float>' to 'mat4'.");
+	}
 }
 
 
 // basic functionality
 
-template<typename T, int ROWS, int COLS>
-Vector<T, COLS> Matrix<T,ROWS,COLS>::row(int r) {
-	Vector<T,COLS> v{};
-	for (int i=0; i<COLS; i++)
+template<class T> T& Matrix<T>::at(int r, int c) {
+	return m[r * cols + c];
+}
+
+template<class T> Vector<T> Matrix<T>::row(int r) {
+	Vector<T> v(cols);
+	for (int i=0; i<cols; i++)
 		v.v[i] = m[r * cols + i];
 	return v;
 }
 
-template<typename T, int ROWS, int COLS>
-Vector<T, ROWS> Matrix<T,ROWS,COLS>::col(int c) {
-	Vector<T,ROWS> v{};
-	for (int i=0; i<ROWS; i++)
+template<class T> Vector<T> Matrix<T>::col(int c) {
+	Vector<T> v(rows);
+	for (int i=0; i<rows; i++)
 		v.v[i] = m[i * cols + c];
 	return v;
 }
 
-template<typename T, int ROWS, int COLS>
-void transpose();
+template<class T> void transpose();
 
-template<typename T, int ROWS, int COLS>
-Matrix<T, COLS, ROWS> Matrix<T, ROWS, COLS>::transpose(Matrix& a) {
-	Matrix<T, COLS, ROWS> res{};
+template<class T> Matrix<T> Matrix<T>::transpose(const Matrix& a) {
+	Matrix<T> res(a.cols, a.rows);
 	for (int r=0; r<a.rows; r++) {
 		for (int c=0; c<a.cols; c++) {
 			res.m[c * res.cols + r] = a.m[r * a.cols + c];
@@ -128,86 +173,80 @@ Matrix<T, COLS, ROWS> Matrix<T, ROWS, COLS>::transpose(Matrix& a) {
 
 // operators
 
-template<typename T, int ROWS, int COLS>
-Matrix<T,ROWS,COLS> operator*(Matrix<T,ROWS,COLS>& a, T x) {
-	Matrix<T,ROWS,COLS> res{};
+template<class T> Matrix<T> operator*(const Matrix<T>& a, const T& x) {
+	Matrix<T> res(a.rows, a.cols);
 	for (int i=0; i<res.rows*res.cols; i++)
 		res.m[i] = a.m[i] * x;
 	return res;
 }
 
-template<typename T, int ROWS, int COLS>
-Matrix<T,ROWS,COLS> operator*(T x, Matrix<T,ROWS,COLS>& a) {
-	Matrix<T,ROWS,COLS> res{};
+template<class T> Matrix<T> operator*(const T& x, const Matrix<T>& a) {
+	Matrix<T> res(a.rows,a.cols);
 	for (int i=0; i<res.rows*res.cols; i++)
 		res.m[i] = a.m[i] * x;
 	return res;
 }
 
-template<typename T, int ROWS, int COLS>
-void Matrix<T,ROWS,COLS>::operator*=(T x) {
-	for (int i=0; i<rows*cols; i++)
-		m[i] *= x;
+template<class T> void Matrix<T>::operator*=(const T& x) {
+	for (int i=0; i<rows*cols; i++) m[i] *= x;
 }
 
 
-template<typename T, int ROWS, int COLS>
-Matrix<T,ROWS,COLS> operator+(Matrix<T,ROWS,COLS>& a, Matrix<T,ROWS,COLS>& b) {
-	Matrix<T,ROWS,COLS> res{};
+template<class T> Matrix<T> operator+(const Matrix<T>& a, const Matrix<T>& b) {
+	if (!(a.rows == b.rows && a.cols == b.cols)) {
+		throw std::invalid_argument("Matrices of incompatible types.");
+	}
+	Matrix<T> res(a.rows,a.cols);
 	for (int i=0; i<res.rows*res.cols; i++)
 		res.m[i] = a.m[i] + b.m[i];
 	return res;
 }
 
-template<typename T, int ROWS, int COLS>
-Matrix<T,ROWS,COLS> operator-(Matrix<T,ROWS,COLS>& a) {
-	Matrix<T,ROWS,COLS> res{};
+template<class T> Matrix<T> operator-(const Matrix<T>& a) {
+	Matrix<T> res(a.rows,a.cols);
 	for (int i=0; i<res.rows*res.cols; i++)
 		res.m[i] = -a.m[i];
 	return res;
 }
 
-template<typename T, int ROWS, int COLS>
-Matrix<T,ROWS,COLS> operator-(Matrix<T,ROWS,COLS>& a, Matrix<T,ROWS,COLS>& b) {
-	Matrix<T,ROWS,COLS> res{};
+template<class T> Matrix<T> operator-(const Matrix<T>& a, const Matrix<T>& b) {
+	if (!(a.rows == b.rows && a.cols == b.cols)) {
+		throw std::invalid_argument("Matrices of incompatible types.");
+	}
+	Matrix<T> res(a.rows, a.cols);
 	for (int i=0; i<res.rows*res.cols; i++)
 		res.m[i] = a.m[i] - b.m[i];
 	return res;
 }
 
-template<typename T, int ROWS, int COLS>
-void Matrix<T,ROWS,COLS>::operator+=(Matrix& a) {
-	for (int i=0; i<rows*cols; i++)
-		m[i] += a.m[i];
+template<class T> void Matrix<T>::operator+=(const Matrix& a) {
+	for (int i=0; i<rows*cols; i++) m[i] += a.m[i];
 }
 
-template<typename T, int ROWS, int COLS>
-void Matrix<T,ROWS,COLS>::operator-=(Matrix& a) {
-	for (int i=0; i<rows*cols; i++)
-		m[i] -= a.m[i];
+template<class T> void Matrix<T>::operator-=(const Matrix& a) {
+	for (int i=0; i<rows*cols; i++) m[i] -= a.m[i];
 }
 
 
-template<typename T, int ROWS_A, int COLS_A, int ROWS_B, int COLS_B>
-Matrix<T,ROWS_A,COLS_B> operator*(Matrix<T,ROWS_A,COLS_A>& a, Matrix<T,ROWS_B,COLS_B>& b) {
-	if (COLS_A != ROWS_B)
+template<class T> Matrix<T> operator*(const Matrix<T>& a, const Matrix<T>& b) {
+	if (a.cols != b.rows) {
 		throw std::invalid_argument("Matrices of incompatible size.");
+	}
 
-	Matrix<T,ROWS_A,COLS_B> res{};
+	Matrix<T> res(a.rows,b.cols);
 	for (int r=0; r<res.rows; r++) {
 		for (int c=0; c<res.cols; c++) {
 			T acc{};
-			for (int k=0; k<COLS_A; k++) {
+			for (int k=0; k<a.cols; k++) {
 				acc += a.m[ r * a.cols + k ] * b.m[ k * b.cols + c ];
 			}
-			res[ r * res.rows + c ] = acc;
+			res.m[ r * res.rows + c ] = acc;
 		}
 	}
 
 	return res;
 }
 
-template<typename T, int ROWS, int COLS>
-void Matrix<T,ROWS,COLS>::operator*=(Matrix& a) {
+template<class T> void Matrix<T>::operator*=(const Matrix& a) {
 	*this = (*this * a);
 }

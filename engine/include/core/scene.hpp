@@ -18,6 +18,7 @@ public:
 	Camera camera;
 	InputHandler input_handler;
 	RenderingOptions rendering_options;
+	vec3 background_color;
 
 public:
 	Scene();

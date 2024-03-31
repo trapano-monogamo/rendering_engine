@@ -190,8 +190,29 @@ demo/CMakeFiles/demo.dir/src/lighting.cpp.o: \
  /usr/include/bits/types/error_t.h \
  /usr/include/c++/13.2.1/bits/charconv.h \
  /usr/include/c++/13.2.1/bits/basic_string.tcc \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/light.hpp \
+ /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/material.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/transform.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/renderable.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/core/shader.hpp \
  /home/chiara/dev/cpp/rendering_engine/demo/../engine/include/math/utils.hpp \
- /usr/include/c++/13.2.1/math.h
+ /usr/include/c++/13.2.1/math.h /usr/include/c++/13.2.1/iostream \
+ /usr/include/c++/13.2.1/ostream /usr/include/c++/13.2.1/ios \
+ /usr/include/c++/13.2.1/bits/ios_base.h \
+ /usr/include/c++/13.2.1/bits/locale_classes.h \
+ /usr/include/c++/13.2.1/bits/locale_classes.tcc \
+ /usr/include/c++/13.2.1/system_error \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/error_constants.h \
+ /usr/include/c++/13.2.1/stdexcept /usr/include/c++/13.2.1/streambuf \
+ /usr/include/c++/13.2.1/bits/streambuf.tcc \
+ /usr/include/c++/13.2.1/bits/basic_ios.h \
+ /usr/include/c++/13.2.1/bits/locale_facets.h \
+ /usr/include/c++/13.2.1/cwctype /usr/include/wctype.h \
+ /usr/include/bits/wctype-wchar.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h \
+ /usr/include/c++/13.2.1/bits/streambuf_iterator.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h \
+ /usr/include/c++/13.2.1/bits/locale_facets.tcc \
+ /usr/include/c++/13.2.1/bits/basic_ios.tcc \
+ /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
+ /usr/include/c++/13.2.1/bits/istream.tcc

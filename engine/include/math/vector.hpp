@@ -1,21 +1,19 @@
 #pragma once
 #include "./types.hpp"
 
-template<typename T, int SIZE>
-T euclidean_norm(Vector<T,SIZE> a) {
+template<class T>
+T euclidean_norm(Vector<T> a) {
 	T acc{ };
 	for (int i=0; i<a.size; i++) acc += (a.v[i] * a.v[i]);
 	return (T)std::sqrt(acc);
 }
 
-template<typename T, int SIZE>
-T norm_induced_metric(Vector<T,SIZE>& a, Vector<T,SIZE>& b) {
+template<class T>
+T norm_induced_metric(Vector<T>& a, Vector<T>& b) {
 	return euclidean_norm(a - b);
 }
 
-template<class T, int ROWS, int COLS> class Matrix;
-
-template<typename T, int SIZE>
+template<class T>
 class Vector {
 private:
 
@@ -23,13 +21,13 @@ private:
 	// T (*metric)(Vector&, Vector&) = norm_induced_metric;
 
 public:
-	int size = SIZE;
-	T v[SIZE];
+	int size;
+	T* v;
 
-	Vector() = default;
-	Vector(T);
-	Vector(Vector&) = default;
-	Vector(std::array<T, SIZE>);
+	Vector(int size);
+	Vector(int size, T value);
+	Vector(int size, T* values);
+	Vector(Vector&);
 	~Vector() = default;
 
 	void operator=(Vector&);
@@ -40,13 +38,13 @@ public:
 
 	// operators:
 	
-	friend Vector operator*(Vector<T,SIZE>&, T);
-	friend Vector operator*(T, Vector<T,SIZE>&);
+	template<class _T> friend Vector operator*(Vector&, T);
+	template<class _T> friend Vector operator*(T, Vector&);
 	void operator*=(T);
 
-	friend Vector operator+(Vector<T,SIZE>&, Vector<T,SIZE>&);
-	friend Vector operator-(Vector<T,SIZE>&);
-	friend Vector operator-(Vector<T,SIZE>&, Vector<T,SIZE>&);
+	template<class _T> friend Vector operator+(Vector&, Vector&);
+	template<class _T> friend Vector operator-(Vector&);
+	template<class _T> friend Vector operator-(Vector&, Vector&);
 	void operator+=(Vector&);
 	void operator-=(Vector&);
 
@@ -55,23 +53,23 @@ public:
 
 	static T dot(Vector&, Vector&);
 	// static T cross(Vector&, Vector&);
-	
+
 	T magnitude();
-	
+
 	void normalize();
 	static Vector normalize(Vector&);
 
 
 	// type casts:
 
-	Matrix<T, SIZE, 1> as_col();
-	Matrix<T, 1, SIZE> as_row();
+	Matrix<T> as_col();
+	Matrix<T> as_row();
 };
 
 
-typedef Vector<float,2> vec2;
-typedef Vector<float,3> vec3;
-typedef Vector<float,4> vec4;
+// typedef Vector<float,2> vec2;
+// typedef Vector<float,3> vec3;
+// typedef Vector<float,4> vec4;
 
 
 
@@ -80,28 +78,34 @@ typedef Vector<float,4> vec4;
 
 // constructors:
 
-template<typename T, int SIZE>
-Vector<T,SIZE>::Vector(T x) : v{x} {}
-
-template<typename T, int SIZE>
-Vector<T,SIZE>::Vector(std::array<T, SIZE> a) {
-	for (int i=0; i<SIZE; i++) v[i] = a[i];
+template<class T> Vector<T>::Vector(int size)
+	: size(size)
+{
+	v = new T[size]();
 }
 
-template<typename T, int SIZE>
-Matrix<T, SIZE, 1> Vector<T,SIZE>::as_col() {
-	Matrix<T, SIZE, 1> res{};
-	for (int i=0; i<size; i++) {
-		res.m[i] = v[i];
-	}
+template<class T> Vector<T>::Vector(int size, T x)
+	: size(size)
+{
+	v = new T[size];
+	for (int i=0; i<size; i++) v[i] = x;
+}
+
+template<class T> Vector<T>::Vector(int size, T* values)
+	: size(size)
+{
+	v = new T[size];
+	for (int i=0; i<size; i++) v[i] = values[i];
+}
+
+template<class T> Matrix<T> Vector<T>::as_col() {
+	Matrix<T> res(size, 1);
+	for (int i=0; i<size; i++) res.m[i] = v[i];
 	return res;
 }
 
-template<typename T, int SIZE>
-Matrix<T, 1, SIZE> Vector<T,SIZE>::as_row() {
-	Matrix<T, 1, SIZE> res{};
-	for (int i=0; i<size; i++) {
-		res.m[i] = v[i];
-	}
+template<class T> Matrix<T> Vector<T>::as_row() {
+	Matrix<T> res(1, size);
+	for (int i=0; i<size; i++) res.m[i] = v[i];
 	return res;
 }

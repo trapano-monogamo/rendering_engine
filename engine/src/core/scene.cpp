@@ -1,4 +1,6 @@
 #include "core/scene.hpp"
+#include "core/light.hpp"
+#include "core/material.hpp"
 #include "core/mesh.hpp"
 #include "core/renderable.hpp"
 #include "core/shader.hpp"
@@ -19,6 +21,8 @@ void RenderingOptions::set() {
 Scene::Scene()
 	: camera(Camera(vec3(0.0, 0.0, 0.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 100.0f))
 	, input_handler(nullptr)
+	, rendering_options(RenderingOptions())
+	, background_color(vec3(0.f,0.f,0.f))
 {}
 
 void Scene::render() {
@@ -27,13 +31,19 @@ void Scene::render() {
 
 	// clear screen
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+	glClearColor(background_color.x, background_color.y, background_color.z, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	mat4 projection;
 	mat4 view;
 	mat4 transform;
-	// mat4 view = mat4::lookat(this->camera.pos, this->camera.up, this->camera.right, this->camera.dir);
+	
+	// LIGHT SOURCE
+	// TODO: implement multiple source lighting
+	unsigned int light_id = this->query_entities()
+		.with_component<Light>(this)
+		.results[0];
+	Light* light = get_component<Light>(light_id);
 
 	// query renderable components
 	auto query = this->query_entities()
@@ -41,9 +51,13 @@ void Scene::render() {
 			.results;
 
 	for (auto& entity : query) {
+		// RENDERING COMPONENTS
 		Renderable* obj = this->get_component<Renderable>(entity);
 		Transform* t = this->get_component<Transform>(entity);
 
+		if (entity == light_id) { light->pos = t->position; }
+
+		// TRANSFORM, VIEW, PROJECTION
 		if (t != nullptr) {
 			transform = mat4::transform(t->scale, t->euler_rotations, t->position);
 			view = mat4::lookat(this->camera.pos, this->camera.up, this->camera.right, this->camera.dir);
@@ -54,23 +68,36 @@ void Scene::render() {
 			projection = mat4::identity();
 		}
 
-		// mesh and shader are mandatory for rendering
+		// MESH and SHADER are necessary for rendering
 		auto mesh = get_resource<Mesh>(obj->mesh_key);
 		auto shader = get_resource<Shader>(obj->shader_key);
 
 		shader->apply_uniforms();
 
-		// transform/view/projection matrices are mandatory for rendering
 		shader->set_uniform_matrix_4fv("transform", transform.m);
 		shader->set_uniform_matrix_4fv("view", view.m);
 		shader->set_uniform_matrix_4fv("projection", this->camera.projection.m);
 
-		// check if texture is present
+		// check if MATERIAL is present
+		if (!obj->material_key.empty()) {
+			auto material = get_resource<Material>(obj->material_key);
+			shader->set_uniform("material.ambient", material->ambient, Shader::UniformType::FLOAT_3, 1);
+			shader->set_uniform("material.diffuse", material->diffuse, Shader::UniformType::FLOAT_3, 1);
+			shader->set_uniform("material.specular", material->specular, Shader::UniformType::FLOAT_3, 1);
+			shader->set_uniform("material.shininess", material->shininess, Shader::UniformType::FLOAT, 1);
+			shader->set_uniform("light.pos", light->pos, Shader::UniformType::FLOAT_3, 1);
+			shader->set_uniform("light.ambient", light->ambient, Shader::UniformType::FLOAT_3, 1);
+			shader->set_uniform("light.diffuse", light->diffuse, Shader::UniformType::FLOAT_3, 1);
+			shader->set_uniform("light.specular", light->specular, Shader::UniformType::FLOAT_3, 1);
+			shader->set_uniform("view_pos", camera.pos, Shader::UniformType::FLOAT_3, 1);
+		}
+
+		// check if TEXTURE is present
 		if (!obj->texture_key.empty()) {
 			auto texture = get_resource<Texture>(obj->texture_key);
 			texture->use();
 		}
-		// ~ Mesh and Shader are mandatory for rendering ~
+
 		mesh->use();
 		shader->use();
 		glDrawElements(GL_TRIANGLES, (unsigned int)mesh->indices.size(), GL_UNSIGNED_INT, 0);

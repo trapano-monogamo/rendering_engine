@@ -1,3 +1,5 @@
+set(CMAKE_CXX_STANDARD 20)
+
 file(GLOB_RECURSE SRC src/**/*.cpp src/glad.c)
 
 add_library(rendering_engine ${SRC})

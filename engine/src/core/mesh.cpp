@@ -44,6 +44,8 @@ void Mesh::load_from_file(std::string& path) {
 
 	std::string tmp;
 
+	bool has_color = false;
+
 	std::string line;
 	std::stringstream line_content;
 	VertexField field;
@@ -56,9 +58,12 @@ void Mesh::load_from_file(std::string& path) {
 			i = 0;
 			if (line.find("position") != std::string::npos) field = POSITION;
 			else if (line.find("normal") != std::string::npos) field = NORMAL;
-			else if (line.find("color") != std::string::npos) field = COLOR;
 			else if (line.find("tex_coords") != std::string::npos) field = TEXTURE;
 			else if (line.find("index") != std::string::npos) field = INDEX;
+			else if (line.find("color") != std::string::npos) {
+				field = COLOR;
+				has_color = true;
+			}
 		}
 		else if (line.find("#param") != std::string::npos)
 		{
@@ -95,6 +100,12 @@ void Mesh::load_from_file(std::string& path) {
 					break;
 			}
 			i++;
+		}
+
+		if (!has_color) {
+			for (int i=0; i<size; i++) {
+				vertices[i].color = vec3(1.0f, 1.0f, 1.0f);
+			}
 		}
 
 		if (elements == -1) {

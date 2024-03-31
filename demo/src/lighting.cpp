@@ -1,11 +1,14 @@
 #include "lighting.hpp"
 
 #include "core/game_app.hpp"
+#include "core/light.hpp"
+#include "core/material.hpp"
 #include "core/transform.hpp"
 #include "core/renderable.hpp"
 #include "core/shader.hpp"
 #include "math/utils.hpp"
 #include <math.h>
+#include <iostream>
 
 LightingScene::LightingScene(const char* title, int width, int height)
 	: GameApp(title, width, height) { }
@@ -13,14 +16,25 @@ LightingScene::LightingScene(const char* title, int width, int height)
 void LightingScene::on_create() {
 	scene.camera = Camera(vec3(0.0, 1.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
 	scene.input_handler = InputHandler(this->window);
+	scene.background_color = vec3(0.05f, 0.05f, 0.05f);
 
-	scene.register_resource("light_shader", "../engine/assets/shaders/light.shader");
-	scene.register_resource("source_shader", "../engine/assets/shaders/basic2.shader");
-	scene.register_resource("cube_mesh",    "../engine/assets/meshes/cube.mesh");
+	scene.register_resource("light_shader",    "../engine/assets/shaders/light.shader");
+	scene.register_resource("source_shader",   "../engine/assets/shaders/basic2.shader");
+	scene.register_resource("cube_mesh",       "../engine/assets/meshes/cube2.mesh");
+	scene.register_resource("bronze_material", "../engine/assets/materials/bronze.mat");
+	scene.register_resource("emerald_material", "../engine/assets/materials/emerald.mat");
 
-	auto obj_id = this->scene.add_entity();
-	scene.add_component(obj_id, new Renderable("cube_mesh", "", "light_shader", ""));
-	scene.add_component(obj_id, new Transform());
+	Transform* obj1_t = new Transform();
+	obj1_t->translate(vec3(-1.0, 0.0, 0.0));
+	auto obj1_id = this->scene.add_entity();
+	scene.add_component(obj1_id, new Renderable("cube_mesh", "bronze_material", "light_shader", ""));
+	scene.add_component(obj1_id, obj1_t);
+
+	Transform* obj2_t = new Transform();
+	obj2_t->translate(vec3(1.0, 0.0, 0.0));
+	auto obj2_id = this->scene.add_entity();
+	scene.add_component(obj2_id, new Renderable("cube_mesh", "emerald_material", "light_shader", ""));
+	scene.add_component(obj2_id, obj2_t);
 
 	Transform* source_t = new Transform();
 	source_t->translate(vec3(1.8f, 2.5f, -1.5f));
@@ -28,20 +42,22 @@ void LightingScene::on_create() {
 	source_id = this->scene.add_entity();
 	scene.add_component(source_id, new Renderable("cube_mesh", "", "source_shader", ""));
 	scene.add_component(source_id, source_t);
+	scene.add_component(source_id, new Light(
+		source_t->position,
+		vec3(0.2f, 0.2f, 0.2f),
+		vec3(0.5f, 0.5f, 0.5f),
+		vec3(1.0f, 1.0f, 1.0f)
+	));
 }
 
-float ambient = 0.5f;
+float ambient = 0.1f;
+float specular_strength = 0.8f;
 
 void LightingScene::on_update(float dt) {
-	// t += 0.03f;
+	t += 0.005f;
 	// light_color = vec3(.5*(1+sin(t)), .5*(1+cos(t)), .5 + sin(t)*cos(t));
 
-	auto light_t = scene.get_component<Transform>(source_id);
-
-	auto light_shader = scene.get_resource<Shader>("light_shader");
-	light_shader->set_uniform("light_color", light_color, Shader::UniformType::FLOAT_3, 1);
-	light_shader->set_uniform("ambient", ambient, Shader::UniformType::FLOAT, 1);
-	light_shader->set_uniform("light_pos", light_t->position, Shader::UniformType::FLOAT_3, 1);
+	scene.get_component<Transform>(source_id)->position = vec3(sin(t), cos(t), sin(t)*cos(t)) * 2.0;
 
 	auto source_shader = scene.get_resource<Shader>("source_shader");
 	source_shader->set_uniform("light_color", light_color, Shader::UniformType::FLOAT_3, 1);

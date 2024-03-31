@@ -4,15 +4,15 @@
 #include "resource_manager/resource_manager.hpp"
 #include <string>
 
-class LightProperties : public Resource {
+class Material : public Resource {
 public:
 	float shininess;
 	vec3 ambient;
 	vec3 diffuse;
-	vec3 reflective;
+	vec3 specular;
 
-	LightProperties() = default;
-	LightProperties(float,vec3,vec3,vec3);
-	~LightProperties() = default;
+	Material() = default;
+	Material(float,vec3,vec3,vec3);
+	~Material() = default;
 	void load_from_file(std::string& path) override;
 };

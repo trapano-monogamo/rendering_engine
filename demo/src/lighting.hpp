@@ -4,7 +4,7 @@
 
 class LightingScene : public GameApp {
 private:
-	float camera_speed = 2.5f;
+	float camera_speed = 2.0f;
 	vec3 light_color = vec3(1.0f, 1.0f, 1.0f);
 	float t = 0.0f;
 	unsigned int source_id;

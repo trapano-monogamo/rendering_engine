@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/rendering_engine.dir/src/core/camera.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/game_app.cpp.o.d"
+  "CMakeFiles/rendering_engine.dir/src/core/light.cpp.o"
+  "CMakeFiles/rendering_engine.dir/src/core/light.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/material.cpp.o"
   "CMakeFiles/rendering_engine.dir/src/core/material.cpp.o.d"
   "CMakeFiles/rendering_engine.dir/src/core/mesh.cpp.o"
