@@ -22,6 +22,11 @@ float f(float x, float y) {
 // and the ResourceManager::get_resource() function only does
 //   R* loaded_res = new R{};
 //   ... build_func(loaded_res);
+//
+// or:
+//   Resource (*build_func)()
+// and ResourceManager::get_resource() sets
+//   loaded_res = std::shared_ptr<R>(build_func());
 void terrain_builder(std::shared_ptr<Resource> res) {
 	Material material = Material();
 
