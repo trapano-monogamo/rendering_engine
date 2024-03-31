@@ -3,26 +3,67 @@
 #include "core/game_app.hpp"
 #include "core/light.hpp"
 #include "core/material.hpp"
+#include "core/mesh.hpp"
 #include "core/transform.hpp"
 #include "core/renderable.hpp"
 #include "core/shader.hpp"
 #include "math/utils.hpp"
 #include <math.h>
 #include <iostream>
+#include <memory>
+
+float f(float x, float y) {
+	return sin(x + y);
+}
+
+// res should be a reference so the function can change all instances?
+// maybe it doesn't make sense, so it could be like:
+//   Resource* res
+// and the ResourceManager::get_resource() function only does
+//   R* loaded_res = new R{};
+//   ... build_func(loaded_res);
+void terrain_builder(std::shared_ptr<Resource> res) {
+	Material material = Material();
+
+	// int size_x = 100;
+	// int size_y = 100;
+
+	// for (int i=0; i<size_y; i++) {
+	// 	for (int j=0; j<size_x; j++) {
+	// 		mesh->vertices.push
+	// 	}
+	// }
+	
+	material.ambient = vec3(0.0215,0.1745,0.0215);
+	material.diffuse = vec3(0.07568,0.61424,0.07568);
+	material.specular = vec3(0.633,0.727811,0.633);
+	material.shininess = 200;
+
+	*res.get() = material;
+}
 
 LightingScene::LightingScene(const char* title, int width, int height)
 	: GameApp(title, width, height) { }
 
 void LightingScene::on_create() {
+	// default intialize this
 	scene.camera = Camera(vec3(0.0, 1.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
+	// can't this be done in GameApp directly???
 	scene.input_handler = InputHandler(this->window);
 	scene.background_color = vec3(0.05f, 0.05f, 0.05f);
 
-	scene.register_resource("light_shader",    "../engine/assets/shaders/light.shader");
-	scene.register_resource("source_shader",   "../engine/assets/shaders/basic2.shader");
-	scene.register_resource("cube_mesh",       "../engine/assets/meshes/cube2.mesh");
-	scene.register_resource("bronze_material", "../engine/assets/materials/bronze.mat");
+	scene.register_resource("light_shader",     "../engine/assets/shaders/light.shader");
+	scene.register_resource("source_shader",    "../engine/assets/shaders/basic2.shader");
+	scene.register_resource("cube_mesh",        "../engine/assets/meshes/cube2.mesh");
+	scene.register_resource("bronze_material",  "../engine/assets/materials/bronze.mat");
 	scene.register_resource("emerald_material", "../engine/assets/materials/emerald.mat");
+
+
+
+	scene.register_resource("test_resource", terrain_builder);
+	std::shared_ptr<Material> material = scene.get_resource<Material>("test_resource");
+
+
 
 	Transform* obj1_t = new Transform();
 	obj1_t->translate(vec3(-1.0, 0.0, 0.0));
@@ -33,7 +74,7 @@ void LightingScene::on_create() {
 	Transform* obj2_t = new Transform();
 	obj2_t->translate(vec3(1.0, 0.0, 0.0));
 	auto obj2_id = this->scene.add_entity();
-	scene.add_component(obj2_id, new Renderable("cube_mesh", "emerald_material", "light_shader", ""));
+	scene.add_component(obj2_id, new Renderable("cube_mesh", "test_resource", "light_shader", ""));
 	scene.add_component(obj2_id, obj2_t);
 
 	Transform* source_t = new Transform();
