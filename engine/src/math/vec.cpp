@@ -94,7 +94,7 @@ float vec3::dot(vec3 a, vec3 b) {
 
 vec4::vec4() : x(0.0), y(0.0), z(0.0), w(0.0) {}
 
-vec4::vec4(vec3& v, float x4)
+vec4::vec4(const vec3& v, float x4)
 	: x(v.x), y(v.x), z(v.z), w(x4) {}
 
 vec4::vec4(float x1, float x2, float x3, float x4)
@@ -149,6 +149,8 @@ float vec4::dot(vec4 a, vec4 b) {
 
 
 // ..:: vec2 ::..
+
+vec2::vec2(float x1, float x2) : x(x1), y(x2) {}
 
 void vec2::operator=(const vec2& a) {
 	x = a.x;

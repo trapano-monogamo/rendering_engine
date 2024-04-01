@@ -11,6 +11,13 @@ Vertex::Vertex()
 	, tex_coords()
 {}
 
+Vertex::Vertex(vec3 pos, vec3 norm, vec3 col, vec2 tex)
+	: position(pos)
+	, normal(norm)
+	, color(col)
+	, tex_coords(tex)
+{}
+
 Mesh::Mesh()
 	: vertices()
 	, indices()

@@ -21,21 +21,25 @@ public:
 
 
 
-template<class R>
-struct BuilderFunctionWrapper {
-	std::shared_ptr<R> (*build_func)() = nullptr;
-	BuilderFunctionWrapper(std::shared_ptr<R> (*build_func)())
-		: build_func(build_func) {}
-};
-
-struct BuilderConfig {
-	std::string path = "";
-	void* bfw;
-};
-
-
-
 class ResourceManager {
+private:
+	template<class R>
+	struct BuilderFunctionWrapper {
+		std::shared_ptr<R> (*build_func)() = nullptr;
+
+		BuilderFunctionWrapper(std::shared_ptr<R> (*build_func)())
+			: build_func(build_func) {}
+	};
+
+	struct BuilderConfig {
+		std::string path = "";
+		void* bfw = nullptr;
+
+		BuilderConfig() = default;
+		BuilderConfig(std::string path, void* bfw)
+			: path(path), bfw(bfw) {}
+	};
+
 private:
 	std::unordered_map<std::string, BuilderConfig> builders;
 	std::unordered_map<std::string, std::shared_ptr<Resource>> resources;
@@ -56,7 +60,7 @@ template<typename R>
 bool ResourceManager::register_resource(const std::string& key, std::shared_ptr<R> (*build_func)()) {
 	if (this->builders.find(key) != this->builders.end()) { return false; }
 	else {
-		this->builders[key] = { .path = "", .bfw = {build_func} };
+		this->builders[key] = BuilderConfig("", new BuilderFunctionWrapper<R>{ build_func });
 		return true;
 	}
 }

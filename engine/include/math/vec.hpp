@@ -75,7 +75,7 @@ struct vec3 {
 	};
 
 	vec3();
-	vec3(vec3& v) = default;
+	vec3(const vec3& v) = default;
 	vec3(float x1, float x2, float x3);
 	vec3(std::array<float, 3> v);
 
@@ -120,8 +120,8 @@ struct vec4 {
 	};
 
 	vec4();
-	vec4(vec4& v) = default;
-	vec4(vec3& v, float x4);
+	vec4(const vec4& v) = default;
+	vec4(const vec3& v, float x4);
 	vec4(float x1, float x2, float x3, float x4);
 	vec4(std::array<float, 4> v);
 
@@ -152,7 +152,7 @@ struct vec2 {
 	};
 
 	vec2() = default;
-	vec2(vec2& v) = default;
+	vec2(const vec2& v) = default;
 	vec2(float x1, float x2);
 
 	void operator=(const vec2& a);

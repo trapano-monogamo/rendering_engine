@@ -13,7 +13,8 @@ struct Vertex {
 	vec2 tex_coords;
 
 	Vertex();
-	Vertex(Vertex& v) = default;
+	Vertex(const Vertex&) = default;
+	Vertex(vec3 pos, vec3 norm, vec3 col, vec2 tex);
 };
 
 class Mesh : public Resource {
@@ -26,9 +27,9 @@ public:
 	~Mesh();
 
 	void load_from_file(std::string& path) override;
+	void write_buffers();
 	void use();
 
 private:
-	void write_buffers();
 	void enable_attribute(int index, int size, GLenum type, int stride, void* ptr);
 };

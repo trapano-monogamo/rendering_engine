@@ -14,6 +14,7 @@
 
 float f(float x, float y) {
 	return sin(x + y);
+	// return sqrt(1 + x*x + y*y);
 }
 
 // res should be a reference so the function can change all instances?
@@ -27,25 +28,43 @@ float f(float x, float y) {
 //   Resource (*build_func)()
 // and ResourceManager::get_resource() sets
 //   loaded_res = std::shared_ptr<R>(build_func());
-std::shared_ptr<Material> terrain_builder() {
-	std::shared_ptr<Material> material = std::make_shared<Material>();
+std::shared_ptr<Mesh> terrain_builder() {
+	std::shared_ptr<Mesh> mesh = std::make_shared<Mesh>();
 
-	// int size_x = 100;
-	// int size_y = 100;
+	int N = 100;
+	int M = 100;
 
-	// for (int i=0; i<size_y; i++) {
-	// 	for (int j=0; j<size_x; j++) {
-	// 		mesh->vertices.push
-	// 	}
-	// }
-	
-	material->ambient = vec3(0.0215,0.1745,0.0215);
-	material->diffuse = vec3(0.07568,0.61424,0.07568);
-	material->specular = vec3(0.633,0.727811,0.633);
-	material->shininess = 200;
+	float size_x = 20;
+	float size_y = 20;
 
-	// std::shared_ptr<Resource> result = std::make_shared<Resource>(material);
-	return material;
+	float x = 0.f, y = 0.f;
+
+	for (int i=0; i<N; i++) {
+		for (int j=0; j<M; j++) {
+			x = j * size_x / M;
+			y = i * size_y / N;
+			mesh->vertices.push_back(Vertex{
+					vec3(x, f(x,y), y),
+					vec3(0, 1, 0),
+					vec3(1,1,1),
+					vec2(0,0)
+				});
+			if (i < size_y - 1 && j < size_x - 1) {
+				// first triangle
+				mesh->indices.push_back(i     * M + j);
+				mesh->indices.push_back(i     * M + j + 1);
+				mesh->indices.push_back((i+1) * M + j);
+				// second triangle
+				mesh->indices.push_back(i     * M + j + 1);
+				mesh->indices.push_back((i+1) * M + j);
+				mesh->indices.push_back((i+1) * M + j + 1);
+			}
+		}
+	}
+
+	mesh->write_buffers();
+
+	return mesh;
 }
 
 LightingScene::LightingScene(const char* title, int width, int height)
@@ -63,35 +82,39 @@ void LightingScene::on_create() {
 	scene.register_resource("cube_mesh",        "../engine/assets/meshes/cube2.mesh");
 	scene.register_resource("bronze_material",  "../engine/assets/materials/bronze.mat");
 	scene.register_resource("emerald_material", "../engine/assets/materials/emerald.mat");
+	scene.register_resource("terrain_mesh",     terrain_builder);
 
-
-
-	scene.register_resource("test_resource", terrain_builder);
-	std::shared_ptr<Material> material = scene.get_resource<Material>("test_resource");
-
-
+	std::shared_ptr<Material> emerald = scene.get_resource<Material>("emerald_material");
+	std::shared_ptr<Material> bronze = scene.get_resource<Material>("bronze_material");
 
 	Transform* obj1_t = new Transform();
 	obj1_t->translate(vec3(-1.0, 0.0, 0.0));
-	auto obj1_id = this->scene.add_entity();
-	scene.add_component(obj1_id, new Renderable("cube_mesh", "bronze_material", "light_shader", ""));
+	auto obj1_id = scene.add_entity();
+	scene.add_component(obj1_id, new Renderable("cube_mesh", "emerald_material", "light_shader", ""));
 	scene.add_component(obj1_id, obj1_t);
 
 	Transform* obj2_t = new Transform();
 	obj2_t->translate(vec3(1.0, 0.0, 0.0));
-	auto obj2_id = this->scene.add_entity();
-	scene.add_component(obj2_id, new Renderable("cube_mesh", "test_resource", "light_shader", ""));
+	auto obj2_id = scene.add_entity();
+	scene.add_component(obj2_id, new Renderable("cube_mesh", "bronze_material", "light_shader", ""));
 	scene.add_component(obj2_id, obj2_t);
+
+	// Transform* terrain_t = new Transform();
+	// terrain_t->translate(vec3(0,-3,0));
+	// auto terrain_id = scene.add_entity();
+	// scene.add_component(terrain_id, new Renderable("terrain_mesh", "emerald_material", "light_shader", ""));
+	// scene.add_component(terrain_id, terrain_t);
 
 	Transform* source_t = new Transform();
 	source_t->translate(vec3(1.8f, 2.5f, -1.5f));
 	source_t->resize(vec3(.5f, .5f, .5f));
-	source_id = this->scene.add_entity();
+	source_id = scene.add_entity();
 	scene.add_component(source_id, new Renderable("cube_mesh", "", "source_shader", ""));
 	scene.add_component(source_id, source_t);
 	scene.add_component(source_id, new Light(
 		source_t->position,
-		vec3(0.2f, 0.2f, 0.2f),
+		// vec3(0.2f, 0.2f, 0.2f),
+		vec3(1.0f, 1.0f, 1.0f),
 		vec3(0.5f, 0.5f, 0.5f),
 		vec3(1.0f, 1.0f, 1.0f)
 	));
