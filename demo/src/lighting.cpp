@@ -27,8 +27,8 @@ float f(float x, float y) {
 //   Resource (*build_func)()
 // and ResourceManager::get_resource() sets
 //   loaded_res = std::shared_ptr<R>(build_func());
-void terrain_builder(std::shared_ptr<Resource> res) {
-	Material material = Material();
+std::shared_ptr<Material> terrain_builder() {
+	std::shared_ptr<Material> material = std::make_shared<Material>();
 
 	// int size_x = 100;
 	// int size_y = 100;
@@ -39,12 +39,13 @@ void terrain_builder(std::shared_ptr<Resource> res) {
 	// 	}
 	// }
 	
-	material.ambient = vec3(0.0215,0.1745,0.0215);
-	material.diffuse = vec3(0.07568,0.61424,0.07568);
-	material.specular = vec3(0.633,0.727811,0.633);
-	material.shininess = 200;
+	material->ambient = vec3(0.0215,0.1745,0.0215);
+	material->diffuse = vec3(0.07568,0.61424,0.07568);
+	material->specular = vec3(0.633,0.727811,0.633);
+	material->shininess = 200;
 
-	*res.get() = material;
+	// std::shared_ptr<Resource> result = std::make_shared<Resource>(material);
+	return material;
 }
 
 LightingScene::LightingScene(const char* title, int width, int height)
