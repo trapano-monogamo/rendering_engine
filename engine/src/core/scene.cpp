@@ -55,6 +55,8 @@ void Scene::render() {
 		Renderable* obj = this->get_component<Renderable>(entity);
 		Transform* t = this->get_component<Transform>(entity);
 
+		// emh... kind of bad to hide this statement from the user.
+		// find a way to sync the transform with other position-having components like lights
 		if (entity == light_id) { light->pos = t->position; }
 
 		// TRANSFORM, VIEW, PROJECTION
@@ -72,8 +74,6 @@ void Scene::render() {
 		auto mesh = get_resource<Mesh>(obj->mesh_key);
 		auto shader = get_resource<Shader>(obj->shader_key);
 
-		shader->apply_uniforms();
-
 		shader->set_uniform_matrix_4fv("transform", transform.m);
 		shader->set_uniform_matrix_4fv("view", view.m);
 		shader->set_uniform_matrix_4fv("projection", this->camera.projection.m);
@@ -81,6 +81,7 @@ void Scene::render() {
 		// check if MATERIAL is present
 		if (!obj->material_key.empty()) {
 			auto material = get_resource<Material>(obj->material_key);
+			// std::cout << "id: " << entity << "\tmat key: " << obj->material_key << "\tptr: " << material.get() << std::endl;
 			shader->set_uniform("material.ambient", material->ambient, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("material.diffuse", material->diffuse, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("material.specular", material->specular, Shader::UniformType::FLOAT_3, 1);
@@ -91,6 +92,8 @@ void Scene::render() {
 			shader->set_uniform("light.specular", light->specular, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("view_pos", camera.pos, Shader::UniformType::FLOAT_3, 1);
 		}
+
+		shader->apply_uniforms();
 
 		// check if TEXTURE is present
 		if (!obj->texture_key.empty()) {

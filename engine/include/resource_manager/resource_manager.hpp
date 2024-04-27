@@ -32,6 +32,7 @@ private:
 	};
 
 	struct BuilderConfig {
+		// could this be a union to make it clear that it's either one or the other? Is there a similar solution?
 		std::string path = "";
 		void* bfw = nullptr;
 

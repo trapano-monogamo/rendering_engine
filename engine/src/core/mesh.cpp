@@ -153,9 +153,9 @@ void Mesh::write_buffers() {
 	glBindVertexArray(vao);
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * gl_vertices_size, gl_vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * gl_vertices_size, gl_vertices, GL_DYNAMIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), indices.data(), GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), indices.data(), GL_DYNAMIC_DRAW);
 
 	enable_attribute(0, 3, GL_FLOAT, 11 * sizeof(float), (void*)0);
 	enable_attribute(1, 3, GL_FLOAT, 11 * sizeof(float), (void*)(3 * sizeof(float)));
