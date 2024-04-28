@@ -157,10 +157,15 @@ void Mesh::write_buffers() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), indices.data(), GL_DYNAMIC_DRAW);
 
-	enable_attribute(0, 3, GL_FLOAT, 11 * sizeof(float), (void*)0);
-	enable_attribute(1, 3, GL_FLOAT, 11 * sizeof(float), (void*)(3 * sizeof(float)));
-	enable_attribute(2, 3, GL_FLOAT, 11 * sizeof(float), (void*)(6 * sizeof(float)));
-	enable_attribute(3, 2, GL_FLOAT, 11 * sizeof(float), (void*)(9 * sizeof(float)));
+	if (!has_been_built) {
+		enable_attribute(0, 3, GL_FLOAT, 11 * sizeof(float), (void*)0);
+		enable_attribute(1, 3, GL_FLOAT, 11 * sizeof(float), (void*)(3 * sizeof(float)));
+		enable_attribute(2, 3, GL_FLOAT, 11 * sizeof(float), (void*)(6 * sizeof(float)));
+		enable_attribute(3, 2, GL_FLOAT, 11 * sizeof(float), (void*)(9 * sizeof(float)));
+		has_been_built = true;
+	}
+
+	delete[] gl_vertices;
 }
 
 void Mesh::enable_attribute(int index, int size, GLenum type, int stride, void* ptr) {

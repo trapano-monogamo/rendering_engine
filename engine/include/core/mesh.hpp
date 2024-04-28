@@ -31,5 +31,6 @@ public:
 	void use();
 
 private:
+	bool has_been_built = false;
 	void enable_attribute(int index, int size, GLenum type, int stride, void* ptr);
 };

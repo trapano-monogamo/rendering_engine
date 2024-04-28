@@ -9,6 +9,7 @@
 #include "core/shader.hpp"
 #include "ecs/ecs.hpp"
 #include "math/utils.hpp"
+#include "math/vec.hpp"
 #include <math.h>
 #include <iostream>
 #include <memory>
@@ -17,6 +18,8 @@
 
 /* TODO: add 3D_MODE and 2D_MODE macros to compile different versions of
  *       Vertex and other things to allow fo the two different modes.
+ *
+ * TODO: parametric lines and surfaces!!!
  * */
 
 
@@ -31,7 +34,7 @@ struct SurfaceProperties {
 class SurfaceSystem : public System {
 public:
 
-	float v = 0.5f;
+	float v = 1.0f;
 	float t = 0.0f;
 	unsigned int surface_id;
 	Scene* scene;
@@ -40,17 +43,17 @@ public:
 	~SurfaceSystem() = default;
 
 	void update() override {
-		auto mesh = scene->get_component<Mesh>(surface_id);
-		auto test = scene->get_component<Transform>(surface_id);
-
-		std::cout << "mesh: " << mesh << std::endl << "test: " << test << std::endl;
+		auto renderable = scene->get_component<Renderable>(surface_id);
+		auto mesh = scene->get_resource<Mesh>(renderable->mesh_key);
 
 		float x{} ,y{};
 		for (int i=0; i<props.N; i++) {
 			for (int j=0; j<props.M; j++) {
 				x = j * props.size_x / props.M;
 				y = i * props.size_y / props.N;
-				mesh->vertices[i * props.size_x + j].position = vec3(x, f(x+v*t, y+v*t), y);
+				mesh->vertices[i * props.M + j].position = vec3(x, f(x+v*t, y+v*t), y);
+				// something's wrong with this:
+				mesh->vertices[i * props.M + j].normal = calculate_normal_vector(f, x, y);
 			}
 		}
 		mesh->write_buffers();
@@ -58,7 +61,16 @@ public:
 
 	static float f(float x, float y) {
 		return sin(x + y);
-		// return sqrt(1 - (x - )*x - y*y);
+		// return sqrt(1 - x*x - y*y);
+	}
+	static float df_dx(float x, float y) { return cos(x+y); }
+	static float df_dy(float x, float y) { return cos(x+y); }
+
+	static vec3 calculate_normal_vector(float (*f)(float,float), float x, float y) {
+		/* 3D surface: z = f(x,y)   =>   g(x,y,z) := f(x,y) - z = 0
+		 * normal vector: grad(g(x,y,z)) = (df/dx, df/dy, -1)
+		 * */
+		return vec3(df_dx(x,y), df_dy(x,y), -1);
 	}
 
 	static std::shared_ptr<Mesh> builder() {
