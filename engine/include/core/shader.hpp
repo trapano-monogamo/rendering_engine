@@ -8,6 +8,15 @@
 #include <unordered_map>
 
 
+/* this doesn't work */
+#define SHADER_ASSETS_DIRECTORY "../engine/assets/shaders/"
+#ifdef CUSTOM_SHADER_ASSETS_DIRECTORY
+	static const char* _CUSTOM_SHADER_ASSETS_DIRECTORY = CUSTOM_SHADER_ASSETS_DIRECTORY;
+#else
+	static const char* _CUSTOM_SHADER_ASSETS_DIRECTORY = "";
+#endif
+
+
 class Shader : public Resource {
 public:
 	enum UniformType {
@@ -37,7 +46,7 @@ public:
 	Shader();
 	~Shader();
 
-	void load_from_file(std::string& path) override;
+	void load_from_file(const std::string& path) override;
 
 	void load_source_files(const char* vertex_shader_filepath, const char* fragment_shader_filepath);
 	void load_source_string(const char* vertex_shader_filepath_src, const char* fragment_shader_src);

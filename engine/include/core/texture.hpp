@@ -21,5 +21,5 @@ public:
 	Texture load_texture(const char* filepath);
 	void use();
 
-	void load_from_file(std::string& path) override;
+	void load_from_file(const std::string& path) override;
 };

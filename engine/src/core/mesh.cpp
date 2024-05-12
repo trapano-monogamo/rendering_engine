@@ -32,7 +32,7 @@ Mesh::~Mesh() {
 	glDeleteBuffers(1, &this->ebo);
 }
 
-void Mesh::load_from_file(std::string& path) {
+void Mesh::load_from_file(const std::string& path) {
 	std::ifstream f(path);
 	if (!f.good()) throw std::runtime_error("Could not open Mesh resource file.");
 
@@ -150,6 +150,10 @@ void Mesh::write_buffers() {
 		gl_vertices[i * 11 +10] = vertices[i].tex_coords.v;
 	}
 
+	// if (indices.empty()) {
+	// 	for (unsigned int i=0; i<vertices.size(); i++) indices.push_back(i);
+	// }
+
 	glBindVertexArray(vao);
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -157,7 +161,7 @@ void Mesh::write_buffers() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * indices.size(), indices.data(), GL_DYNAMIC_DRAW);
 
-	if (!has_been_built) {
+	if (!has_been_built) { // avoid reactivating everything if the vertex data is only being updated
 		enable_attribute(0, 3, GL_FLOAT, 11 * sizeof(float), (void*)0);
 		enable_attribute(1, 3, GL_FLOAT, 11 * sizeof(float), (void*)(3 * sizeof(float)));
 		enable_attribute(2, 3, GL_FLOAT, 11 * sizeof(float), (void*)(6 * sizeof(float)));

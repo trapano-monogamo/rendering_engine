@@ -16,7 +16,7 @@ class Resource {
 public:
 	Resource() = default;
 	virtual ~Resource() = default;
-	virtual void load_from_file(std::string&) = 0;
+	virtual void load_from_file(const std::string&) = 0;
 };
 
 

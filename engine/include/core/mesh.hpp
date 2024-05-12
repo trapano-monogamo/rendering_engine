@@ -26,7 +26,7 @@ public:
 	Mesh();
 	~Mesh();
 
-	void load_from_file(std::string& path) override;
+	void load_from_file(const std::string& path) override;
 	void write_buffers();
 	void use();
 

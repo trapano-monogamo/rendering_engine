@@ -12,6 +12,22 @@ Shader::Shader()
 {}
 
 
+bool paste_from_file(const char* filepath, std::stringstream& to) {
+	std::ifstream src(filepath);
+	if (!src.good()) {
+		std::cerr << "Could not open include file '" << filepath << "'." << std::endl;
+		return false;
+	}
+
+	std::string line{};
+	while (getline(src,line)) {
+		to << line << std::endl;
+	}
+
+	return true;
+}
+
+
 /* a shader file should contain all shaders (vertex, fragment, geometry...)
  * each prefaced by the line:
  *
@@ -19,7 +35,7 @@ Shader::Shader()
  *
  * where <shader-type> is one of the ones cited (vertex, ...).
  * */
-void Shader::load_from_file(std::string& path) {
+void Shader::load_from_file(const std::string& path) {
 	enum ShaderType {
 		NONE = -1,
 		VERTEX = 0,
@@ -28,23 +44,31 @@ void Shader::load_from_file(std::string& path) {
 
 	std::ifstream src(path);
 	std::string line{};
+	std::string arg{};
 	std::stringstream ss[2];
 	ShaderType type = ShaderType::NONE;
 
 	while (getline(src, line))
     {
-        if (line.find("#shader") != std::string::npos)
-        {
-            if (line.find("vertex") != std::string::npos)
+        if (line.find("#shader") != std::string::npos) {
+            if (line.find("vertex") != std::string::npos) {
                 type = ShaderType::VERTEX;
-            else if (line.find("fragment") != std::string::npos)
+			} else if (line.find("fragment") != std::string::npos) {
                 type = ShaderType::FRAGMENT;
-        }
-        else
-        {
+			}
+        } else if (line.find("#include") != std::string::npos) {
+			std::stringstream(line) >> arg /*#inlcude*/ >> arg /*arg*/;
+			bool succ = paste_from_file((SHADER_ASSETS_DIRECTORY + std::string("/" + arg + ".shader")).c_str(), ss[(int)type]);
+			if (!succ) {
+				std::cout << "trying custom directory" << std::endl;
+				succ = paste_from_file((_CUSTOM_SHADER_ASSETS_DIRECTORY + std::string("/" + arg + ".shader")).c_str(), ss[(int)type]);
+			}
+		} else {
             ss[(int)type] << line << '\n';
         }
     }
+	// std::cout << ss[0].str() << '\n' << "~ end vertex shader ~" << std::endl;
+	// std::cout << ss[1].str() << std::endl;
 
 	this->load_source_string(ss[0].str().c_str(), ss[1].str().c_str());
 }

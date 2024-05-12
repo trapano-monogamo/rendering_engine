@@ -12,7 +12,7 @@ Material::Material(float sh, vec3 a, vec3 d, vec3 sp)
 {}
 
 // .mat
-void Material::load_from_file(std::string& path) {
+void Material::load_from_file(const std::string& path) {
 	std::ifstream f(path);
 	if (!f.good()) {
 		throw std::runtime_error("Could not open .mat file.");
