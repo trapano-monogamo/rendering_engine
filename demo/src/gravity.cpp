@@ -83,10 +83,10 @@ void GravitySim::on_update(float dt) {
 
 	if (scene.input_handler.is_key_pressed(GLFW_KEY_ESCAPE))
 		glfwSetWindowShouldClose(window, true);
-	if (scene.input_handler.is_key_pressed(GLFW_KEY_X))
-		scene.rendering_options.wireframe = true;
-	if (scene.input_handler.is_key_pressed(GLFW_KEY_F))
-		scene.rendering_options.wireframe = false;
+	// if (scene.input_handler.is_key_pressed(GLFW_KEY_X))
+	// 	scene.rendering_options.wireframe = true;
+	// if (scene.input_handler.is_key_pressed(GLFW_KEY_F))
+	// 	scene.rendering_options.wireframe = false;
 
 	if (scene.input_handler.is_key_pressed(GLFW_KEY_W)) {
 		vec3 u = vec3::normalize(vec3(scene.camera.dir.x, 0.0, scene.camera.dir.z));

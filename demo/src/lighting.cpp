@@ -1,7 +1,9 @@
 #include "lighting.hpp"
+#include "core/scene.hpp"
 
 // this doesn't work
 #define CUSTOM_SHADER_ASSETS_DIRECTORY "/home/chiara/dev/cpp"
+#define ENGINE_MODE_3D
 #include "engine.hpp"
 
 #include <math.h>
@@ -10,12 +12,12 @@
 
 
 
-/* TODO: add 3D_MODE and 2D_MODE macros to compile different versions of
- *       Vertex and other things to allow fo the two different modes.
+/* [ ] add 3D_MODE and 2D_MODE macros to compile different versions of
+ *     Vertex and other things to allow fo the two different modes.
  *
- * TODO: per-object rendering options
+ * [x] per-object rendering options
  *
- * TODO: parametric lines and surfaces!!!
+ * [ ] parametric lines and surfaces!!!
  * */
 
 
@@ -179,7 +181,6 @@ void LightingScene::on_create() {
 	// can't this be done in GameApp directly??? yes, it can
 	scene.input_handler = InputHandler(this->window);
 	scene.background_color = vec3(0.05f, 0.05f, 0.05f);
-	scene.rendering_options.wireframe = true;
 
 	scene.register_resource("light_shader",     "../engine/assets/shaders/light.shader");
 	scene.register_resource("source_shader",    "../engine/assets/shaders/basic2.shader");
@@ -226,6 +227,7 @@ void LightingScene::on_create() {
 	auto surf_id = scene.add_entity();
 	scene.add_component(surf_id, new Renderable("surface_mesh", "emerald_material", "light_shader", ""));
 	scene.add_component(surf_id, surf_t);
+	scene.add_component(surf_id, new ObjectRenderingOptions( { .active = false }, true ));
 
 	SurfaceSystem* surf_sys = new SurfaceSystem();
 	surf_sys->scene = &scene;
@@ -240,24 +242,22 @@ void LightingScene::on_update(float dt) {
 
 	scene.get_system<SurfaceSystem>()->t = t;
 
-	light_color = vec3(.5*(1+sin(t)), .5*(1+cos(t)), .5 + sin(t)*cos(t));
-	for (auto& c : scene.get_resource<Mesh>("cube_mesh")->vertices) {
-		c.color = light_color;
-	}
-	scene.get_resource<Shader>("source_shader")->set_uniform("light_color", light_color, Shader::UniformType::FLOAT_3, 1);
-	scene.get_component<Transform>(source_id)->position = vec3(sin(t), cos(t), sin(t)*cos(t)) * 2.0;
+	light_color = vec3(.5*(1+sin(t)), .5*(1+cos(t)), .5+.5*sin(t)*cos(t));
+	for (auto& c : scene.get_resource<Mesh>("cube_mesh")->vertices) c.color = light_color;
 	scene.get_component<Light>(source_id)->ambient = vec3(.5*(1+sin(t)), .5*(1+cos(t)), .5 + sin(t)*cos(t));
 	scene.get_component<Light>(source_id)->diffuse = vec3(.5*(1+sin(t)), .5*(1+cos(t)), .5 + sin(t)*cos(t));
 	scene.get_component<Light>(source_id)->specular = vec3(.5*(1+sin(t)), .5*(1+cos(t)), .5 + sin(t)*cos(t));
+	scene.get_resource<Shader>("source_shader")->set_uniform("light_color", light_color, Shader::UniformType::FLOAT_3, 1);
+	scene.get_component<Transform>(source_id)->position = vec3(sin(t), cos(t), sin(t)*cos(t)) * 2.0;
 
 	scene.update();
 
 	if (scene.input_handler.is_key_pressed(GLFW_KEY_ESCAPE))
 		glfwSetWindowShouldClose(window, true);
-	if (scene.input_handler.is_key_pressed(GLFW_KEY_X))
-		scene.rendering_options.wireframe = true;
-	if (scene.input_handler.is_key_pressed(GLFW_KEY_F))
-		scene.rendering_options.wireframe = false;
+	// if (scene.input_handler.is_key_pressed(GLFW_KEY_X))
+	// 	scene.rendering_options.wireframe = true;
+	// if (scene.input_handler.is_key_pressed(GLFW_KEY_F))
+	// 	scene.rendering_options.wireframe = false;
 
 	if (scene.input_handler.is_key_pressed(GLFW_KEY_W)) {
 		vec3 u = vec3::normalize(vec3(scene.camera.dir.x, 0.0, scene.camera.dir.z));

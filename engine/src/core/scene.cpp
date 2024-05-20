@@ -11,17 +11,25 @@
 #include <iostream>
 
 // set rendering options that require gl calls
-void RenderingOptions::set() {
-	if (wireframe)
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	else
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+void SceneRenderingOptions::set() {
+}
+
+void ObjectRenderingOptions::set() {
+	if (wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+	if (cull_face.active) {
+		glEnable(GL_CULL_FACE);
+		glCullFace(cull_face.order);
+	} else {
+		glDisable(GL_CULL_FACE);
+	}
 }
 
 Scene::Scene()
 	: camera(Camera(vec3(0.0, 0.0, 0.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 100.0f))
 	, input_handler(nullptr)
-	, rendering_options(RenderingOptions())
+	, rendering_options(SceneRenderingOptions())
 	, background_color(vec3(0.f,0.f,0.f))
 {}
 
@@ -29,13 +37,15 @@ void Scene::render() {
 	// set rendering options
 	this->rendering_options.set();
 
+	ObjectRenderingOptions default_opts{};
+
 	// clear screen
 	glEnable(GL_DEPTH_TEST);
 	glClearColor(background_color.x, background_color.y, background_color.z, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glEnable(GL_CULL_FACE);
-	glCullFace(GL_FRONT);
+	// glEnable(GL_CULL_FACE);
+	// glCullFace(GL_FRONT);
 
 	mat4 projection;
 	mat4 view;
@@ -57,6 +67,13 @@ void Scene::render() {
 		// RENDERING COMPONENTS
 		Renderable* obj = this->get_component<Renderable>(entity);
 		Transform* t = this->get_component<Transform>(entity);
+		ObjectRenderingOptions* opts = this->get_component<ObjectRenderingOptions>(entity);
+
+		if (opts != nullptr) {
+			opts->set();
+		} else {
+			default_opts.set();
+		}
 
 		// emh... kind of bad to hide this statement from the user.
 		// find a way to sync the transform with other position-having components like lights

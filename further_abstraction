@@ -1,0 +1,72 @@
+-> make the engine build default resources
+	* consider building them at runtime or directly serialize them into the engine
+	  directory tree as premade assets (shaders still need to be compiled
+	  at runtime, as a serialized program ID wouldn't be valid as the OpenGL
+	  state machine doesn't know of its existence).
+	* is there a way to deduce material properties from just a color and more descriptive
+	  characteristics like luminosity or something?
+	-> default materials:
+		. basic colors
+		. shiny metallic materials
+		. opaque plastic materials
+	-> default shaders:
+		. basic no lighting colored (material)
+		. basic no lighting textured
+		. phong lighting colored (material)
+		. phong lighting textured
+
+
+-> separating 2D and 3D?
+{!!}	* should the engine separate each module in 2D and 3D versions of the types
+		  (and enable them based on the chosen mode at runtime) or should the modules
+		  use macros to build each type using different data types (i.e. vec2 and vec3)
+		  based on the mode selected at compile time?
+
+
+-> create GameObject interface
+	-> Scene::add_game_object()
+		* the scene should add a GameObject and bind itself to it
+		* maybe it returns a GameObjectBuilder interface which is used
+		  to decide for default or custom renderable resources
+{!}		* at this point the Scene should privately inherit from ECS and
+		  provide its own add_entity() interface returning an EntityBuilder
+		  which is responsible for adding an entity and the provided components
+		  to the internal ECS, and also return the entity ID to the user
+			-> Scene::add_entity() and EntityBuilder
+			-> Scene::add_game_object() and GameObjectBuilder
+	-> GameObject should hold a renderable
+	-> GameObject getters to reference its renderable resources
+	-> GameObject specializations:
+		. Quad (textured square)
+		. Primitives (simple meshes) {!!}:
+			[2D]
+			. circle
+			. triangle
+			. square
+			. line
+			. polygon
+				* could be implemented as a way of building a generic user-provided list
+				  of vertices that are built into a geometric primitive
+			[3D]
+			. composites:
+				. triangle strip
+				. triangle fan
+				. line strip
+			. cube
+			. sphere
+			. cone
+			. BEAN
+	-> Transform binding
+
+
+-> better systems
+	-> specialized systems
+	-> Scene::add_system() and SystemBuilder {!}
+		* a System should always hold a reference to the current scene,
+		  so when a system is created, the scene should bind itself to the newly created
+		  system, and eventually this reference should be updated when the scene is either
+		  destructed or changed
+
+
+-> tree nodes in ECS to implement heirarchical dependencies between entities
+	* how would a system updating these entities even work?
