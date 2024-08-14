@@ -34,7 +34,7 @@ struct Query {
 class ECS {
 public:
 	std::vector<uint32_t> entities;
-	std::unordered_map<uint32_t, std::vector<Component*>> components;
+	std::unordered_map<uint32_t, std::vector<Component*>> components; // <---- change to shared ptr
 	std::vector<System*> systems;
 
 	ECS() = default;

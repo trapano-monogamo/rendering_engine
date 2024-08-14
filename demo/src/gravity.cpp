@@ -1,3 +1,4 @@
+#include "math/vec.hpp"
 #include "scenes.hpp"
 
 void GravitySim::on_create() {

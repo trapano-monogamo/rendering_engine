@@ -9,7 +9,8 @@ struct Transform : public Component {
 	vec3 euler_rotations;
 
 	Transform();
-	Transform(Transform& t) = default;
+	Transform(Transform&) = default;
+	Transform(const Transform&) = default;
 	Transform(vec3 position, vec3 scale, vec3 euler_angles);
 
 	void translate(vec3 translation);

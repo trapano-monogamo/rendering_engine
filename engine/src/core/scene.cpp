@@ -53,10 +53,14 @@ void Scene::render() {
 	
 	// LIGHT SOURCE
 	// TODO: implement multiple source lighting
-	unsigned int light_id = this->query_entities()
-		.with_component<Light>(this)
-		.results[0];
-	Light* light = get_component<Light>(light_id);
+	auto light_query = this->query_entities().with_component<Light>(this); // make ECS pass/bind itself to the query
+	unsigned int light_id = 0;
+	Light* light = nullptr;
+
+	if (light_query.results.size() != 0) {
+		light_id = light_query.results[0];
+		light = get_component<Light>(light_id);
+	}
 
 	// query renderable components
 	auto query = this->query_entities()
@@ -77,7 +81,7 @@ void Scene::render() {
 
 		// emh... kind of bad to hide this statement from the user.
 		// find a way to sync the transform with other position-having components like lights
-		if (entity == light_id) { light->pos = t->position; }
+		if (entity == light_id && light != nullptr) { light->pos = t->position; }
 
 		// TRANSFORM, VIEW, PROJECTION
 		if (t != nullptr) {
@@ -101,15 +105,18 @@ void Scene::render() {
 		// check if MATERIAL is present
 		if (!obj->material_key.empty()) {
 			auto material = get_resource<Material>(obj->material_key);
-			// std::cout << "id: " << entity << "\tmat key: " << obj->material_key << "\tptr: " << material.get() << std::endl;
 			shader->set_uniform("material.ambient", material->ambient, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("material.diffuse", material->diffuse, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("material.specular", material->specular, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("material.shininess", material->shininess, Shader::UniformType::FLOAT, 1);
+		}
+		if (light != nullptr) {
+			shader->set_uniform("light.color", light->color, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("light.pos", light->pos, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("light.ambient", light->ambient, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("light.diffuse", light->diffuse, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("light.specular", light->specular, Shader::UniformType::FLOAT_3, 1);
+			// this is a lighting parameter:
 			shader->set_uniform("view_pos", camera.pos, Shader::UniformType::FLOAT_3, 1);
 		}
 
@@ -138,3 +145,7 @@ void Scene::update() {
 void Scene::bind_window(GLFWwindow* window) {
 	input_handler.bind_window(window);
 }
+
+// GameObjectBuilder Scene::new_game_object() {
+// 	return GameObjectBuilder(this);
+// }

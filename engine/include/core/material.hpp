@@ -12,6 +12,8 @@ public:
 	vec3 specular;
 
 	Material() = default;
+	Material(Material&) = default;
+	Material(const Material&) = default;
 	Material(float,vec3,vec3,vec3);
 	~Material() = default;
 	void load_from_file(const std::string& path) override;

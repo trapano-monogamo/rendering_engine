@@ -35,6 +35,7 @@ struct Material {
 };
 
 struct Light {
+	vec3 color;
 	vec3 pos;
 	vec3 ambient;
 	vec3 diffuse;
@@ -68,6 +69,6 @@ void main() {
 	float spec = pow(max(dot(view_dir, reflect_dir), 0.0), material.shininess);
 	vec3 specular = light.specular * (spec * material.specular);
 
-	vec3 result = (ambient + diffuse + specular) * vert_color;
+	vec3 result = light.color * (ambient + diffuse + specular) * vert_color;
 	frag_color = vec4(result, 1.0);
 }

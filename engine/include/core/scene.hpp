@@ -3,6 +3,7 @@
 #include "common.hpp"
 #include "ecs/ecs.hpp"
 #include "core/camera.hpp"
+// #include "core/game_object.hpp"
 #include "input_handler/input_hanlder.hpp"
 #include "resource_manager/resource_manager.hpp"
 
@@ -45,4 +46,6 @@ public:
 	void update(); // ECS::update(), InputHandler::update()
 
 	void bind_window(GLFWwindow* window);
+
+	// GameObjectBuilder new_game_object();
 };

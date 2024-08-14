@@ -44,6 +44,8 @@ private:
 
 public:
 	Shader();
+	Shader(Shader&) = default;
+	Shader(const Shader&) = default;
 	~Shader();
 
 	void load_from_file(const std::string& path) override;

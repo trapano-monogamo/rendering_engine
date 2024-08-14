@@ -2,8 +2,12 @@
 
 #include "core/transform.hpp"
 #include "ecs/ecs.hpp"
-#include "resource_manager/resource_manager.hpp"
-#include <functional>
+
+#include "core/mesh.hpp"
+#include "core/material.hpp"
+#include "core/shader.hpp"
+#include "core/texture.hpp"
+
 #include <string>
 
 class Renderable : public Component {
@@ -19,4 +23,11 @@ public:
 	~Renderable() = default;
 
 	void draw(Transform* t);
+};
+
+struct RenderableConfig {
+	ResourceConfig<Mesh> mesh;
+	ResourceConfig<Material> material;
+	ResourceConfig<Shader> shader;
+	ResourceConfig<Texture> texture;
 };

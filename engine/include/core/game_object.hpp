@@ -1,26 +1,83 @@
 #pragma once
 
-#include "engine.hpp"
+#include <memory>
+#include <iostream>
+#include "core/mesh.hpp"
+#include "core/material.hpp"
+#include "core/texture.hpp"
+#include "core/shader.hpp"
+#include "core/renderable.hpp"
+
+#include "core/scene.hpp"
+
+
 
 class GameObject {
+public:
+	friend class GameObjectBuilder;
+
 private:
-	std::shared_ptr<Renderable> r;
-	std::shared_ptr<Scene> s;
+	// a GameObject should be managed as an entity by the engine
+	Scene* scene = nullptr;
+	uint32_t entity = 0;
 
 public:
-	GameObject();
-	~GameObject() = default;
+	GameObject() = default;
+	GameObject(Scene*);
 
-	/* the user calls Scene::add_game_object(...) which
-	 * creates an object and binds the scene to the newly created obj
-	 * */
-	void bind_scene(/*Scene* s*/);
+	void bind_to_scene(Scene*);
 
-	void build_from_resources(/* const std::string& ...key, ...*/);
-	void build_from_data(/* const Mesh&, ... */);
+	Renderable* get_renderable();
 
-	std::shared_ptr<Mesh>		get_mesh();
-	std::shared_ptr<Material>	get_material();
-	std::shared_ptr<Texture>	get_texture();
-	std::shared_ptr<Shader>		get_shader();
+	Mesh* get_mesh();
+	Shader* get_shader();
+	Material* get_material();
+	Texture* get_texture();
+
+	template<typename C> C* get_component();
 };
+
+template<typename C>
+C* GameObject::get_component() {
+	auto c = scene->get_component<C>(entity);
+	if (c == nullptr) {
+		std::cout << "GameObject doesn't have requested component." << std::endl;
+		return nullptr;
+	} else {
+		return c;
+	}
+}
+
+
+
+class GameObjectBuilder {
+private:
+	Scene* scene;
+	std::shared_ptr<GameObject> go;
+
+	Renderable* tmp_renderable = nullptr;
+
+	void provide_renderable();
+
+public:
+	GameObjectBuilder(Scene*);
+	~GameObjectBuilder() = default;
+
+	std::shared_ptr<GameObject> build();
+
+	GameObjectBuilder& with_mesh(const Mesh&);
+	GameObjectBuilder& with_shader(const Shader&);
+	GameObjectBuilder& with_material(const Material&);
+	GameObjectBuilder& with_texture(const Texture&);
+
+	GameObjectBuilder& with_renderable(const RenderableConfig&);
+	GameObjectBuilder& with_transform(const Transform&);
+
+	template<typename C> GameObjectBuilder& with_component(const C&);
+};
+
+template<typename C>
+GameObjectBuilder& GameObjectBuilder::with_component(const C& c) {
+	scene->add_component(go->entity, new C(c));
+	return *this;
+}

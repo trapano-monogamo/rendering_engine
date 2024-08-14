@@ -21,6 +21,20 @@ public:
 
 
 
+template<typename R>
+struct ResourceConfig {
+	std::string key = "";
+	std::string path = "";
+	std::shared_ptr<R> (* func)() = nullptr;
+
+	ResourceConfig() = default;
+	ResourceConfig(const std::string& key) : key(key) {}
+	ResourceConfig(const std::string& key, const std::string& path) : key(key), path(path) {}
+	ResourceConfig(const std::string& key, std::shared_ptr<R> (*func)()) : key(key), func(func) {}
+};
+
+
+
 class ResourceManager {
 private:
 	template<class R>
@@ -52,19 +66,30 @@ public:
 	{}
 	~ResourceManager();
 
-	bool register_resource(const std::string& key, const std::string& path);
-	template<typename R> bool register_resource(const std::string& key, std::shared_ptr<R> (*build_func)());
+	bool is_resource_registered(const std::string& key);
+	void register_resource(const std::string& key, const std::string& path);
+	template<typename R> void register_resource(const std::string& key, std::shared_ptr<R> (*build_func)());
+	template<typename R> void register_resource(ResourceConfig<R> config);
 	template<typename R> std::shared_ptr<R> get_resource(const std::string& key);
 };
 
 template<typename R>
-bool ResourceManager::register_resource(const std::string& key, std::shared_ptr<R> (*build_func)()) {
-	if (this->builders.find(key) != this->builders.end()) { return false; }
+void ResourceManager::register_resource(const std::string& key, std::shared_ptr<R> (*build_func)()) {
+	if (this->builders.find(key) != this->builders.end()) { return; }
 	else {
 		this->builders[key] = BuilderConfig("", new BuilderFunctionWrapper<R>{ build_func });
-		return true;
+		return;
 	}
 }
+
+template<typename R>
+void ResourceManager::register_resource(ResourceConfig<R> config) {
+	if (config.path.empty()) // if no path => function
+		this->register_resource(config.key, config.func);
+	else // if no function => path
+		this->register_resource(config.key, config.path);
+}
+
 
 
 

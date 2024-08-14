@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
+#include <iostream>
 
 Vertex::Vertex()
 	: position()
@@ -26,6 +27,28 @@ Mesh::Mesh()
 	glGenBuffers(1, &this->ebo);
 	glGenVertexArrays(1, &this->vao);
 }
+
+// Mesh::Mesh(Mesh& other)
+// 	: vertices(other.vertices)
+// 	, indices(other.indices)
+// {
+// 	glGenBuffers(1, &this->vbo);
+// 	glGenBuffers(1, &this->ebo);
+// 	glGenVertexArrays(1, &this->vao);
+// 
+// 	write_buffers();
+// }
+
+// Mesh::Mesh(const Mesh& other)
+// 	: vertices(other.vertices)
+// 	, indices(other.indices)
+// {
+// 	glGenBuffers(1, &this->vbo);
+// 	glGenBuffers(1, &this->ebo);
+// 	glGenVertexArrays(1, &this->vao);
+// 
+// 	write_buffers();
+// }
 
 Mesh::~Mesh() {
 	glDeleteBuffers(1, &this->vbo);
@@ -176,4 +199,19 @@ void Mesh::enable_attribute(int index, int size, GLenum type, int stride, void* 
 	this->use();
 	glVertexAttribPointer(index, size, type, GL_FALSE, stride, ptr);
 	glEnableVertexAttribArray(index);
+}
+
+
+void Mesh::set_color(const std::vector<vec3>& buffer) {
+	if (buffer.size() != vertices.size()) {
+		std::cerr << "Provided colors and vertex buffer do not match in size." << std::endl;
+		return;
+	}
+	for (size_t i=0; i<vertices.size(); i++) vertices[i].color = buffer[i];
+	write_buffers();
+}
+
+void Mesh::set_color(const vec3& c) {
+	for (size_t i=0; i<vertices.size(); i++) vertices[i].color = c;
+	write_buffers();
 }

@@ -12,15 +12,6 @@
 
 
 
-/* [ ] add 3D_MODE and 2D_MODE macros to compile different versions of
- *     Vertex and other things to allow fo the two different modes.
- *
- * [x] per-object rendering options
- *
- * [ ] parametric lines and surfaces!!!
- * */
-
-
 struct SurfaceProperties {
 	int N = 100;
 	int M = 100;
@@ -180,7 +171,7 @@ void LightingScene::on_create() {
 	scene.camera = Camera(vec3(0.0, 1.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
 	// can't this be done in GameApp directly??? yes, it can
 	scene.input_handler = InputHandler(this->window);
-	scene.background_color = vec3(0.05f, 0.05f, 0.05f);
+	scene.background_color = vec3(0.10f, 0.10f, 0.10f);
 
 	scene.register_resource("light_shader",     "../engine/assets/shaders/light.shader");
 	scene.register_resource("source_shader",    "../engine/assets/shaders/basic2.shader");

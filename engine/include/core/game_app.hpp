@@ -2,7 +2,6 @@
 
 #include "common.hpp"
 #include "core/scene.hpp"
-#include <vector>
 
 class GameApp {
 protected:

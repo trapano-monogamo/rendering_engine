@@ -1,0 +1,13 @@
+#pragma once
+#include "common.hpp"
+
+class Renderer {
+private:
+	GLFWwindow* window;
+
+public:
+	Renderer();
+	~Renderer();
+
+	void render(GameObject& obj, void (*custom_render)() = nullptr);
+};

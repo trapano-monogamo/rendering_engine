@@ -14,6 +14,8 @@ private:
 
 public:
 	Texture() = default;
+	Texture(Texture&) = default;
+	Texture(const Texture&) = default;
 	Texture(const char* filepath);
 	~Texture();
 

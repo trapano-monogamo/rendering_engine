@@ -24,11 +24,16 @@ public:
 	std::vector<unsigned int> indices;
 
 	Mesh();
+	Mesh(Mesh&) = default;
+	Mesh(const Mesh&) = default;
 	~Mesh();
 
 	void load_from_file(const std::string& path) override;
 	void write_buffers();
 	void use();
+
+	void set_color(const std::vector<vec3>&);
+	void set_color(const vec3&);
 
 private:
 	bool has_been_built = false;
