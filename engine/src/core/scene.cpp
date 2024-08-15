@@ -55,7 +55,7 @@ void Scene::render() {
 	// TODO: implement multiple source lighting
 	auto light_query = this->query_entities().with_component<Light>(this); // make ECS pass/bind itself to the query
 	unsigned int light_id = 0;
-	Light* light = nullptr;
+	std::shared_ptr<Light> light(nullptr);
 
 	if (light_query.results.size() != 0) {
 		light_id = light_query.results[0];
@@ -69,11 +69,11 @@ void Scene::render() {
 
 	for (auto& entity : query) {
 		// RENDERING COMPONENTS
-		Renderable* obj = this->get_component<Renderable>(entity);
-		Transform* t = this->get_component<Transform>(entity);
-		ObjectRenderingOptions* opts = this->get_component<ObjectRenderingOptions>(entity);
+		std::shared_ptr<Renderable> obj = this->get_component<Renderable>(entity);
+		std::shared_ptr<Transform> t = this->get_component<Transform>(entity);
+		std::shared_ptr<ObjectRenderingOptions> opts = this->get_component<ObjectRenderingOptions>(entity);
 
-		if (opts != nullptr) {
+		if (opts.get() != nullptr) {
 			opts->set();
 		} else {
 			default_opts.set();
@@ -84,7 +84,7 @@ void Scene::render() {
 		if (entity == light_id && light != nullptr) { light->pos = t->position; }
 
 		// TRANSFORM, VIEW, PROJECTION
-		if (t != nullptr) {
+		if (t.get() != nullptr) {
 			transform = mat4::transform(t->scale, t->euler_rotations, t->position);
 			view = mat4::lookat(this->camera.pos, this->camera.up, this->camera.right, this->camera.dir);
 			projection = this->camera.projection;
@@ -110,7 +110,7 @@ void Scene::render() {
 			shader->set_uniform("material.specular", material->specular, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("material.shininess", material->shininess, Shader::UniformType::FLOAT, 1);
 		}
-		if (light != nullptr) {
+		if (light.get() != nullptr) {
 			shader->set_uniform("light.color", light->color, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("light.pos", light->pos, Shader::UniformType::FLOAT_3, 1);
 			shader->set_uniform("light.ambient", light->ambient, Shader::UniformType::FLOAT_3, 1);

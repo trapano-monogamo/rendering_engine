@@ -4,14 +4,14 @@
 
 ECS::~ECS() {
 	// ugly as hell solution to avoid deleting duplicate components
-	std::vector<Component*> ptrs{};
+	std::vector<std::shared_ptr<Component>> ptrs{};
 	for (auto entry : this->components) {
-		for (Component* c : entry.second) {
+		for (std::shared_ptr<Component> c : entry.second) {
 			if (std::find(ptrs.begin(), ptrs.end(), c) == ptrs.end()) ptrs.push_back(c);
 		}
 	}
 
-	for (Component* c : ptrs) delete c;
+	// for (Component* c : ptrs) delete c;
 	// for (auto sys : this->systems) delete sys;
 }
 
@@ -29,6 +29,10 @@ uint32_t ECS::add_entity() {
 }
 
 void ECS::add_system(System* sys) {
+	this->systems.push_back(std::shared_ptr<System>(sys));
+}
+
+void ECS::add_system(std::shared_ptr<System> sys) {
 	this->systems.push_back(sys);
 }
 

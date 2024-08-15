@@ -27,18 +27,18 @@ public:
 
 	void bind_to_scene(Scene*);
 
-	Renderable* get_renderable();
+	std::shared_ptr<Renderable> get_renderable();
 
-	Mesh* get_mesh();
-	Shader* get_shader();
-	Material* get_material();
-	Texture* get_texture();
+	std::shared_ptr<Mesh> get_mesh();
+	std::shared_ptr<Shader> get_shader();
+	std::shared_ptr<Material> get_material();
+	std::shared_ptr<Texture> get_texture();
 
-	template<typename C> C* get_component();
+	template<typename C> std::shared_ptr<C> get_component();
 };
 
 template<typename C>
-C* GameObject::get_component() {
+std::shared_ptr<C> GameObject::get_component() {
 	auto c = scene->get_component<C>(entity);
 	if (c == nullptr) {
 		std::cout << "GameObject doesn't have requested component." << std::endl;
@@ -65,6 +65,8 @@ public:
 
 	std::shared_ptr<GameObject> build();
 
+	// interface for directly building a renderable:
+
 	GameObjectBuilder& with_mesh(const Mesh&);
 	GameObjectBuilder& with_shader(const Shader&);
 	GameObjectBuilder& with_material(const Material&);
@@ -78,6 +80,6 @@ public:
 
 template<typename C>
 GameObjectBuilder& GameObjectBuilder::with_component(const C& c) {
-	scene->add_component(go->entity, new C(c));
+	scene->add_component(go->entity, c);
 	return *this;
 }

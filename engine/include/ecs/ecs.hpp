@@ -34,8 +34,8 @@ struct Query {
 class ECS {
 public:
 	std::vector<uint32_t> entities;
-	std::unordered_map<uint32_t, std::vector<Component*>> components; // <---- change to shared ptr
-	std::vector<System*> systems;
+	std::unordered_map<uint32_t, std::vector<std::shared_ptr<Component>>> components; // <---- change to shared ptr
+	std::vector<std::shared_ptr<System>> systems;
 
 	ECS() = default;
 	~ECS();
@@ -45,14 +45,17 @@ public:
 	uint32_t add_entity();
 	void remove_entity(uint32_t entity);
 	template<typename T> void add_component(uint32_t entity, T* component);
+	template<typename T> void add_component(uint32_t entity, T component);
+	template<typename T> void add_component(uint32_t entity, std::shared_ptr<T> component);
 	template<typename T> void remove_component(uint32_t entity);
 	void add_system(System* sys);
+	void add_system(std::shared_ptr<System>);
 	void remove_system(System* sys);
 
-	template<typename T> T* get_system();
+	template<typename T> std::shared_ptr<T> get_system();
 
-	template<typename T> T* get_component(uint32_t entity);
-	template<typename T> std::vector<T*> query_components();
+	template<typename T> std::shared_ptr<T> get_component(uint32_t entity);
+	template<typename T> std::vector<std::shared_ptr<T>> query_components();
 	template<typename T> bool has_component(uint32_t entity);
 
 	Query query_entities();
@@ -81,31 +84,53 @@ void ECS::add_component(uint32_t entity, T* component) {
 	auto it = this->components.find(entity);
 	// if the map already has the key, add the component to its value
 	if (it != this->components.end())
-		it->second.push_back(component);
+		it->second.push_back(std::make_shared<T>(*component));
 	else
-		this->components.insert(std::make_pair(entity, std::vector<Component*>{component}));
+		this->components.insert(std::make_pair(entity, std::vector<std::shared_ptr<Component>>{std::make_shared<T>(*component)}));
 }
 
 template<typename T>
-T* ECS::get_component(uint32_t entity) {
+void ECS::add_component(uint32_t entity, std::shared_ptr<T> component) {
+	auto it = this->components.find(entity);
+	// if the map already has the key, add the component to its value
+	if (it != this->components.end())
+		it->second.push_back(component);
+	else
+		this->components.insert(std::make_pair(entity, std::vector<std::shared_ptr<Component>>{component}));
+}
+
+template<typename T>
+void ECS::add_component(uint32_t entity, T component) {
+//	auto c = std::move(component);
+	auto it = this->components.find(entity);
+	// if the map already has the key, add the component to its value
+	if (it != this->components.end())
+		it->second.push_back(std::make_shared<T>(component));
+	else
+		this->components.insert(std::make_pair(entity, std::vector<std::shared_ptr<Component>>{std::make_shared<T>(component)}));
+}
+
+template<typename T>
+std::shared_ptr<T> ECS::get_component(uint32_t entity) {
 	auto it = this->components.find(entity);
 	if (it != this->components.end()) {
-		for (Component*& comp : it->second) {
-			T* res = dynamic_cast<T*>(comp);
-			if (res != nullptr) {
+		for (std::shared_ptr<Component>& comp : it->second) {
+			// T* res = dynamic_cast<T*>(comp);
+			std::shared_ptr<T> res = std::dynamic_pointer_cast<T>(comp);
+			if (res.get() != nullptr) {
 				return res;
 			}
 		}
 	}
-	return nullptr;
+	return std::shared_ptr<T>(nullptr);
 }
 
 template<typename T>
-std::vector<T*> ECS::query_components() {
-	std::vector<T*> res{ };
+std::vector<std::shared_ptr<T>> ECS::query_components() {
+	std::vector<std::shared_ptr<T>> res{ };
 	for (auto entry : this->components) {
-		for (Component*& c : entry.second) {
-			T* tc = dynamic_cast<T*>(c);
+		for (std::shared_ptr<Component>& c : entry.second) {
+			T* tc = std::dynamic_pointer_cast<T>(c);
 			if (tc != nullptr) res.push_back(tc);
 		}
 	}
@@ -119,9 +144,9 @@ bool ECS::has_component(uint32_t entity) {
 }
 
 template<typename T>
-T* ECS::get_system() {
-	for (System*& sys : this->systems) {
-		T* res = dynamic_cast<T*>(sys);
+std::shared_ptr<T> ECS::get_system() {
+	for (std::shared_ptr<System>& sys : this->systems) {
+		std::shared_ptr<T> res = std::dynamic_pointer_cast<T>(sys);
 		if (res != nullptr) {
 			return res;
 		}

@@ -20,7 +20,8 @@ Vertex::Vertex(vec3 pos, vec3 norm, vec3 col, vec2 tex)
 {}
 
 Mesh::Mesh()
-	: vertices()
+	: Resource()
+	, vertices()
 	, indices()
 {
 	glGenBuffers(1, &this->vbo);

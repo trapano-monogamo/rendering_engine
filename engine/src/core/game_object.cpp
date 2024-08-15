@@ -11,15 +11,15 @@ GameObject::GameObject(Scene* s)
 
 void GameObject::bind_to_scene(Scene* s) { scene = s; }
 
-Renderable* GameObject::get_renderable() {
+std::shared_ptr<Renderable> GameObject::get_renderable() {
 	return scene->get_component<Renderable>(entity);
 }
 
-Mesh* GameObject::get_mesh() {
+std::shared_ptr<Mesh> GameObject::get_mesh() {
 	auto r = get_renderable();
 	if (r != nullptr) {
-		auto res = scene->get_resource<Mesh>(r->mesh_key).get();
-		if (res == nullptr) std::cout << "GameObject doesn't use a Mesh." << std::endl;
+		auto res = scene->get_resource<Mesh>(r->mesh_key);
+		if (res.get() == nullptr) std::cout << "GameObject doesn't use a Mesh." << std::endl;
 		return res;
 	} else {
 		std::cout << "GameObject has no Renderable component." << std::endl;
@@ -27,11 +27,11 @@ Mesh* GameObject::get_mesh() {
 	}
 }
 
-Shader* GameObject::get_shader() {
+std::shared_ptr<Shader> GameObject::get_shader() {
 	auto r = get_renderable();
 	if (r != nullptr) {
-		auto res = scene->get_resource<Shader>(r->shader_key).get();
-		if (res == nullptr) std::cout << "GameObject doesn't use a Shader." << std::endl;
+		auto res = scene->get_resource<Shader>(r->shader_key);
+		if (res.get() == nullptr) std::cout << "GameObject doesn't use a Shader." << std::endl;
 		return res;
 	} else {
 		std::cout << "GameObject has no Renderable component." << std::endl;
@@ -39,11 +39,11 @@ Shader* GameObject::get_shader() {
 	}
 }
 
-Material* GameObject::get_material() {
+std::shared_ptr<Material> GameObject::get_material() {
 	auto r = get_renderable();
 	if (r != nullptr) {
-		auto res = scene->get_resource<Material>(r->material_key).get();
-		if (res == nullptr) std::cout << "GameObject doesn't use a Material." << std::endl;
+		auto res = scene->get_resource<Material>(r->material_key);
+		if (res.get() == nullptr) std::cout << "GameObject doesn't use a Material." << std::endl;
 		return res;
 	} else {
 		std::cout << "GameObject has no Renderable component." << std::endl;
@@ -51,11 +51,11 @@ Material* GameObject::get_material() {
 	}
 }
 
-Texture* GameObject::get_texture() {
+std::shared_ptr<Texture> GameObject::get_texture() {
 	auto r = get_renderable();
 	if (r != nullptr) {
-		auto res = scene->get_resource<Texture>(r->texture_key).get();
-		if (res == nullptr) std::cout << "GameObject doesn't use a Texture." << std::endl;
+		auto res = scene->get_resource<Texture>(r->texture_key);
+		if (res.get() == nullptr) std::cout << "GameObject doesn't use a Texture." << std::endl;
 		return res;
 	} else {
 		std::cout << "GameObject has no Renderable component." << std::endl;
@@ -78,7 +78,7 @@ GameObjectBuilder::GameObjectBuilder(Scene* scene)
 
 std::shared_ptr<GameObject> GameObjectBuilder::build() {
 	if (tmp_renderable != nullptr)
-		scene->add_component(go->entity, tmp_renderable);
+		scene->add_component<Renderable>(go->entity, tmp_renderable);
 
 	return go;
 }
@@ -119,11 +119,11 @@ GameObjectBuilder& GameObjectBuilder::with_renderable(const RenderableConfig& co
 	if (!config.shader.key.empty()) scene->register_resource<Shader>(config.shader);
 	if (!config.texture.key.empty()) scene->register_resource<Texture>(config.texture);
 
-	scene->add_component(go->entity, new Renderable(config.mesh.key, config.material.key, config.shader.key, config.texture.key));
+	scene->add_component<Renderable>(go->entity, Renderable(config.mesh.key, config.material.key, config.shader.key, config.texture.key));
 	return *this;
 }
 
 GameObjectBuilder& GameObjectBuilder::with_transform(const Transform& t) {
-	scene->add_component(go->entity, new Transform(t));
+	scene->add_component(go->entity, t);
 	return *this;
 }

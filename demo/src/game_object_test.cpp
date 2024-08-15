@@ -14,9 +14,9 @@ void GOScene::on_create() {
 
 	GameObjectBuilder(&scene)
 		.with_renderable(RenderableConfig{
-						.mesh = ResourceConfig<Mesh>("my_mesh", "../engine/assets/meshes/cube2.mesh"),
-						.material = ResourceConfig<Material>("my_material", "../engine/assets/materials/bronze.mat"),
-						.shader = ResourceConfig<Shader>("my_shader", "../engine/assets/shaders/light.shader"),
+						.mesh = ResourceConfig<Mesh>("my_mesh", "./demo/assets/meshes/cube2.mesh"),
+						.material = ResourceConfig<Material>("my_material", "./demo/assets/materials/jade.mat"),
+						.shader = ResourceConfig<Shader>("my_shader", "./demo/assets/shaders/light.shader"),
 						.texture = ResourceConfig<Texture>()
 					})
 		.with_transform( Transform{vec3(0,0,-1), vec3(1,1,1), vec3()} )
@@ -24,17 +24,17 @@ void GOScene::on_create() {
 	
 	std::shared_ptr<GameObject> go = GameObjectBuilder(&scene)
 		.with_renderable(RenderableConfig{
-				.mesh = ResourceConfig<Mesh>("light_mesh", "../engine/assets/meshes/cube2.mesh"),
+				.mesh = ResourceConfig<Mesh>("light_mesh", "./demo/assets/meshes/cube2.mesh"),
 				.material = ResourceConfig<Material>(),
-				.shader = ResourceConfig<Shader>("light_shader", "../engine/assets/shaders/basic.shader"),
+				.shader = ResourceConfig<Shader>("light_shader", "./demo/assets/shaders/basic.shader"),
 				.texture = ResourceConfig<Texture>(),
 				})
 		.with_transform( Transform{vec3(-2,2,0), vec3(1,1,1), vec3()} )
 		.with_component(Light{vec3(-2,2,0), vec3(1.0f, 1.0f, 1.0f), vec3(0.5f, 0.5f, 0.5f), vec3(1.0f, 1.0f, 1.0f)})
 		.build();
 	
-	go->get_mesh()->set_color(vec3(1.0, 0.0, 0.0));
-	go->get_component<Light>()->color = vec3(1.0, 0.0, 0.0);
+	go->get_mesh()->set_color(vec3(0.5, 0.0, 0.5));
+	go->get_component<Light>()->color = vec3(0.5, 0.0, 0.5);
 }
 
 void GOScene::on_update(float dt) {
@@ -44,8 +44,8 @@ void GOScene::on_update(float dt) {
 		glfwSetWindowShouldClose(window, true);
 	// if (scene.input_handler.is_key_pressed(GLFW_KEY_X))
 	// 	scene.rendering_options.wireframe = true;
-	// if (scene.input_handler.is_key_pressed(GLFW_KEY_F))
-	// 	scene.rendering_options.wireframe = false;
+	//// if (scene.input_handler.is_key_pressed(GLFW_KEY_F))
+	//// 	scene.rendering_options.wireframe = false;
 
 	if (scene.input_handler.is_key_pressed(GLFW_KEY_W)) {
 		vec3 u = vec3::normalize(vec3(scene.camera.dir.x, 0.0, scene.camera.dir.z));

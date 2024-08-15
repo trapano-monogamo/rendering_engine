@@ -1,5 +1,5 @@
 #include "math/vec.hpp"
-#include "scenes.hpp"
+#include "gravity.hpp"
 
 void GravitySim::on_create() {
 	scene.camera = Camera(vec3(0.0, 0.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
@@ -23,13 +23,13 @@ void GravitySim::on_create() {
 	test_texture->with_parameter(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	test_texture->with_parameter(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	GravitySystem* gravity_system = new GravitySystem();
+	std::shared_ptr<GravitySystem> gravity_system(new GravitySystem());
 	scene.add_system(gravity_system);
 	scene.get_system<GravitySystem>()->scene = &scene;
 
 	uint32_t id = scene.add_entity();
-	Renderable* floor = new Renderable("square_mesh", "", "basic3_shader", "container_texture");
-	Transform* t = new Transform();
+	std::shared_ptr<Renderable> floor(new Renderable("square_mesh", "", "basic3_shader", "container_texture"));
+	std::shared_ptr<Transform> t(new Transform());
 	t->translate(vec3(0.0, -5.0, 0.0));
 	t->rotate_euler(vec3(PI/2,0,0));
 	t->resize(vec3(10.0, 10.0, 0.0));
@@ -51,13 +51,13 @@ void GravitySim::on_create() {
 
 	for (int i = 0; i < (int)(sizeof(positions) / sizeof(vec3)); i++) {
 		// Renderable* obj = new Renderable("circle_mesh", "", "basic2_shader", "");
-		Renderable* obj = new Renderable("cube_mesh", "", "basic_shader", "");
+		std::shared_ptr<Renderable> obj(new Renderable("cube_mesh", "", "basic_shader", ""));
 		// std::shared_ptr<Shader> shader = scene.get_resource<Shader>("light_shader");
 		// shader->set_uniform("light_color", this->light_color, Shader::UniformType::FLOAT_3, 1);
-		Transform* t = new Transform();
+		std::shared_ptr<Transform> t(new Transform());
 		t->translate(positions[i]);
 
-		Body* b = new Body{ masses[i], positions[i], velocities[i], vec3(), vec3() };
+		std::shared_ptr<Body> b(new Body{ masses[i], positions[i], velocities[i], vec3(), vec3() });
 
 		uint32_t id = scene.add_entity();
 		scene.add_component<Renderable>(id, obj);
@@ -167,11 +167,11 @@ void GravitySim::GravitySystem::update_gravity(Scene* scene) {
 	auto query = scene->query_entities().with_component<Body>(scene).results;
 
 	for (uint32_t& ea : query) {
-		Body* a = scene->get_component<Body>(ea);
+		std::shared_ptr<Body> a = scene->get_component<Body>(ea);
 
 		for (uint32_t& eb : query) {
 			if (eb != ea) {
-				Body* b = scene->get_component<Body>(eb);
+				std::shared_ptr<Body> b = scene->get_component<Body>(eb);
 
 				vec3 w = b->position + -a->position;
 				vec3 u = vec3::normalize(w);
@@ -190,8 +190,8 @@ void GravitySim::GravitySystem::update_bodies(Scene* scene) {
 	auto query = scene->query_entities().with_component<Body>(scene).results;
 
 	for (uint32_t& ea : query) {
-		Body* a = scene->get_component<Body>(ea);
-		Transform* t = scene->get_component<Transform>(ea);
+		std::shared_ptr<Body> a = scene->get_component<Body>(ea);
+		std::shared_ptr<Transform> t = scene->get_component<Transform>(ea);
 
 		a->acceleration = a->force * (1 / a->mass);
 		a->velocity += a->acceleration;
