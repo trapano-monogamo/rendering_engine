@@ -8,6 +8,7 @@ GOScene::GOScene(const char* title, int width, int height)
 	: GameApp(title, width, height) {}
 
 void GOScene::on_create() {
+	//scene.camera = Camera(vec3(0.0, 1.0, 3.0)
 	scene.camera = Camera(vec3(0.0, 1.0, 3.0)).with_perpsective(deg_to_rad(90), 1.0f, 0.1f, 1000.0f);
 	scene.input_handler = InputHandler(this->window);
 	scene.background_color = vec3(0.10f, 0.10f, 0.10f);

@@ -10,7 +10,7 @@
 struct ObjectRenderingOptions : public Component {
 private:
 	struct CullFaceOpt {
-		bool active = true;
+		bool active = false;
 		GLenum order = GL_FRONT;
 	};
 

@@ -63,6 +63,10 @@ std::shared_ptr<Texture> GameObject::get_texture() {
 	}
 }
 
+std::shared_ptr<Transform> GameObject::get_transform() {
+	return get_component<Transform>();
+}
+
 
 
 

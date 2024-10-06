@@ -34,6 +34,8 @@ public:
 	std::shared_ptr<Material> get_material();
 	std::shared_ptr<Texture> get_texture();
 
+	std::shared_ptr<Transform> get_transform();
+
 	template<typename C> std::shared_ptr<C> get_component();
 };
 

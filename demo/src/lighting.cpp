@@ -55,7 +55,7 @@ public:
 	static float df_dx(float x, float y) { return cos(x+y); }
 	static float df_dy(float x, float y) { return cos(x+y); }
 
-	static vec3 calculate_normal_vector(float (*f)(float,float), float x, float y) {
+	static vec3 calculate_normal_vector(float (*)(float,float), float x, float y) {
 		/* 3D surface: z = f(x,y)   =>   g(x,y,z) := f(x,y) - z = 0
 		 * normal vector: grad(g(x,y,z)) = (df/dx, df/dy, -1)
 		 * */

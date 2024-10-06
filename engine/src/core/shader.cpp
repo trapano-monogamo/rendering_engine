@@ -56,13 +56,13 @@ void Shader::load_from_file(const std::string& path) {
 			} else if (line.find("fragment") != std::string::npos) {
                 type = ShaderType::FRAGMENT;
 			}
-        } else if (line.find("#include") != std::string::npos) {
-			std::stringstream(line) >> arg /*#inlcude*/ >> arg /*arg*/;
-			bool succ = paste_from_file((SHADER_ASSETS_DIRECTORY + std::string("/" + arg + ".shader")).c_str(), ss[(int)type]);
-			if (!succ) {
-				std::cout << "trying custom directory" << std::endl;
-				succ = paste_from_file((_CUSTOM_SHADER_ASSETS_DIRECTORY + std::string("/" + arg + ".shader")).c_str(), ss[(int)type]);
-			}
+        // } else if (line.find("#include") != std::string::npos) {
+		// 	std::stringstream(line) >> arg /*#inlcude*/ >> arg /*arg*/;
+		// 	bool succ = paste_from_file((SHADER_ASSETS_DIRECTORY + std::string("/" + arg + ".shader")).c_str(), ss[(int)type]);
+		// 	if (!succ) {
+		// 		std::cout << "trying custom directory" << std::endl;
+		// 		succ = paste_from_file((_CUSTOM_SHADER_ASSETS_DIRECTORY + std::string("/" + arg + ".shader")).c_str(), ss[(int)type]);
+		// 	}
 		} else {
             ss[(int)type] << line << '\n';
         }

@@ -33,8 +33,8 @@ void GravitySim::on_create() {
 	t->translate(vec3(0.0, -5.0, 0.0));
 	t->rotate_euler(vec3(PI/2,0,0));
 	t->resize(vec3(10.0, 10.0, 0.0));
-	// scene.add_component<Renderable>(id, floor);
-	// scene.add_component<Transform>(id, t);
+	scene.add_component<Renderable>(id, floor);
+	scene.add_component<Transform>(id, t);
 	
 	float masses[] = {
 		1.f,

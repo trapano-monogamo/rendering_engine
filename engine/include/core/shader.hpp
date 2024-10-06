@@ -3,18 +3,9 @@
 #include "resource_manager/resource_manager.hpp"
 #include "common.hpp"
 
-#include <cstddef>
 #include <string>
 #include <unordered_map>
 
-
-/* this doesn't work */
-#define SHADER_ASSETS_DIRECTORY "../engine/assets/shaders/"
-#ifdef CUSTOM_SHADER_ASSETS_DIRECTORY
-	static const char* _CUSTOM_SHADER_ASSETS_DIRECTORY = CUSTOM_SHADER_ASSETS_DIRECTORY;
-#else
-	static const char* _CUSTOM_SHADER_ASSETS_DIRECTORY = "";
-#endif
 
 
 class Shader : public Resource {

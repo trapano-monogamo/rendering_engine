@@ -1,10 +1,9 @@
 #include "core/camera.hpp"
 #include "math/vec.hpp"
-#include "math/utils.hpp"
 #include <cmath>
 
 Camera::Camera(vec3 p)
-	: pos(p), up(VEC3_Y), right(VEC3_X), dir(-VEC3_Z), pitch(0.0), yaw(0.0)
+	: up(VEC3_Y), right(VEC3_X), dir(-VEC3_Z), pos(p), pitch(0.0), yaw(0.0)
 {}
 
 Camera Camera::with_ortho(float n, float f, float l, float r, float t, float b) {

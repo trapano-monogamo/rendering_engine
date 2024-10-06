@@ -3,6 +3,7 @@
 #include <iostream>
 #include <ostream>
 #include <stdexcept>
+#include <array>
 
 struct mat4;
 

@@ -1,7 +1,10 @@
 #include "math/mat.hpp"
-#include "math/utils.hpp"
 #include "math/vec.hpp"
 #include <cmath>
+
+
+template<> Matrix<2,1>::operator vec2() const { return vec2(this->m[0],this->m[1]); }
+template<> Matrix<3,1>::operator vec3() const { return vec3(this->m[0],this->m[1],this->m[2]); }
 
 mat4::mat4(std::array<float, 16> _m) {
 	for (int i = 0; i<16; i++) m[i] = _m[i];
@@ -159,6 +162,12 @@ mat4 mat4::perspective(float fovy, float ar, float n, float f) {
 
 
 mat4 mat4::lookat(vec3 eye, vec3 up, vec3 right, vec3 dir) {
+	/*
+	         | right.xyz   0 |   | 1 0 0 -p.x |
+	lookat = | up.xyz      0 | * | 0 1 0 -p.y |
+	         | dir.xyz     0 |   | 0 0 1 -p.z |
+	         | 0   0   0   1 |   | 0 0 0   1  |
+	*/
 	up.normalize();
 	right.normalize();
 	dir.normalize();
@@ -168,10 +177,4 @@ mat4 mat4::lookat(vec3 eye, vec3 up, vec3 right, vec3 dir) {
 		-dir.x, -dir.y, -dir.z, -vec3::dot(-dir, eye),
 		0.0, 0.0, 0.0, 1.0
 	}));
-	/*
-	         | right.xyz   0 |   | 1 0 0 -p.x |
-	lookat = | up.xyz      0 | * | 0 1 0 -p.y |
-	         | dir.xyz     0 |   | 0 0 1 -p.z |
-	         | 0   0   0   1 |   | 0 0 0   1  |
-	*/
 }
