@@ -1,8 +1,8 @@
+#include "math/matrix.hpp"
+
 #include "core/game_app.hpp"
 #include "core/camera.hpp"
 #include "core/game_object.hpp"
-
-#include "math/mat.hpp"
 
 #include <cmath>
 #include <cstdarg>
@@ -13,7 +13,7 @@ class DynamicSystems : public GameApp {
 private:
 	float t = 0.f;
 	float omega0 = 1.f;
-	float gamma = .05f;
+	float gamma = .20f;
 
 	Vector<2> initial_condition = Vector<2>({0,1});
 

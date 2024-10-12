@@ -68,7 +68,6 @@ public:
 	Vector() : Matrix<M,1>() {}
 	Vector(std::array<float, M>&& arr) : Matrix<M,1>(std::move(arr)) {}
 	Vector(const Matrix<M,1>& m) : Matrix<M,1>(m) {}
-	Vector(Vector<M>&&) = default;
 
 	void operator=(const Matrix<M,1>& v) override {
 		for(unsigned int i=0; i<M; i++) this->at(i) = v[i];
@@ -80,7 +79,6 @@ public:
 	Covector() : Matrix<1,N>() {}
 	Covector(std::array<float, N>&& arr) : Matrix<1,N>(std::move(arr)) {}
 	Covector(const Matrix<1,N>& m) : Matrix<1,N>(m) {}
-	Covector(Covector<N>&&) = default;
 
 	void operator=(const Matrix<1,N>& v) override {
 		for(unsigned int i=0; i<N; i++) this->at(i) = v[i];
